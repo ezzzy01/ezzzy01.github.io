@@ -29,6 +29,7 @@
  "knowsAbout":["AI integration","Large language models","LLM tool calling","SAP Business One","Python","FastAPI","SQL Server","Automation"],
  "sameAs":["https://github.com/ezzzy01","https://www.linkedin.com/in/idham-hakim-29b676270"]}
 </script>
+<script>document.documentElement.classList.add("js")</script>
 <link rel="preload" href="assets/fonts/inter-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 /* Inter (SIL Open Font License), stored with the site */
@@ -371,6 +372,73 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}}
 
+
+/* ---- stage 2: rotating words */
+.rot{display:inline-block;position:relative;color:var(--brand);font-weight:650;min-width:2ch}
+.rot span{display:inline-block}
+.rot span.out{animation:rotout .35s ease forwards}
+.rot span.in{animation:rotin .35s ease}
+@keyframes rotout{to{opacity:0;transform:translateY(-60%)}}
+@keyframes rotin{from{opacity:0;transform:translateY(60%)}to{opacity:1;transform:none}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---- stage 2: follow a question */
+.tour{margin-bottom:14px}
+.tourbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tourdots{display:flex;gap:6px;margin-left:6px}
+.tourdots i{width:8px;height:8px;border-radius:50%;background:var(--line);transition:background .2s,transform .2s}
+.tourdots i.on{background:var(--brand);transform:scale(1.3)}
+.tbtn{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink2);font-size:20px;line-height:1;cursor:pointer}
+.tbtn:hover{border-color:var(--brand);color:var(--ink)}
+.tourcap{margin-top:12px;min-height:52px;padding:12px 16px;border-radius:12px;background:var(--panel);border:1px solid var(--line);color:var(--ink2);font-size:15px}
+.tourcap b{color:var(--ink)}
+.tourcap .stepn{display:inline-block;font-size:12px;font-weight:700;color:var(--brand);margin-right:8px;letter-spacing:.04em}
+.dg .nd{transition:opacity .3s}
+.dg.playing .nd{opacity:.35}
+.dg.playing path.a,.dg.playing text.l{opacity:.35;transition:opacity .3s}
+.dg.playing .nd.on{opacity:1}
+.dg .nd.on rect{stroke:var(--brand);stroke-width:3;fill:var(--brandbg)}
+.dg .nd.on rect{animation:pulse 1.4s ease-in-out infinite}
+@keyframes pulse{50%{stroke-width:5}}
+.flows-m .node.on{border-color:var(--brand);background:var(--brandbg)}
+.flows-m.playing .node.hi:not(.on){border-color:var(--line);background:var(--panel)}
+
+/* ---- stage 2: before / after */
+.ba{margin-top:44px}
+.bahead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.bahead h3.sub{margin:0}
+.seg{position:relative;display:inline-grid;grid-template-columns:1fr 1fr;padding:4px;border-radius:999px;background:var(--panel);border:1px solid var(--line)}
+.seg button{position:relative;z-index:1;border:0;background:none;font:inherit;font-size:14px;font-weight:600;color:var(--ink2);padding:8px 18px;border-radius:999px;cursor:pointer;transition:color .25s}
+.seg button[aria-selected="true"]{color:#fff}
+:root[data-theme="dark"] .seg button[aria-selected="true"]{color:#06121f}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .seg button[aria-selected="true"]{color:#06121f}}
+.segpill{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:999px;background:var(--ink3);transition:transform .35s cubic-bezier(.3,.7,.3,1),background .35s}
+.seg.after .segpill{transform:translateX(100%);background:var(--ok)}
+.bapane{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:center;padding:26px 28px;border-radius:var(--r);border:1px solid var(--line);background:var(--panel);transition:background .35s,border-color .35s}
+.bapane.after{background:var(--brandbg);border-color:var(--brand)}
+.bapane h4{margin:0 0 12px;font-size:18px;color:var(--ink)}
+.bapane ol{margin:0;padding-left:20px;color:var(--ink2)}
+.bapane li{margin:6px 0;animation:rin .35s ease both}
+.bapane li:nth-child(2){animation-delay:.06s}.bapane li:nth-child(3){animation-delay:.12s}.bapane li:nth-child(4){animation-delay:.18s}.bapane li:nth-child(5){animation-delay:.24s}
+.batime{text-align:center}
+.batime b{display:block;font-size:40px;font-weight:750;letter-spacing:-.03em;color:var(--ink);line-height:1.1}
+.bapane.after .batime b{color:var(--ok)}
+.batime span{display:block;color:var(--ink2);font-size:14px;margin-top:4px}
+.bameter{height:10px;border-radius:999px;background:var(--bg);border:1px solid var(--line);margin:14px auto 0;max-width:260px;overflow:hidden}
+.bameter i{display:block;height:100%;width:100%;background:var(--ink3);border-radius:inherit;transition:width .6s cubic-bezier(.3,.7,.3,1),background .35s}
+.bapane.after .bameter i{width:4%;background:var(--ok)}
+@media (max-width:700px){.bapane{grid-template-columns:1fr;padding:20px 18px}}
+
+/* ---- stage 2: scroll reveal and hover light */
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.js .rv.in{opacity:1;transform:none}
+.card{position:relative}
+.card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .25s;background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--brand) 10%,transparent),transparent 60%)}
+.card:hover::after{opacity:1}
+.btn{transition:transform .12s,background .15s,border-color .15s,color .15s}
+.btn:active{transform:scale(.97)}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none}.rot span{animation:none !important}}
+
 @media (max-width:600px){.wrap{padding:0 16px}section{padding:52px 0}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
@@ -439,7 +507,7 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
     <div>
       <div class="eyebrow">AI Solution Executive</div>
       <h1>Idham Hakim</h1>
-      <div class="role">AI integration · Python · databases and business systems</div>
+      <div class="role">AI integration for your <span class="rot"><span id="rot">ERP</span></span><span class="sr">AI integration for business systems: ERP, databases, spreadsheets, email and documents.</span></div>
       <p class="lead">I put AI models to work inside the systems a business already runs on: its database, ERP, spreadsheets, documents and email. People ask in plain language and get answers they can trust, and routine work gets done automatically.</p>
       <div class="btns">
         <a class="btn primary" href="#try">Try the AI live <svg><use href="#i-arrow"/></svg></a>
@@ -491,6 +559,18 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
       <div class="card"><svg><use href="#i-grid"/></svg><h3>Dashboards and internal tools</h3><p>Web pages and desktop apps people actually use: on a PC or a phone, in light or dark, built for the people doing the job.</p></div>
       <div class="card"><svg><use href="#i-plug"/></svg><h3>Works with what you have</h3><p>SQL Server, MySQL, Snowflake, SAP Business One, Excel, Word, Outlook and web APIs: I connect to the systems already in place.</p></div>
     </div>
+    <div class="ba" id="ba">
+      <div class="bahead">
+        <h3 class="sub">Before and after</h3>
+        <div class="seg" role="tablist" aria-label="Compare">
+          <button type="button" role="tab" id="baB" aria-selected="true" aria-controls="baPane">Without AI</button>
+          <button type="button" role="tab" id="baA" aria-selected="false" aria-controls="baPane">With AI</button>
+          <span class="segpill" aria-hidden="true"></span>
+        </div>
+      </div>
+      <div class="bapane" id="baPane" role="tabpanel" aria-live="polite"></div>
+    </div>
+
     <div class="steps">
       <div><b>1</b><h3>Understand the need</h3><p>Which questions take too long to answer, and which work is repeated every day.</p></div>
       <div><b>2</b><h3>Connect AI to the data</h3><p>Safe, read-only access first, with tools the model can call and checks on every figure.</p></div>
@@ -638,7 +718,16 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
       <h2>How it works</h2>
       <p>Runs on one Linux PC with Docker, systemd and Tailscale, one service per company.</p>
     </div>
-    <div class="dgwrap"><svg class="dg" viewBox="0 0 1060 430" role="img" aria-labelledby="dgt dgd"><title id="dgt">Architecture of SAP B1 AI</title><desc id="dgd">People ask in the browser or on a phone. Caddy handles HTTPS and sign-in, then the FastAPI agent asks the local AI model, which calls role-checked tools. The tools read SAP Business One through a read-only SQL login; drafts go through the SAP Service Layer only after a person says yes. Every night a sync saves the data and an offline DuckDB copy, which the dashboard and offline answers use.</desc><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path marker-end="url(#ah)" class="ahp" d="M0,0 L10,5 L0,10 z"/></marker></defs><rect class="n" x="10" y="40" width="165" height="96" rx="12"/><text class="t" x="26" y="70">People</text><text class="s" x="26" y="92">browser or phone</text><text class="s" x="26" y="109">chat · dashboard · data</text><rect class="n" x="220" y="40" width="170" height="96" rx="12"/><text class="t" x="236" y="70">Caddy</text><text class="s" x="236" y="92">HTTPS and sign-in</text><text class="s" x="236" y="109">identity from the portal</text><rect class="n hi" x="435" y="40" width="190" height="96" rx="12"/><text class="t" x="451" y="70">AI agent</text><text class="s" x="451" y="92">FastAPI · streams answers</text><text class="s" x="451" y="109">figures checked</text><rect class="n" x="670" y="40" width="165" height="96" rx="12"/><text class="t" x="686" y="70">Tools</text><text class="s" x="686" y="92">55 lookups and reports</text><text class="s" x="686" y="109">checked per role</text><rect class="n" x="880" y="40" width="170" height="96" rx="12"/><text class="t" x="896" y="70">SAP Business One</text><text class="s" x="896" y="92">SQL Server, read-only</text><text class="s" x="896" y="109">Service Layer for drafts</text><rect class="n" x="220" y="206" width="170" height="80" rx="12"/><text class="t" x="236" y="236">Sign-in portal</text><text class="s" x="236" y="258">accounts and roles</text><text class="s" x="236" y="275">private chats</text><path marker-end="url(#ah)" marker-start="url(#ah)" class="a" d="M305,138 V204"/><text class="l" x="313" y="176">checks each request</text><rect class="n" x="435" y="206" width="190" height="80" rx="12"/><text class="t" x="451" y="236">Local AI model</text><text class="s" x="451" y="258">Ollama on the GPU</text><text class="s" x="451" y="275">data stays on site</text><rect class="n" x="880" y="300" width="170" height="84" rx="12"/><text class="t" x="896" y="330">Nightly sync</text><text class="s" x="896" y="352">systemd timers</text><text class="s" x="896" y="369">refresh on demand</text><rect class="n" x="620" y="300" width="215" height="84" rx="12"/><text class="t" x="636" y="330">Saved copy</text><text class="s" x="636" y="352">parquet files and DuckDB</text><text class="s" x="636" y="369">dashboard · offline answers</text><path marker-end="url(#ah)" class="a" d="M175,88 H218"/><path marker-end="url(#ah)" class="a" d="M390,88 H433"/><path marker-end="url(#ah)" class="a" d="M625,88 H668"/><path marker-end="url(#ah)" class="a" d="M835,78 H878"/><path marker-end="url(#ah)" class="a ok" d="M837,104 H878"/><text class="l" x="857" y="156" text-anchor="middle">drafts after a yes</text><text class="l" x="857" y="30" text-anchor="middle">read-only</text><path marker-end="url(#ah)" class="a" d="M515,136 V204" marker-start="url(#ah)"/><text class="l" x="523" y="176">tool calls</text><path marker-end="url(#ah)" class="a" d="M965,136 V298"/><text class="l" x="975" y="222">every night</text><path marker-end="url(#ah)" class="a" d="M880,342 H837"/><path marker-end="url(#ah)" class="a d" d="M752,300 V138"/><text class="l" x="760" y="222">when SAP is off</text></svg></div>
+    <div class="tour" id="tour">
+      <div class="tourbar">
+        <button type="button" class="btn primary" id="tourPlay"><svg><use href="#i-circle-play"/></svg><span>Follow a question</span></button>
+        <div class="tourdots" id="tourDots" aria-hidden="true"></div>
+        <button type="button" class="tbtn" id="tourPrev" aria-label="Previous step">‹</button>
+        <button type="button" class="tbtn" id="tourNext" aria-label="Next step">›</button>
+      </div>
+      <div class="tourcap" id="tourCap" aria-live="polite"><b>Press play</b> to follow one question through the system, step by step.</div>
+    </div>
+    <div class="dgwrap"><svg class="dg" viewBox="0 0 1060 430" role="img" aria-labelledby="dgt dgd"><title id="dgt">Architecture of SAP B1 AI</title><desc id="dgd">People ask in the browser or on a phone. Caddy handles HTTPS and sign-in, then the FastAPI agent asks the local AI model, which calls role-checked tools. The tools read SAP Business One through a read-only SQL login; drafts go through the SAP Service Layer only after a person says yes. Every night a sync saves the data and an offline DuckDB copy, which the dashboard and offline answers use.</desc><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path marker-end="url(#ah)" class="ahp" d="M0,0 L10,5 L0,10 z"/></marker></defs><g class="nd" data-n="people"><rect class="n" x="10" y="40" width="165" height="96" rx="12"/><text class="t" x="26" y="70">People</text><text class="s" x="26" y="92">browser or phone</text><text class="s" x="26" y="109">chat · dashboard · data</text></g><g class="nd" data-n="caddy"><rect class="n" x="220" y="40" width="170" height="96" rx="12"/><text class="t" x="236" y="70">Caddy</text><text class="s" x="236" y="92">HTTPS and sign-in</text><text class="s" x="236" y="109">identity from the portal</text></g><g class="nd" data-n="agent"><rect class="n hi" x="435" y="40" width="190" height="96" rx="12"/><text class="t" x="451" y="70">AI agent</text><text class="s" x="451" y="92">FastAPI · streams answers</text><text class="s" x="451" y="109">figures checked</text></g><g class="nd" data-n="tools"><rect class="n" x="670" y="40" width="165" height="96" rx="12"/><text class="t" x="686" y="70">Tools</text><text class="s" x="686" y="92">55 lookups and reports</text><text class="s" x="686" y="109">checked per role</text></g><g class="nd" data-n="sap"><rect class="n" x="880" y="40" width="170" height="96" rx="12"/><text class="t" x="896" y="70">SAP Business One</text><text class="s" x="896" y="92">SQL Server, read-only</text><text class="s" x="896" y="109">Service Layer for drafts</text></g><g class="nd" data-n="portal"><rect class="n" x="220" y="206" width="170" height="80" rx="12"/><text class="t" x="236" y="236">Sign-in portal</text><text class="s" x="236" y="258">accounts and roles</text><text class="s" x="236" y="275">private chats</text></g><path marker-end="url(#ah)" marker-start="url(#ah)" class="a" d="M305,138 V204"/><text class="l" x="313" y="176">checks each request</text><g class="nd" data-n="model"><rect class="n" x="435" y="206" width="190" height="80" rx="12"/><text class="t" x="451" y="236">Local AI model</text><text class="s" x="451" y="258">Ollama on the GPU</text><text class="s" x="451" y="275">data stays on site</text></g><g class="nd" data-n="sync"><rect class="n" x="880" y="300" width="170" height="84" rx="12"/><text class="t" x="896" y="330">Nightly sync</text><text class="s" x="896" y="352">systemd timers</text><text class="s" x="896" y="369">refresh on demand</text></g><g class="nd" data-n="copy"><rect class="n" x="620" y="300" width="215" height="84" rx="12"/><text class="t" x="636" y="330">Saved copy</text><text class="s" x="636" y="352">parquet files and DuckDB</text><text class="s" x="636" y="369">dashboard · offline answers</text></g><path marker-end="url(#ah)" class="a" d="M175,88 H218"/><path marker-end="url(#ah)" class="a" d="M390,88 H433"/><path marker-end="url(#ah)" class="a" d="M625,88 H668"/><path marker-end="url(#ah)" class="a" d="M835,78 H878"/><path marker-end="url(#ah)" class="a ok" d="M837,104 H878"/><text class="l" x="857" y="156" text-anchor="middle">drafts after a yes</text><text class="l" x="857" y="30" text-anchor="middle">read-only</text><path marker-end="url(#ah)" class="a" d="M515,136 V204" marker-start="url(#ah)"/><text class="l" x="523" y="176">tool calls</text><path marker-end="url(#ah)" class="a" d="M965,136 V298"/><text class="l" x="975" y="222">every night</text><path marker-end="url(#ah)" class="a" d="M880,342 H837"/><path marker-end="url(#ah)" class="a d" d="M752,300 V138"/><text class="l" x="760" y="222">when SAP is off</text></svg></div>
     <div class="flows-m">
     <div class="flowlbl">Asking a question</div>
     <div class="flow">
@@ -809,6 +898,67 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
   var lb=document.getElementById('lb'), li=lb.querySelector('img'), lp=lb.querySelector('p');
   document.querySelectorAll('[data-zoom]').forEach(function(b){b.setAttribute('aria-label','Enlarge: '+b.querySelector('img').alt);b.addEventListener('click',function(){var im=b.querySelector('img');li.src=im.src;li.alt=im.alt;lp.textContent=im.alt;lb.showModal()})});
   lb.addEventListener('click',function(e){if(e.target!==li)lb.close()});
+
+  var REDUCE=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // ---- rotating words in the top section
+  (function(){var el=document.getElementById('rot'),W=['ERP','database','spreadsheets','inbox','documents','reports'],i=0;
+    if(REDUCE||!el)return;
+    setInterval(function(){if(document.hidden)return;el.className='out';setTimeout(function(){i=(i+1)%W.length;el.textContent=W[i];el.className='in'},330)},2600)})();
+
+  // ---- follow a question through the architecture
+  (function(){
+    var STEPS=[['people','The question','A sales manager types <b>“Who owes us the most overdue money?”</b> on a phone.'],
+      ['caddy','Caddy','The request arrives over HTTPS at Caddy, the front door of the server.'],
+      ['portal','Sign-in portal','The portal confirms who is asking and their role: <b>sales</b>. Identity never comes from the browser itself.'],
+      ['agent','AI agent','The agent adds the rules for that role and hands the question to the AI model.'],
+      ['model','Local AI model','The model, running on the server’s own GPU, decides it needs the <b>receivables</b> lookup and asks for it.'],
+      ['tools','Tools','The tool checks the sales role may see what customers owe, then runs its ready-made, read-only query.'],
+      ['sap','SAP Business One','SQL Server returns the unpaid invoices through a <b>read-only</b> login. Nothing in SAP can change.'],
+      ['agent','AI agent','The model writes the answer, and every amount in it is checked against the lookup’s figures.'],
+      ['people','The answer','About 15 seconds after asking: <b>Maxi-Teq owes $1,670,701.79</b>, with a table of the top customers.'],
+      ['copy','And if SAP is off?','The same lookup runs on the saved copy instead, and the answer says which date the data is from.']];
+    var MOB={people:0,caddy:1,agent:2,tools:3,sap:4,sync:5,copy:6};
+    var dg=document.querySelector('.dg'), cap=document.getElementById('tourCap'), play=document.getElementById('tourPlay'),
+        dots=document.getElementById('tourDots'), mnodes=document.querySelectorAll('.flows-m .node'), cur=-1, timer=null;
+    if(!dg||!play)return;
+    dots.innerHTML=STEPS.map(function(){return '<i></i>'}).join('');
+    function show(k){cur=(k+STEPS.length)%STEPS.length;var st=STEPS[cur];dg.classList.add('playing');
+      dg.querySelectorAll('.nd').forEach(function(n){n.classList.toggle('on',n.getAttribute('data-n')===st[0])});
+      mnodes.forEach(function(n,i){n.classList.toggle('on',MOB[st[0]]===i)});var fm=document.querySelector('.flows-m');if(fm)fm.classList.add('playing');
+      [].forEach.call(dots.children,function(d,i){d.classList.toggle('on',i===cur)});
+      cap.innerHTML='<span class="stepn">STEP '+(cur+1)+' OF '+STEPS.length+'</span><b>'+st[1]+'.</b> '+st[2]}
+    function stop(){clearInterval(timer);timer=null;play.querySelector('span').textContent=cur>=0?'Play again':'Follow a question'}
+    play.addEventListener('click',function(){if(timer){stop();return}
+      if(cur>=STEPS.length-1||cur<0)cur=-1;show(cur+1);play.querySelector('span').textContent='Pause';
+      timer=setInterval(function(){if(cur>=STEPS.length-1){stop();return}show(cur+1)},3400)});
+    document.getElementById('tourNext').addEventListener('click',function(){stop();show(cur+1)});
+    document.getElementById('tourPrev').addEventListener('click',function(){stop();show(cur<0?STEPS.length-1:cur-1)});
+  })();
+
+  // ---- before / after
+  (function(){
+    var P={b:['“Who owes us the most overdue money?”',['Ask the one person who knows how to run the ageing report','Wait until they have time','Export it to Excel','Sort, filter and total it by hand','Copy the result into an email or a slide'],'Hours or days','and already out of date when it arrives'],
+           a:['“Who owes us the most overdue money?”',['Type the question, on a PC or a phone','Get the names, amounts and a table back, checked against SAP','Ask for a chart or an Excel file if needed'],'About 15 seconds','with live figures from SAP']};
+    var pane=document.getElementById('baPane'), seg=document.querySelector('.seg'), bB=document.getElementById('baB'), bA=document.getElementById('baA');
+    if(!pane)return;
+    function draw(k){var d=P[k];seg.classList.toggle('after',k==='a');bB.setAttribute('aria-selected',k==='b');bA.setAttribute('aria-selected',k==='a');
+      pane.className='bapane'+(k==='a'?' after':'');
+      pane.innerHTML='<div><h4>'+d[0]+'</h4><ol>'+d[1].map(function(x){return '<li>'+x+'</li>'}).join('')+'</ol></div><div class="batime"><b>'+d[2]+'</b><span>'+d[3]+'</span><div class="bameter"><i></i></div></div>'}
+    bB.addEventListener('click',function(){draw('b')}); bA.addEventListener('click',function(){draw('a')});
+    seg.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){bA.focus();draw('a')}else if(e.key==='ArrowLeft'){bB.focus();draw('b')}});
+    draw('b');
+    // flip to "With AI" once, when it first scrolls into view
+    if(!REDUCE&&'IntersectionObserver' in window){var o=new IntersectionObserver(function(es){if(es[0].isIntersecting){o.disconnect();setTimeout(function(){if(!bB.matches(':focus'))draw('a')},1800)}},{threshold:.6});o.observe(pane)}
+  })();
+
+  // ---- reveal on scroll, light under the mouse on cards
+  (function(){
+    if(REDUCE||!('IntersectionObserver' in window)){document.documentElement.classList.remove('js');return}
+    var els=document.querySelectorAll('.head,.card,.proof dl>div,.steps>div,.dgwrap,.logos li,.ba,.demo,.fit,.item,.tour');
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){el.classList.add('rv');var i=[].indexOf.call(el.parentNode.children,el);el.style.transitionDelay=Math.min(i,5)*60+'ms';io.observe(el)});
+    document.addEventListener('pointermove',function(e){var c=e.target.closest&&e.target.closest('.card');if(!c)return;var b=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-b.left)+'px');c.style.setProperty('--my',(e.clientY-b.top)+'px')},{passive:true});
+  })();
 
   // ---- live demo inside the page: live when my server can be reached, else a replay of real recorded answers
   var TRY='https://archlinux.taila38d1a.ts.net:8443/sapb1/try';
