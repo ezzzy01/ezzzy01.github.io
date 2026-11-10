@@ -1,3 +1,4 @@
 raw/
 content.md
 *.png
+!assets/*.png
