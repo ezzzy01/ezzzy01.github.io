@@ -573,7 +573,7 @@ dialog.lb button{position:fixed;top:14px;right:14px;width:40px;height:40px;borde
   fetch('https://archlinux.taila38d1a.ts.net:8443/sapb1/try/status',{cache:'no-store',signal:ctl?ctl.signal:undefined})
     .then(function(r){return r.json()})
     .then(function(s){clearTimeout(timer);if(s.on)liveSet(true,s.answering?'Online · busy':'Online','Opens in a new tab');else liveSet(false,'Paused','The demo is paused right now: see the screenshots below')})
-    .catch(function(){liveSet(false,'Offline','My server is off right now: see the screenshots below')});
+    .catch(function(){liveSet(false,'Status unknown','If it does not open, my server is off: see the screenshots below')});
 })();
 </script>
 </body>
