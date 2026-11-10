@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Idham Hakim · AI Solutions for SAP Business One</title>
-<meta name="description" content="Idham Hakim, AI Solution Executive. I build AI assistants and automation for SAP Business One.">
-<meta property="og:title" content="Idham Hakim · AI Solutions for SAP Business One">
-<meta property="og:description" content="AI assistants and automation for SAP Business One: ask your ERP in plain language, get trustworthy answers.">
+<title>Idham Hakim · AI Integration</title>
+<meta name="description" content="Idham Hakim, AI Solution Executive. I connect AI models to the systems and data a business already uses: assistants, automation and reports people can trust.">
+<meta property="og:title" content="Idham Hakim · AI Integration">
+<meta property="og:description" content="I put AI to work inside the systems a business already uses. Try my live AI assistant demo.">
 <meta property="og:image" content="https://ezzzy01.github.io/assets/img/05-dashboard.webp">
 <meta property="og:url" content="https://ezzzy01.github.io/">
 <meta name="twitter:card" content="summary_large_image">
@@ -99,6 +99,16 @@ section.alt .card{background:var(--bg)}
 .card h3{margin-bottom:8px}
 .card p{color:var(--ink2)}
 @media (max-width:760px){.problem{grid-template-columns:1fr}}
+
+/* how I work */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.steps>div{padding:4px 0 0 0}
+.steps b{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--brand);color:#fff;font-size:14px;margin-bottom:10px}
+:root[data-theme="dark"] .steps b{color:#06121f}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .steps b{color:#06121f}}
+.steps h3{font-size:17px;margin-bottom:4px}
+.steps p{color:var(--ink2);font-size:15px}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
 
 /* try it live */
 .trylive{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;margin:-16px 0 48px;padding:26px 28px;border-radius:var(--r);border:1px solid var(--brand);background:var(--brandbg)}
@@ -219,6 +229,10 @@ dialog.lb button{position:fixed;top:14px;right:14px;width:40px;height:40px;borde
   <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11"/></g></symbol>
   <symbol id="i-calc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h8"/></g></symbol>
   <symbol id="i-cloud" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 18a5 5 0 0 1-.6-10A6 6 0 0 1 18 9a4.5 4.5 0 0 1-.5 9H7Z"/><path d="M3 3l18 18"/></g></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 5h16v11H9l-5 4z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></g></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 0 1-12 0zM12 17v4"/></g></symbol>
   <symbol id="i-info" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></g></symbol>
 </svg>
 
@@ -226,7 +240,8 @@ dialog.lb button{position:fixed;top:14px;right:14px;width:40px;height:40px;borde
   <div class="wrap">
     <a class="logo" href="#top"><b>IH</b> Idham Hakim</a>
     <nav aria-label="Sections">
-      <a href="#project">SAP B1 AI</a>
+      <a href="#build">What I build</a>
+      <a href="#project">Case study</a>
       <a href="#work">Other work</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
@@ -243,11 +258,11 @@ dialog.lb button{position:fixed;top:14px;right:14px;width:40px;height:40px;borde
     <div>
       <div class="eyebrow">AI Solution Executive</div>
       <h1>Idham Hakim</h1>
-      <div class="role">SAP Business One · Python &amp; SQL Server · AI assistants</div>
-      <p class="lead">I build AI assistants and automation for SAP Business One: tools that let business staff ask their ERP a question in plain language and get a trustworthy answer, a chart or a report.</p>
+      <div class="role">AI integration · Python · databases and business systems</div>
+      <p class="lead">I put AI models to work inside the systems a business already runs on: its database, ERP, spreadsheets, documents and email. People ask in plain language and get answers they can trust, and routine work gets done automatically.</p>
       <div class="btns">
         <a class="btn primary" href="#try">Try the AI live <svg><use href="#i-arrow"/></svg></a>
-        <a class="btn" href="#project">See the project <svg><use href="#i-down"/></svg></a>
+        <a class="btn" href="#project">See a case study <svg><use href="#i-down"/></svg></a>
         <a class="btn" href="mailto:idhamproaqw98@gmail.com"><svg><use href="#i-mail"/></svg> Email me</a>
         <a class="btn" href="https://github.com/ezzzy01" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg> GitHub</a>
         <a class="btn" href="https://www.linkedin.com/in/idham-hakim-29b676270" target="_blank" rel="noopener"><svg><use href="#i-in"/></svg> LinkedIn</a>
@@ -259,18 +274,42 @@ dialog.lb button{position:fixed;top:14px;right:14px;width:40px;height:40px;borde
         <div class="bar"><i></i><i></i><i></i><span>SAP B1 AI · asking a question</span></div>
         <img src="assets/img/demo-ask.webp" width="1024" height="640" alt="Animation: a question is typed into the SAP B1 AI chat and it answers with figures and a table.">
       </div>
-      <p class="cap">Live recording, SAP's public demo company</p>
+      <p class="cap">Case study: an AI assistant on SAP Business One (live recording, public demo data)</p>
     </div>
   </div>
 </div>
+
+<!-- what I build -->
+<section id="build">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">What I build</div>
+      <h2>AI that fits the way a business already works</h2>
+      <p>Not a chatbot bolted on the side: AI connected to the real data and tools, with the checks a company needs before it trusts the answers.</p>
+    </div>
+    <div class="grid3">
+      <div class="card"><svg><use href="#i-chat"/></svg><h3>Assistants on your own data</h3><p>Ask a database, ERP or set of spreadsheets a question in plain language and get exact figures, tables, charts or an Excel file back.</p></div>
+      <div class="card"><svg><use href="#i-check"/></svg><h3>AI that acts, with a human in charge</h3><p>The AI uses tools to look things up and prepare work; anything that changes data waits for a person to review and say yes.</p></div>
+      <div class="card"><svg><use href="#i-lock"/></svg><h3>Private and self-hosted</h3><p>Models that run on the company's own server, so sensitive data never leaves the building. Read-only access and roles by default.</p></div>
+      <div class="card"><svg><use href="#i-clock"/></svg><h3>Automation and reports</h3><p>Scheduled data syncs, forecasts, alerts, PDF and Excel reports, and emails drafted for a person to send: the routine work, done every day.</p></div>
+      <div class="card"><svg><use href="#i-grid"/></svg><h3>Dashboards and internal tools</h3><p>Web pages and desktop apps people actually use: on a PC or a phone, in light or dark, built for the people doing the job.</p></div>
+      <div class="card"><svg><use href="#i-plug"/></svg><h3>Works with what you have</h3><p>SQL Server, MySQL, Snowflake, SAP Business One, Excel, Word, Outlook and web APIs: I connect to the systems already in place.</p></div>
+    </div>
+    <div class="steps">
+      <div><b>1</b><h3>Understand the need</h3><p>Which questions take too long to answer, and which work is repeated every day.</p></div>
+      <div><b>2</b><h3>Connect AI to the data</h3><p>Safe, read-only access first, with tools the model can call and checks on every figure.</p></div>
+      <div><b>3</b><h3>Ship and improve</h3><p>Put it in people's hands early, watch how it is used, and fix what gets in their way.</p></div>
+    </div>
+  </div>
+</section>
 
 <!-- project -->
 <section class="alt" id="project">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">Featured project</div>
-      <h2>SAP B1 AI</h2>
-      <p>A self-hosted AI assistant and management dashboard for SAP Business One, similar in spirit to SAP Joule. Designed, built and run by me, end to end.</p>
+      <div class="eyebrow">Case study</div>
+      <h2>SAP B1 AI: an AI assistant for a company's ERP</h2>
+      <p>One example of the approach, applied to SAP Business One: a self-hosted AI assistant and management dashboard, similar in spirit to SAP Joule. Designed, built and run by me, end to end, and in daily use. The same building blocks work for any system with data behind it.</p>
     </div>
 
     <div class="problem">
@@ -481,7 +520,7 @@ dialog.lb button{position:fixed;top:14px;right:14px;width:40px;height:40px;borde
       <div><h4>Languages</h4><div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Java</span><span class="chip">PHP</span><span class="chip">JavaScript</span><span class="chip">Dart</span></div></div>
       <div><h4>Frameworks</h4><div class="chips"><span class="chip">FastAPI</span><span class="chip">pandas</span><span class="chip">Tkinter</span><span class="chip">Flutter</span></div></div>
       <div><h4>Data &amp; ERP</h4><div class="chips"><span class="chip">SAP Business One</span><span class="chip">SQL Server</span><span class="chip">MySQL</span><span class="chip">Snowflake</span><span class="chip">Redshift</span><span class="chip">Talend</span><span class="chip">Tableau</span><span class="chip">UiPath</span></div></div>
-      <div><h4>AI &amp; ops</h4><div class="chips"><span class="chip">AI assistants</span><span class="chip">LLM tool use</span><span class="chip">Linux</span><span class="chip">Docker</span><span class="chip">Caddy</span><span class="chip">systemd</span><span class="chip">Tailscale</span><span class="chip">Git</span></div></div>
+      <div><h4>AI &amp; ops</h4><div class="chips"><span class="chip">AI assistants</span><span class="chip">LLM tool calling</span><span class="chip">Local LLMs (Ollama)</span><span class="chip">Prompt design</span><span class="chip">Linux</span><span class="chip">Docker</span><span class="chip">Caddy</span><span class="chip">systemd</span><span class="chip">Tailscale</span><span class="chip">Git</span></div></div>
     </div>
   </div>
 </section>
@@ -491,7 +530,7 @@ dialog.lb button{position:fixed;top:14px;right:14px;width:40px;height:40px;borde
   <div class="wrap contact">
     <div class="eyebrow">Contact</div>
     <h2>Let's talk</h2>
-    <p>Interested in AI for SAP Business One, or in working together? Email is the quickest way to reach me.</p>
+    <p>Have a process, a system or a pile of data you'd like AI to help with? Tell me about it. Email is the quickest way to reach me.</p>
     <div class="btns">
       <a class="btn primary" href="mailto:idhamproaqw98@gmail.com"><svg><use href="#i-mail"/></svg> idhamproaqw98@gmail.com</a>
       <a class="btn" href="https://github.com/ezzzy01" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg> GitHub</a>
