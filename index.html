@@ -100,6 +100,17 @@ section.alt .card{background:var(--bg)}
 .card p{color:var(--ink2)}
 @media (max-width:760px){.problem{grid-template-columns:1fr}}
 
+/* try it live */
+.trylive{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;margin:-16px 0 48px;padding:26px 28px;border-radius:var(--r);border:1px solid var(--brand);background:var(--brandbg)}
+.trylive h3{font-size:22px;margin:8px 0}
+.trylive p{color:var(--ink2);max-width:40em}
+.trylive .fine{font-size:13px;color:var(--ink3);margin-top:8px}
+.trybtn{display:flex;flex-direction:column;align-items:center;gap:4px}
+.live{display:inline-flex;align-items:center;gap:6px;margin-left:10px;padding:2px 10px;border-radius:999px;background:var(--panel);border:1px solid var(--line);font-size:12px;letter-spacing:0;text-transform:none;color:var(--ink2);font-weight:500}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--ink3)}
+.live.on i{background:var(--ok)}
+@media (max-width:760px){.trylive{grid-template-columns:1fr;margin-top:0;padding:22px}.trybtn{align-items:flex-start}}
+
 /* feature tabs */
 .tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
 .tab{border:1px solid var(--line);background:var(--bg);color:var(--ink2);font:inherit;font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px;cursor:pointer}
@@ -235,7 +246,8 @@ dialog.lb button{position:fixed;top:14px;right:14px;width:40px;height:40px;borde
       <div class="role">SAP Business One · Python &amp; SQL Server · AI assistants</div>
       <p class="lead">I build AI assistants and automation for SAP Business One: tools that let business staff ask their ERP a question in plain language and get a trustworthy answer, a chart or a report.</p>
       <div class="btns">
-        <a class="btn primary" href="#project">See the SAP B1 AI project <svg><use href="#i-down"/></svg></a>
+        <a class="btn primary" href="#try">Try the AI live <svg><use href="#i-arrow"/></svg></a>
+        <a class="btn" href="#project">See the project <svg><use href="#i-down"/></svg></a>
         <a class="btn" href="mailto:idhamproaqw98@gmail.com"><svg><use href="#i-mail"/></svg> Email me</a>
         <a class="btn" href="https://github.com/ezzzy01" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg> GitHub</a>
         <a class="btn" href="https://www.linkedin.com/in/idham-hakim-29b676270" target="_blank" rel="noopener"><svg><use href="#i-in"/></svg> LinkedIn</a>
@@ -269,6 +281,19 @@ dialog.lb button{position:fixed;top:14px;right:14px;width:40px;height:40px;borde
       <div class="card">
         <h3>The answer</h3>
         <p>Ask in plain language, in the browser or on a phone. The AI looks it up in SAP B1 and answers with exact figures, a table, a chart or an Excel file, and the dashboard keeps the key numbers one click away.</p>
+      </div>
+    </div>
+
+    <div class="trylive" id="try">
+      <div>
+        <div class="eyebrow">Try it live <span class="live" id="live"><i></i><span>Checking…</span></span></div>
+        <h3>Ask the AI yourself</h3>
+        <p>Ask about SAP's demo company, OEC Computers: its sales, stock, customers, suppliers and payments. Answers come live from SAP Business One, with figures, tables and charts.</p>
+        <p class="fine">Runs on my own server, so there are a few questions per visitor and one answer at a time. Read-only, and nothing you ask is saved.</p>
+      </div>
+      <div class="trybtn">
+        <a class="btn primary" id="tryBtn" href="https://archlinux.taila38d1a.ts.net:8443/sapb1/try" target="_blank" rel="noopener">Open the live demo <svg><use href="#i-arrow"/></svg></a>
+        <span class="fine" id="tryNote">Opens in a new tab</span>
       </div>
     </div>
 
@@ -501,6 +526,15 @@ dialog.lb button{position:fixed;top:14px;right:14px;width:40px;height:40px;borde
   var lb=document.getElementById('lb'), li=lb.querySelector('img'), lp=lb.querySelector('p');
   document.querySelectorAll('[data-zoom]').forEach(function(b){b.setAttribute('aria-label','Enlarge: '+b.querySelector('img').alt);b.addEventListener('click',function(){var im=b.querySelector('img');li.src=im.src;li.alt=im.alt;lp.textContent=im.alt;lb.showModal()})});
   lb.addEventListener('click',function(e){if(e.target!==li)lb.close()});
+
+  // live demo: online only while my server is on
+  var live=document.getElementById('live'), note=document.getElementById('tryNote');
+  function liveSet(on,text,sub){live.className='live'+(on?' on':'');live.lastChild.textContent=text;if(sub)note.textContent=sub}
+  var ctl=window.AbortController?new AbortController():null, timer=setTimeout(function(){if(ctl)ctl.abort()},8000);
+  fetch('https://archlinux.taila38d1a.ts.net:8443/sapb1/try/status',{cache:'no-store',signal:ctl?ctl.signal:undefined})
+    .then(function(r){return r.json()})
+    .then(function(s){clearTimeout(timer);if(s.on)liveSet(true,s.answering?'Online · busy':'Online','Opens in a new tab');else liveSet(false,'Paused','The demo is paused right now: see the screenshots below')})
+    .catch(function(){liveSet(false,'Offline','My server is off right now: see the screenshots below')});
 })();
 </script>
 </body>
