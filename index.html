@@ -34,7 +34,7 @@
 /* Inter (SIL Open Font License), stored with the site */
 @font-face{font-family:"Inter";src:url("assets/fonts/inter-latin-wght.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
 :root{
-  --bg:#f7f8fa; --panel:#ffffff; --ink:#1d2433; --ink2:#4a5468; --ink3:#6b7489;
+  --bg:#f7f8fa; --panel:#ffffff; --ink:#1d2433; --ink2:#4a5468; --ink3:#5f6880;
   --line:#e3e7ee; --brand:#0a6ed1; --brand2:#0854a0; --brandbg:#e8f1fb; --ok:#188918;
   --shadow:0 1px 2px rgba(16,24,40,.06),0 8px 24px rgba(16,24,40,.06);
   --r:14px; --max:1120px;
@@ -65,6 +65,8 @@ p{margin:0}
 .muted{color:var(--ink2)}
 .eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--brand)}
 :focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:12px;top:-60px;z-index:60;background:var(--brand);color:#fff;padding:10px 14px;border-radius:8px;font-weight:600;text-decoration:none}
+.skip:focus{top:12px}
 
 /* nav */
 header.nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
@@ -177,6 +179,7 @@ h3.sub{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:upperc
 
 /* try it live */
 .trylive{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;margin:-16px 0 48px;padding:26px 28px;border-radius:var(--r);border:1px solid var(--brand);background:var(--brandbg)}
+.trylive .eyebrow{color:var(--brand2)}
 .trylive h3{font-size:22px;margin:8px 0}
 .trylive p{color:var(--ink2);max-width:40em}
 .trylive .fine{font-size:13px;color:var(--ink3);margin-top:8px}
@@ -255,7 +258,7 @@ h3.sub{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:upperc
 
 /* skills */
 .skills{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.skills h4{margin:0 0 10px;font-size:14px;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em}
+.skills h3.sk{margin:0 0 10px;font-size:14px;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em}
 .skills .chip{background:var(--bg);color:var(--ink);border:1px solid var(--line)}
 @media (max-width:900px){.skills{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.skills{grid-template-columns:1fr}}
@@ -410,6 +413,7 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
   <symbol id="i-usercheck" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-user-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <circle cx="9" cy="7" r="4" /> <polyline points="16 11 18 13 22 9" /></g></symbol>
 </svg>
 
+<a class="skip" href="#top">Skip to content</a>
 <header class="nav">
   <div class="wrap">
     <a class="logo" href="#top"><b>IH</b> Idham Hakim</a>
@@ -427,7 +431,7 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
   </div>
 </header>
 
-<main id="top">
+<main id="top" tabindex="-1">
 <!-- hero -->
 <div class="hero">
   <div class="wrap">
@@ -448,7 +452,7 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
     <div>
       <div class="frame">
         <div class="bar"><i></i><i></i><i></i><span>SAP B1 AI · asking a question</span></div>
-        <img src="assets/img/demo-ask.webp" width="1024" height="640" alt="Animation: a question is typed into the SAP B1 AI chat and it answers with figures and a table.">
+        <img src="assets/img/demo-ask.webp" width="1024" height="640" fetchpriority="high" decoding="async" alt="Animation: a question is typed into the SAP B1 AI chat and it answers with figures and a table.">
       </div>
       <p class="cap">Case study: an AI assistant on SAP Business One (live recording, public demo data)</p>
     </div>
@@ -716,10 +720,10 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
   <div class="wrap">
     <div class="head"><div class="eyebrow">Skills</div><h2>What I work with</h2></div>
     <div class="skills">
-      <div><h4>Languages</h4><div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Java</span><span class="chip">PHP</span><span class="chip">JavaScript</span><span class="chip">Dart</span></div></div>
-      <div><h4>Frameworks</h4><div class="chips"><span class="chip">FastAPI</span><span class="chip">pandas</span><span class="chip">Tkinter</span><span class="chip">Flutter</span></div></div>
-      <div><h4>Data &amp; ERP</h4><div class="chips"><span class="chip">SAP Business One</span><span class="chip">SQL Server</span><span class="chip">MySQL</span><span class="chip">Snowflake</span><span class="chip">Redshift</span><span class="chip">Talend</span><span class="chip">Tableau</span><span class="chip">UiPath</span></div></div>
-      <div><h4>AI &amp; ops</h4><div class="chips"><span class="chip">AI assistants</span><span class="chip">LLM tool calling</span><span class="chip">Local LLMs (Ollama)</span><span class="chip">Prompt design</span><span class="chip">Linux</span><span class="chip">Docker</span><span class="chip">Caddy</span><span class="chip">systemd</span><span class="chip">Tailscale</span><span class="chip">Git</span></div></div>
+      <div><h3 class="sk">Languages</h3><div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Java</span><span class="chip">PHP</span><span class="chip">JavaScript</span><span class="chip">Dart</span></div></div>
+      <div><h3 class="sk">Frameworks</h3><div class="chips"><span class="chip">FastAPI</span><span class="chip">pandas</span><span class="chip">Tkinter</span><span class="chip">Flutter</span></div></div>
+      <div><h3 class="sk">Data &amp; ERP</h3><div class="chips"><span class="chip">SAP Business One</span><span class="chip">SQL Server</span><span class="chip">MySQL</span><span class="chip">Snowflake</span><span class="chip">Redshift</span><span class="chip">Talend</span><span class="chip">Tableau</span><span class="chip">UiPath</span></div></div>
+      <div><h3 class="sk">AI &amp; ops</h3><div class="chips"><span class="chip">AI assistants</span><span class="chip">LLM tool calling</span><span class="chip">Local LLMs (Ollama)</span><span class="chip">Prompt design</span><span class="chip">Linux</span><span class="chip">Docker</span><span class="chip">Caddy</span><span class="chip">systemd</span><span class="chip">Tailscale</span><span class="chip">Git</span></div></div>
     </div>
   </div>
 </section>
