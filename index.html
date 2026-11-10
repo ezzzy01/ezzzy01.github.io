@@ -274,6 +274,100 @@ dialog.lb::backdrop{background:rgba(5,10,20,.82)}
 dialog.lb img{max-width:min(96vw,1600px);max-height:84vh;width:auto;border-radius:10px}
 dialog.lb p{color:#dfe5ef;text-align:center;font-size:14px;margin-top:10px}
 dialog.lb button{position:fixed;top:14px;right:14px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:22px;cursor:pointer}
+
+/* ---- stage 3: in-page demo */
+.trylive{display:block}
+.tlhead{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.tlhead .btn{flex:none}
+.demo{margin:20px 0 6px;border:1px solid var(--line);border-radius:var(--r);background:var(--panel);overflow:hidden;box-shadow:var(--shadow)}
+.dbar{display:flex;align-items:center;gap:6px;height:38px;padding:0 12px;border-bottom:1px solid var(--line)}
+.dbar i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.dbar span{margin-left:10px;font-size:12.5px;color:var(--ink3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dbar span b{color:var(--ok);font-weight:600}
+.dreset{margin-left:auto;display:inline-flex;align-items:center;gap:6px;border:0;background:none;color:var(--brand);font:inherit;font-size:13px;font-weight:600;cursor:pointer;padding:4px 6px;border-radius:6px}
+.dreset:hover{background:var(--brandbg)}
+.dreset[hidden]{display:none}
+.dreset{white-space:nowrap;flex:none}
+@media (max-width:600px){.dbar i{display:none}.dbar span{margin-left:0}.rp{padding:14px 12px 18px}.dstart{padding:32px 14px 26px}.dbody{min-height:380px}}
+.dreset svg{width:14px;height:14px}
+.dbody{min-height:420px;max-height:620px;overflow:auto;position:relative}
+.dbody iframe{display:block;width:100%;height:600px;border:0}
+.dstart{display:flex;flex-direction:column;align-items:center;text-align:center;padding:48px 20px 36px}
+.dlogo{display:grid;place-items:center;width:46px;height:46px;border-radius:13px;background:var(--brand);color:#fff}
+.dlogo svg{width:24px;height:24px}
+.dq{font-size:18px;font-weight:650;color:var(--ink);margin:14px 0 18px !important}
+.dchips{display:flex;flex-direction:column;gap:10px;width:100%;max-width:440px}
+.dchip{display:flex;align-items:center;gap:12px;text-align:left;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:15px;padding:12px 14px;border-radius:12px;cursor:pointer;transition:border-color .15s,transform .15s}
+.dchip:hover{border-color:var(--brand);transform:translateY(-1px)}
+.dchip svg{width:20px;height:20px;color:var(--brand);flex:none}
+.dstart .fine{margin-top:18px !important}
+.rp{padding:22px 22px 26px;max-width:820px;margin:0 auto}
+.rp .me{display:flex;justify-content:flex-end;margin-bottom:16px}
+.rp .me div{background:var(--brand);color:#fff;padding:9px 14px;border-radius:16px 16px 4px 16px;max-width:80%;font-size:15px}
+:root[data-theme="dark"] .rp .me div{color:#06121f}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .rp .me div{color:#06121f}}
+.rp .ai{border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:var(--bg);font-size:14.5px;color:var(--ink)}
+.rp .ai>*{animation:rin .45s ease both}
+.rp .ai p{margin:.45em 0;color:var(--ink)}
+.rp .ai p.look{color:var(--ink3);font-size:13px;margin:.2em 0 .6em}
+.rp .ai ul{margin:.3em 0;padding-left:20px}
+.rp .ai img{max-width:100%;height:auto;border-radius:8px;margin:6px 0;background:#fff;border:1px solid var(--line)}
+.rp .typing{display:flex;align-items:center;gap:8px;color:var(--ink3);font-size:13.5px}
+.rp .typing i{width:14px;height:14px;border:2px solid var(--line);border-top-color:var(--brand);border-radius:50%;animation:spin .8s linear infinite}
+.rp .more{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.rp .more .dchip{font-size:13.5px;padding:8px 12px;width:auto}
+.rtw{overflow:auto;border:1px solid var(--line);border-radius:8px;margin:8px 0;background:var(--panel)}
+.rtw table{border-collapse:collapse;width:100%;font-size:13px}
+.rtw th,.rtw td{padding:6px 10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+.rtw th{color:var(--ink2);font-weight:600;background:var(--bg)}
+.rtw td.r{text-align:right;font-variant-numeric:tabular-nums}
+.rtw tr:last-child td{border-bottom:0}
+@keyframes rin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---- stage 3: what could AI do for you */
+.fit{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;align-items:start}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{border:1px solid var(--line);background:var(--panel);color:var(--ink2);font:inherit;font-size:14.5px;font-weight:550;padding:9px 14px;border-radius:999px;cursor:pointer;transition:all .15s}
+.opt:hover{color:var(--ink);border-color:var(--brand)}
+.opt[aria-pressed="true"],.opt[aria-checked="true"]{background:var(--brandbg);border-color:var(--brand);color:var(--brand2)}
+.opt[aria-pressed="true"]::before{content:"✓ "}
+.fita{position:sticky;top:84px}
+.fita h3{font-size:20px;margin-bottom:6px}
+.fita .lead2{color:var(--ink2);margin-bottom:14px}
+.fita ul{list-style:none;padding:0;margin:0 0 14px}
+.fita li{display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--line);color:var(--ink2);font-size:15px}
+.fita li b{color:var(--ink);font-weight:600}
+.fita li svg{width:18px;height:18px;color:var(--brand);flex:none;margin-top:3px}
+.fita .proven{font-size:13.5px;color:var(--ink3);margin-bottom:16px}
+.fita>*{animation:rin .35s ease both}
+@media (max-width:900px){.fit{grid-template-columns:1fr}.fita{position:static}}
+
+/* ---- stage 3: quick menu */
+.kbtn{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 8px 0 10px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink3);font:inherit;font-size:13.5px;cursor:pointer;margin-left:6px}
+.kbtn:hover{color:var(--ink);border-color:var(--brand)}
+.kbtn svg{width:16px;height:16px}
+kbd{font:600 11px/1 "Inter",system-ui,sans-serif;padding:4px 6px;border-radius:5px;border:1px solid var(--line);background:var(--bg);color:var(--ink3)}
+@media (max-width:1060px){.kbtn span,.kbtn kbd{display:none}.kbtn{padding:0;width:36px;justify-content:center}}
+@media (max-width:760px){.nav .kbtn{margin-left:auto}.nav .iconbtn{margin-left:0}}
+dialog.cmdk{width:min(560px,92vw);padding:0;border:1px solid var(--line);border-radius:14px;background:var(--panel);color:var(--ink);box-shadow:0 24px 60px rgba(0,0,0,.3);margin-top:12vh}
+dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
+.ksearch{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.ksearch svg{width:18px;height:18px;color:var(--ink3)}
+.ksearch input{flex:1;border:0;outline:0;background:transparent;color:var(--ink);font:inherit;font-size:16px}
+#klist{list-style:none;margin:0;padding:8px;max-height:min(380px,55vh);overflow:auto}
+#klist li{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:9px;cursor:pointer;font-size:15px;color:var(--ink2)}
+#klist li svg{width:18px;height:18px;color:var(--ink3);flex:none}
+#klist li small{margin-left:auto;font-size:12px;color:var(--ink3)}
+#klist li[aria-selected="true"]{background:var(--brandbg);color:var(--ink)}
+#klist li[aria-selected="true"] svg{color:var(--brand)}
+#klist .none{color:var(--ink3);cursor:default}
+.kfoot{display:flex;gap:18px;padding:10px 16px;border-top:1px solid var(--line);font-size:12px;color:var(--ink3)}
+.kfoot kbd{margin-right:3px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;font-size:14px;font-weight:550;transition:all .25s;pointer-events:none;z-index:50}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}}
+
 @media (max-width:600px){.wrap{padding:0 16px}section{padding:52px 0}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
@@ -287,6 +381,14 @@ dialog.lb button{position:fixed;top:14px;right:14px;width:40px;height:40px;borde
   <symbol id="i-target" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-target" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="12" cy="12" r="10" /> <circle cx="12" cy="12" r="6" /> <circle cx="12" cy="12" r="2" /></g></symbol>
   <symbol id="i-route" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-route" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="6" cy="19" r="3" /> <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" /> <circle cx="18" cy="5" r="3" /></g></symbol>
   <symbol id="i-trophy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-trophy" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" /> <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" /> <path d="M4 22h16" /> <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" /> <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" /> <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" /></g></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-search" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="11" cy="11" r="8" /> <path d="m21 21-4.3-4.3" /></g></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-copy" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <rect width="14" height="14" x="8" y="8" rx="2" ry="2" /> <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></g></symbol>
+  <symbol id="i-external-link" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-external-link" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M15 3h6v6" /> <path d="M10 14 21 3" /> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></g></symbol>
+  <symbol id="i-circle-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-circle-play" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="12" cy="12" r="10" /> <polygon points="10 8 16 12 10 16 10 8" /></g></symbol>
+  <symbol id="i-rotate-ccw" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-rotate-ccw" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /> <path d="M3 3v5h5" /></g></symbol>
+  <symbol id="i-wand-sparkles" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-wand-sparkles" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72" /> <path d="m14 7 3 3" /> <path d="M5 6v4" /> <path d="M19 14v4" /> <path d="M10 2v2" /> <path d="M7 8H3" /> <path d="M21 16h-4" /> <path d="M11 3H9" /></g></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-sparkles" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /> <path d="M20 3v4" /> <path d="M22 5h-4" /> <path d="M4 17v2" /> <path d="M5 18H3" /></g></symbol>
+  <symbol id="i-command" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-command" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" /></g></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-mail" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <rect width="20" height="16" x="2" y="4" rx="2" /> <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></g></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-map-pin" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></g></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /></g></symbol>
@@ -314,11 +416,13 @@ dialog.lb button{position:fixed;top:14px;right:14px;width:40px;height:40px;borde
     <nav aria-label="Sections">
       <a href="#build">What I build</a>
       <a href="#project">Case study</a>
+      <a href="#fit">For you</a>
       <a href="#work">Other work</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
+    <button class="kbtn" id="kbtn" type="button" aria-label="Open the quick menu (Ctrl+K)"><svg><use href="#i-search"/></svg><span>Quick menu</span><kbd>Ctrl K</kbd></button>
     <button class="iconbtn" id="theme" type="button" aria-label="Switch to dark mode" title="Light / dark"><svg><use href="#i-moon"/></svg></button>
   </div>
 </header>
@@ -405,17 +509,28 @@ dialog.lb button{position:fixed;top:14px;right:14px;width:40px;height:40px;borde
     </div>
 
     <div class="trylive" id="try">
-      <div>
-        <div class="eyebrow">Try it live <span class="live" id="live"><i></i><span>Checking…</span></span></div>
-        <h3>Ask the AI yourself</h3>
-        <p>Ask about SAP's demo company, OEC Computers: its sales, stock, customers, suppliers and payments. Answers come live from SAP Business One, with figures, tables and charts.</p>
-        <p class="fine">Runs on my own server, so there are a few questions per visitor and one answer at a time. Read-only, and nothing you ask is saved.</p>
+      <div class="tlhead">
+        <div>
+          <div class="eyebrow">Try it live <span class="live" id="live"><i></i><span>Checking…</span></span></div>
+          <h3>Ask the AI yourself</h3>
+          <p>Pick a question about SAP's demo company, OEC Computers, and watch the AI answer it from SAP Business One. Or open the full demo and ask your own.</p>
+        </div>
+        <a class="btn" id="tryBtn" href="https://archlinux.taila38d1a.ts.net:8443/sapb1/try" target="_blank" rel="noopener">Open full screen <svg><use href="#i-external-link"/></svg></a>
       </div>
-      <div class="trybtn">
-        <a class="btn primary" id="tryBtn" href="https://archlinux.taila38d1a.ts.net:8443/sapb1/try" target="_blank" rel="noopener">Open the live demo <svg><use href="#i-arrow"/></svg></a>
-        <span class="fine" id="tryNote">Opens in a new tab</span>
+      <div class="demo">
+        <div class="dbar"><i></i><i></i><i></i><span id="dmode">SAP B1 AI · demo</span><button type="button" class="dreset" id="dreset" hidden><svg><use href="#i-rotate-ccw"/></svg>Start over</button></div>
+        <div class="dbody" id="dbody">
+          <div class="dstart" id="dstart">
+            <span class="dlogo"><svg><use href="#i-sparkles"/></svg></span>
+            <p class="dq">Pick a question to see it answered</p>
+            <div class="dchips"><button type="button" class="dchip" data-i="0"><svg><use href="#i-circle-play"/></svg>Who owes us the most overdue money?</button><button type="button" class="dchip" data-i="1"><svg><use href="#i-circle-play"/></svg>Which items do I need to reorder?</button><button type="button" class="dchip" data-i="2"><svg><use href="#i-circle-play"/></svg>Which suppliers do we buy the most from?</button></div>
+            <p class="fine" id="dhint">Checking whether my server is online…</p>
+          </div>
+        </div>
       </div>
+      <p class="fine">Runs on my own server, so there are a few questions per visitor and one answer at a time. Read-only, and nothing you ask is saved.</p>
     </div>
+<script type="application/json" id="replayData">[{"q": "Who owes us the most overdue money? Top 5.", "blocks": ["<p class=\"look\">\ud83d\udd0e <em>Checking who owes us money\u2026<\/em><\/p>", "<p>The top 5 overdue customers (as of 4 Nov 2026):<\/p>", "<div class=\"rtw\"><table><thead><tr><th>#<\/th><th>Customer<\/th><th>Overdue<\/th><th>Oldest invoice late<\/th><\/tr><\/thead><tbody><tr><td class=r>1<\/td><td>Maxi-Teq<\/td><td class=r>$1,670,701.79<\/td><td class=r>1,520 days<\/td><\/tr><tr><td class=r>2<\/td><td>River Inc<\/td><td class=r>$1,416,827.50<\/td><td class=r>1,236 days<\/td><\/tr><tr><td class=r>3<\/td><td>Parameter Technology<\/td><td class=r>$1,342,959.19<\/td><td class=r>1,362 days<\/td><\/tr><tr><td class=r>4<\/td><td>Star Company<\/td><td class=r>$1,320,992.25<\/td><td class=r>1,263 days<\/td><\/tr><tr><td class=r>5<\/td><td>Earthshaker Corporation<\/td><td class=r>$1,164,167.90<\/td><td class=r>2,440 days<\/td><\/tr><\/tbody><\/table><\/div>", "<p>Total overdue across all customers: $10,633,448.06.<\/p>"], "short": "Who owes us the most overdue money?"}, {"q": "Which items do I need to reorder? Top 5 most urgent.", "blocks": ["<p>The 5 most urgent items to reorder (all running out now, before a new order can arrive):<\/p>", "<div class=\"rtw\"><table><thead><tr><th>#<\/th><th>Item<\/th><th>Warehouse<\/th><th>Short<\/th><th>Suggested order<\/th><th>Est. value<\/th><\/tr><\/thead><tbody><tr><td class=r>1<\/td><td>PC - 12x core, 64GB, 5 x 150GB SSD (P10002)<\/td><td class=r>01<\/td><td class=r>190 units<\/td><td class=r>152<\/td><td class=r>$157,320.00<\/td><\/tr><tr><td class=r>2<\/td><td>Memory DDR RAM 8GB (C00011)<\/td><td class=r>01<\/td><td class=r>310 units<\/td><td class=r>311<\/td><td class=r>$12,440.00<\/td><\/tr><tr><td class=r>3<\/td><td>32GB Memory Server (P20002)<\/td><td class=r>01<\/td><td class=r>86 units<\/td><td class=r>125<\/td><td class=r>$375,000.00<\/td><\/tr><tr><td class=r>4<\/td><td>MRP_Child1 (MRP_Child1)<\/td><td class=r>01<\/td><td class=r>52 units<\/td><td class=r>52<\/td><td class=r>$0.00<\/td><\/tr><tr><td class=r>5<\/td><td>MRP_Grandchild (MRP_Grandchild)<\/td><td class=r>01<\/td><td class=r>50 units<\/td><td class=r>72<\/td><td class=r>$0.00<\/td><\/tr><\/tbody><\/table><\/div>", "<p><strong>Key points:<\/strong><\/p>", "<ul><li><strong>Memory DDR RAM 8GB<\/strong> is the most operationally critical \u2014 it blocks 2 open production orders (WO 153, WO 154) and is a BOM component of 4 finished products. A transfer of 50 units from warehouse 02 is also recommended.<\/li><li><strong>PC - 12x core (P10002)<\/strong> is a BOM component of P10004 and is also out now.<\/li><li><strong>32GB Memory Server (P20002)<\/strong> is the largest dollar exposure at $375,000.00.<\/li><\/ul>", "<p><strong>Next step:<\/strong> Chase the open purchase orders for these items and place new orders for the suggested quantities; for the RAM, also arrange the transfer from warehouse 02.<\/p>"], "short": "Which items do I need to reorder?"}, {"q": "Which suppliers do we buy the most from this year? Top 5.", "blocks": ["<p class=\"look\">\ud83d\udd0e <em>Building the supplier dashboard\u2026<\/em><\/p>", "<img src=\"assets/replay/suppliers-1.webp\" width=\"1032\" height=\"557\" alt=\"Spend by supplier\" loading=\"lazy\">", "<img src=\"assets/replay/suppliers-2.webp\" width=\"1188\" height=\"557\" alt=\"Where buying at the best price would have saved money\" loading=\"lazy\">", "<p>Here are your top 5 suppliers by purchase spend this year (data through 13 Sep 2026):<\/p>", "<div class=\"rtw\"><table><thead><tr><th>Rank<\/th><th>Supplier<\/th><th>Spend<\/th><th>Share<\/th><\/tr><\/thead><tbody><tr><td class=r>1<\/td><td>Anthony Smith<\/td><td class=r>$309,815.00<\/td><td>20.2%<\/td><\/tr><tr><td class=r>2<\/td><td>Lumarx<\/td><td class=r>$262,821.00<\/td><td>17.1%<\/td><\/tr><tr><td class=r>3<\/td><td>Sea Corp<\/td><td class=r>$179,218.50<\/td><td>11.7%<\/td><\/tr><tr><td class=r>4<\/td><td>Far East Imports<\/td><td class=r>$175,088.25<\/td><td>11.4%<\/td><\/tr><tr><td class=r>5<\/td><td>Acme Associates<\/td><td class=r>$155,064.00<\/td><td>10.1%<\/td><\/tr><\/tbody><\/table><\/div>", "<p><strong>Next step:<\/strong> If you want to see what we still owe each of these suppliers or their on-time delivery performance, I can pull that up.<\/p>"], "short": "Which suppliers do we buy the most from?"}]</script>
 
     <h3 class="sub">What it delivers</h3>
     <div class="tabs" role="tablist" aria-label="What it does">
@@ -609,6 +724,37 @@ dialog.lb button{position:fixed;top:14px;right:14px;width:40px;height:40px;borde
   </div>
 </section>
 
+<!-- what could AI do for you -->
+<section id="fit">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">For your business</div>
+      <h2>What could AI do for you?</h2>
+      <p>Pick what you use and what you want. You'll get a sketch of what I'd build, based on what I've already built.</p>
+    </div>
+    <div class="fit">
+      <div class="fitq">
+        <h3 class="sub">1 · What do you use today?</h3>
+        <div class="opts" id="fitSys" role="group" aria-label="Systems you use">
+          <button type="button" class="opt" aria-pressed="false" data-k="excel">Excel or spreadsheets</button>
+          <button type="button" class="opt" aria-pressed="false" data-k="sql">A SQL database</button>
+          <button type="button" class="opt" aria-pressed="true" data-k="erp">An ERP (SAP B1 or similar)</button>
+          <button type="button" class="opt" aria-pressed="false" data-k="email">Outlook or email</button>
+          <button type="button" class="opt" aria-pressed="false" data-k="docs">PDFs and Word files</button>
+        </div>
+        <h3 class="sub" style="margin-top:22px">2 · What do you want?</h3>
+        <div class="opts" id="fitGoal" role="radiogroup" aria-label="What you want">
+          <button type="button" class="opt" role="radio" aria-checked="true" data-k="ask">Answers without waiting</button>
+          <button type="button" class="opt" role="radio" aria-checked="false" data-k="reports">Reports that build themselves</button>
+          <button type="button" class="opt" role="radio" aria-checked="false" data-k="alerts">Spot problems early</button>
+          <button type="button" class="opt" role="radio" aria-checked="false" data-k="drafts">Less typing and data entry</button>
+        </div>
+      </div>
+      <div class="fita card" id="fitOut" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
 <!-- contact -->
 <section class="alt" id="contact">
   <div class="wrap contact">
@@ -625,6 +771,13 @@ dialog.lb button{position:fixed;top:14px;right:14px;width:40px;height:40px;borde
 </main>
 
 <footer><div class="wrap"><span>© 2026 Idham Hakim · Kuala Lumpur, Malaysia</span><span>SAP and SAP Business One are trademarks of SAP SE. This is an independent project.</span></div></footer>
+
+<dialog class="cmdk" id="cmdk" aria-label="Quick menu">
+  <div class="ksearch"><svg><use href="#i-search"/></svg><input id="kq" type="text" placeholder="Jump to a section or do something…" autocomplete="off" aria-controls="klist"><kbd>Esc</kbd></div>
+  <ul id="klist" role="listbox"></ul>
+  <div class="kfoot"><span><kbd>↑</kbd><kbd>↓</kbd> to move</span><span><kbd>Enter</kbd> to choose</span></div>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <dialog class="lb" id="lb" aria-label="Screenshot"><button type="button" aria-label="Close">×</button><img alt=""><p></p></dialog>
 
@@ -650,14 +803,93 @@ dialog.lb button{position:fixed;top:14px;right:14px;width:40px;height:40px;borde
   document.querySelectorAll('[data-zoom]').forEach(function(b){b.setAttribute('aria-label','Enlarge: '+b.querySelector('img').alt);b.addEventListener('click',function(){var im=b.querySelector('img');li.src=im.src;li.alt=im.alt;lp.textContent=im.alt;lb.showModal()})});
   lb.addEventListener('click',function(e){if(e.target!==li)lb.close()});
 
-  // live demo: online only while my server is on
-  var live=document.getElementById('live'), note=document.getElementById('tryNote');
-  function liveSet(on,text,sub){live.className='live'+(on?' on':'');live.lastChild.textContent=text;if(sub)note.textContent=sub}
-  var ctl=window.AbortController?new AbortController():null, timer=setTimeout(function(){if(ctl)ctl.abort()},8000);
-  fetch('https://archlinux.taila38d1a.ts.net:8443/sapb1/try/status',{cache:'no-store',signal:ctl?ctl.signal:undefined})
-    .then(function(r){return r.json()})
-    .then(function(s){clearTimeout(timer);if(s.on)liveSet(true,s.answering?'Online · busy':'Online','Opens in a new tab');else liveSet(false,'Paused','The demo is paused right now: see the screenshots below')})
-    .catch(function(){liveSet(false,'Status unknown','If it does not open, my server is off: see the screenshots below')});
+  // ---- live demo inside the page: live when my server can be reached, else a replay of real recorded answers
+  var TRY='https://archlinux.taila38d1a.ts.net:8443/sapb1/try';
+  var live=document.getElementById('live'), dhint=document.getElementById('dhint'), dbody=document.getElementById('dbody'),
+      dstart=document.getElementById('dstart'), dmode=document.getElementById('dmode'), dreset=document.getElementById('dreset');
+  var REP=JSON.parse(document.getElementById('replayData').textContent), liveOK=null, timers=[];
+  function liveSet(on,text){live.className='live'+(on?' on':'');live.lastChild.textContent=text}
+  var ctl=window.AbortController?new AbortController():null, tmo=setTimeout(function(){if(ctl)ctl.abort()},8000);
+  var statusP=fetch(TRY+'/status',{cache:'no-store',signal:ctl?ctl.signal:undefined}).then(function(r){return r.json()})
+    .then(function(s){clearTimeout(tmo);liveOK=!!s.on;
+      if(s.on){liveSet(true,s.answering?'Online · busy':'Online');dhint.textContent='Live now: the AI answers on my server in about 15 to 30 seconds.'}
+      else{liveSet(false,'Paused');dhint.textContent='The live demo is paused, so you will see a replay of real recorded answers.'}})
+    .catch(function(){liveOK=false;liveSet(false,'Replay mode');dhint.textContent='My server cannot be reached from here right now, so you will see a replay of real recorded answers.'});
+  function clearT(){timers.forEach(clearTimeout);timers=[]}
+  function startOver(){clearT();dbody.innerHTML='';dbody.appendChild(dstart);dmode.textContent='SAP B1 AI · demo';dreset.hidden=true}
+  dreset.addEventListener('click',startOver);
+  function dark(){var t=document.documentElement.getAttribute('data-theme');return t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches}
+  function showLive(q){
+    dmode.innerHTML='<b>● Live</b> · answered by the AI right now';
+    var f=document.createElement('iframe');f.title='SAP B1 AI live demo';
+    f.src=TRY+'?q='+encodeURIComponent(q)+'&theme='+(dark()?'dark':'light');
+    f.setAttribute('sandbox','allow-scripts allow-same-origin allow-forms allow-downloads allow-popups');
+    dbody.innerHTML='';dbody.appendChild(f)}
+  function showReplay(i){
+    clearT();var o=REP[i];dmode.textContent='Replay · a real answer recorded from the live demo';
+    dbody.innerHTML='<div class="rp"><div class="me"><div></div></div><div class="ai"><div class="typing"><i></i>Looking it up in SAP B1…</div></div></div>';
+    dbody.querySelector('.me div').textContent=o.q;
+    var ai=dbody.querySelector('.ai'), t=1400;
+    timers.push(setTimeout(function(){ai.innerHTML=''},t));
+    o.blocks.forEach(function(b){t+=420;timers.push(setTimeout(function(){ai.insertAdjacentHTML('beforeend',b);dbody.scrollTop=dbody.scrollHeight},t))});
+    timers.push(setTimeout(function(){
+      var m=document.createElement('div');m.className='more';
+      REP.forEach(function(x,k){if(k!==i)m.insertAdjacentHTML('beforeend','<button type="button" class="dchip" data-i="'+k+'"><svg><use href="#i-circle-play"/></svg>'+x.short+'</button>')});
+      m.insertAdjacentHTML('beforeend','<a class="dchip" href="'+TRY+'" target="_blank" rel="noopener"><svg><use href="#i-external-link"/></svg>Ask your own question</a>');
+      dbody.querySelector('.rp').appendChild(m)},t+500))}
+  dbody.addEventListener('click',function(e){var b=e.target.closest('button.dchip');if(!b)return;var i=+b.getAttribute('data-i');dreset.hidden=false;
+    statusP.then(function(){if(liveOK)showLive(REP[i].short);else showReplay(i)})});
+
+  // ---- what could AI do for you
+  var SYS={excel:['Excel and spreadsheets','reads your workbooks and files people upload, and gives figures back as tables, charts or a new Excel file'],
+    sql:['Your SQL database','connects with a read-only login; the AI calls safe, ready-made lookups instead of guessing queries'],
+    erp:['Your ERP','reads it read-only; anything that would create a document goes through the ERP’s own interface, only after a person says yes'],
+    email:['Outlook and email','prepares emails (reminders, orders, summaries) for a person to check and send'],
+    docs:['PDFs and Word files','reads them and pulls out the text and figures needed, so nobody retypes them']};
+  var GOAL={ask:['An assistant your team can ask','People ask in plain language, on a PC or a phone, and get exact figures, tables and charts in seconds, with every amount checked against the data.','Proven in the case study: Ask in plain language, Business data.'],
+    reports:['Reports that build themselves','Scheduled reports (Excel or PDF), built every night or week from your data, with a short summary of what changed and what needs attention.','Proven in the case study: Reports in one click, the management report pack.'],
+    alerts:['Problems spotted early','Daily checks that flag what needs action, such as late payments, low stock or unusual transactions, sent as alerts before they become problems.','Proven in the case study: stock alerts and unusual-transaction checks.'],
+    drafts:['Less typing, fewer mistakes','The AI prepares documents and emails from your data and shows a preview; nothing is saved or sent until a person approves it.','Proven in the case study: SAP drafts after a yes, payment reminder emails.']};
+  var fitSys=document.getElementById('fitSys'), fitGoal=document.getElementById('fitGoal'), fitOut=document.getElementById('fitOut');
+  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function drawFit(){
+    var sys=[].slice.call(fitSys.querySelectorAll('[aria-pressed="true"]')).map(function(b){return b.getAttribute('data-k')});
+    var g=fitGoal.querySelector('[aria-checked="true"]').getAttribute('data-k'), G=GOAL[g];
+    var items=sys.length?sys.map(function(k){return '<li><svg><use href="#i-route"/></svg><span><b>'+SYS[k][0]+':</b> '+SYS[k][1]+'.</span></li>'}).join(''):'<li><svg><use href="#i-route"/></svg><span>Pick at least one system on the left.</span></li>';
+    items+='<li><svg><use href="#i-lock"/></svg><span><b>Safe by default:</b> read-only access first, roles for who sees what, and the AI model can run on your own server.</span></li>';
+    var names=sys.map(function(k){return SYS[k][0]}).join(', ')||'(not chosen yet)';
+    var mail='mailto:idhamproaqw98@gmail.com?subject='+encodeURIComponent('AI for my business: '+G[0])+'&body='+encodeURIComponent('Hi Idham,\n\nWe use: '+names+'.\nWhat we want: '+G[0]+'.\n\nA bit about our business:\n\n');
+    fitOut.innerHTML='<div class="eyebrow">What I’d build</div><h3>'+esc(G[0])+'</h3><p class="lead2">'+esc(G[1])+'</p><ul>'+items+'</ul><p class="proven">'+esc(G[2])+'</p><a class="btn primary" href="'+mail+'"><svg><use href="#i-mail"/></svg> Email me about this</a>'}
+  fitSys.addEventListener('click',function(e){var b=e.target.closest('.opt');if(!b)return;b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');drawFit()});
+  fitGoal.addEventListener('click',function(e){var b=e.target.closest('.opt');if(!b)return;fitGoal.querySelectorAll('.opt').forEach(function(x){x.setAttribute('aria-checked',x===b?'true':'false')});drawFit()});
+  fitGoal.addEventListener('keydown',function(e){var k=e.key==='ArrowRight'||e.key==='ArrowDown'?1:e.key==='ArrowLeft'||e.key==='ArrowUp'?-1:0;if(!k)return;e.preventDefault();var o=[].slice.call(fitGoal.querySelectorAll('.opt')),i=o.indexOf(document.activeElement);var n=o[(i+k+o.length)%o.length];n.focus();n.click()});
+  drawFit();
+
+  // ---- quick menu (Ctrl+K)
+  var toast=document.getElementById('toast'), tt;
+  function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on')},1800)}
+  function go(id){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
+  var CMDS=[['What I build','build','i-wand-sparkles','Section'],['Case study: SAP B1 AI','project','i-target','Section'],['Try the AI live','try','i-circle-play','Section'],
+    ['What could AI do for you?','fit','i-sparkles','Section'],['Other work','work','i-grid','Section'],['Experience and education','experience','i-clock','Section'],
+    ['Skills','skills','i-plug','Section'],['Contact','contact','i-mail','Section'],
+    ['Switch light / dark',function(){btn.click()},'i-moon','Action'],
+    ['Copy my email address',function(){var a='idhamproaqw98@gmail.com';(navigator.clipboard?navigator.clipboard.writeText(a):Promise.reject()).then(function(){say('Email address copied')},function(){say(a)})},'i-copy','Action'],
+    ['Email me',function(){location.href='mailto:idhamproaqw98@gmail.com'},'i-mail','Action'],
+    ['Open the live demo',function(){window.open(TRY,'_blank','noopener')},'i-external-link','Link'],
+    ['GitHub',function(){window.open('https://github.com/ezzzy01','_blank','noopener')},'i-external-link','Link'],
+    ['LinkedIn',function(){window.open('https://www.linkedin.com/in/idham-hakim-29b676270','_blank','noopener')},'i-external-link','Link']];
+  var kd=document.getElementById('cmdk'), kq=document.getElementById('kq'), kl=document.getElementById('klist'), shown=[], sel=0;
+  function kdraw(){var q=kq.value.trim().toLowerCase();shown=CMDS.filter(function(c){return !q||c[0].toLowerCase().indexOf(q)>=0||c[3].toLowerCase().indexOf(q)>=0});sel=Math.min(sel,Math.max(0,shown.length-1));
+    kl.innerHTML=shown.length?shown.map(function(c,i){return '<li role="option" id="ko'+i+'" aria-selected="'+(i===sel)+'" data-i="'+i+'"><svg><use href="#'+c[2]+'"/></svg>'+esc(c[0])+'<small>'+c[3]+'</small></li>'}).join(''):'<li class="none">Nothing matches.</li>';
+    kq.setAttribute('aria-activedescendant',shown.length?'ko'+sel:'');var a=kl.querySelector('[aria-selected="true"]');if(a)a.scrollIntoView({block:'nearest'})}
+  function krun(i){var c=shown[i];if(!c)return;kd.close();if(typeof c[1]==='function')c[1]();else go(c[1])}
+  function kopen(){kq.value='';sel=0;kdraw();kd.showModal();kq.focus()}
+  document.getElementById('kbtn').addEventListener('click',kopen);
+  document.addEventListener('keydown',function(e){if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();kd.open?kd.close():kopen()}});
+  kq.addEventListener('input',function(){sel=0;kdraw()});
+  kq.addEventListener('keydown',function(e){if(e.key==='ArrowDown'){e.preventDefault();sel=(sel+1)%Math.max(1,shown.length);kdraw()}else if(e.key==='ArrowUp'){e.preventDefault();sel=(sel-1+shown.length)%Math.max(1,shown.length);kdraw()}else if(e.key==='Enter'){e.preventDefault();krun(sel)}});
+  kl.addEventListener('click',function(e){var li=e.target.closest('li[data-i]');if(li)krun(+li.getAttribute('data-i'))});
+  kd.addEventListener('click',function(e){if(e.target===kd)kd.close()});
 })();
 </script>
 </body>
