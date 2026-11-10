@@ -135,7 +135,7 @@ section.alt .card{background:var(--bg)}
 @media (max-width:900px){.proof dl{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:560px){.proof dl{grid-template-columns:1fr 1fr}.proof dt{font-size:28px}}
 
-/* case study: challenge, approach, result */
+/* featured project: challenge, approach, result */
 .car{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px}
 .car .ct{display:grid;place-items:center;width:40px;height:40px;border-radius:10px;background:var(--brandbg);color:var(--brand);margin-bottom:14px}
 .car .ct svg{width:22px;height:22px}
@@ -488,7 +488,7 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
     <a class="logo" href="#top"><b>IH</b> Idham Hakim</a>
     <nav aria-label="Sections">
       <a href="#build">What I build</a>
-      <a href="#project">Case study</a>
+      <a href="#project">Projects</a>
       <a href="#fit">For you</a>
       <a href="#work">Other work</a>
       <a href="#experience">Experience</a>
@@ -511,7 +511,7 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
       <p class="lead">I put AI models to work inside the systems a business already runs on: its database, ERP, spreadsheets, documents and email. People ask in plain language and get answers they can trust, and routine work gets done automatically.</p>
       <div class="btns">
         <a class="btn primary" href="#try">Try the AI live <svg><use href="#i-arrow"/></svg></a>
-        <a class="btn" href="#project">See a case study <svg><use href="#i-down"/></svg></a>
+        <a class="btn" href="#project">See my projects <svg><use href="#i-down"/></svg></a>
         <a class="btn" href="mailto:idhamproaqw98@gmail.com"><svg><use href="#i-mail"/></svg> Email me</a>
         <a class="btn" href="https://github.com/ezzzy01" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg> GitHub</a>
         <a class="btn" href="https://www.linkedin.com/in/idham-hakim-29b676270" target="_blank" rel="noopener"><svg><use href="#i-in"/></svg> LinkedIn</a>
@@ -524,7 +524,7 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
         <div class="bar"><i></i><i></i><i></i><span>SAP B1 AI · asking a question</span></div>
         <img src="assets/img/demo-ask.webp" width="1024" height="640" fetchpriority="high" decoding="async" alt="Animation: a question is typed into the SAP B1 AI chat and it answers with figures and a table.">
       </div>
-      <p class="cap">Case study: an AI assistant on SAP Business One (live recording, public demo data)</p>
+      <p class="cap">Featured project: an AI assistant on SAP Business One (live recording, public demo data)</p>
     </div>
   </div>
 </div>
@@ -539,7 +539,7 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
       <div><dt>47</dt><dd>SAP tables kept in an offline copy, so answers continue when SAP is down</dd></div>
       <div><dt>5</dt><dd>roles, from sales to warehouse, each seeing only their own areas</dd></div>
     </dl>
-    <p>Figures from the SAP B1 AI case study below, built and run by me.</p>
+    <p>Figures from SAP B1 AI, my featured project below, built and run by me.</p>
   </div>
 </div>
 
@@ -583,7 +583,7 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
 <section class="alt" id="project">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">Case study</div>
+      <div class="eyebrow">Featured project</div>
       <h2>SAP B1 AI: an AI assistant for a company's ERP</h2>
       <p>One example of the approach, applied to SAP Business One: a self-hosted AI assistant and management dashboard, similar in spirit to SAP Joule. Designed, built and run by me, end to end, and in daily use. The same building blocks work for any system with data behind it.</p>
     </div>
@@ -1003,10 +1003,10 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
     erp:['Your ERP','reads it read-only; anything that would create a document goes through the ERP’s own interface, only after a person says yes'],
     email:['Outlook and email','prepares emails (reminders, orders, summaries) for a person to check and send'],
     docs:['PDFs and Word files','reads them and pulls out the text and figures needed, so nobody retypes them']};
-  var GOAL={ask:['An assistant your team can ask','People ask in plain language, on a PC or a phone, and get exact figures, tables and charts in seconds, with every amount checked against the data.','Proven in the case study: Ask in plain language, Business data.'],
-    reports:['Reports that build themselves','Scheduled reports (Excel or PDF), built every night or week from your data, with a short summary of what changed and what needs attention.','Proven in the case study: Reports in one click, the management report pack.'],
-    alerts:['Problems spotted early','Daily checks that flag what needs action, such as late payments, low stock or unusual transactions, sent as alerts before they become problems.','Proven in the case study: stock alerts and unusual-transaction checks.'],
-    drafts:['Less typing, fewer mistakes','The AI prepares documents and emails from your data and shows a preview; nothing is saved or sent until a person approves it.','Proven in the case study: SAP drafts after a yes, payment reminder emails.']};
+  var GOAL={ask:['An assistant your team can ask','People ask in plain language, on a PC or a phone, and get exact figures, tables and charts in seconds, with every amount checked against the data.','Proven in SAP B1 AI: Ask in plain language, Business data.'],
+    reports:['Reports that build themselves','Scheduled reports (Excel or PDF), built every night or week from your data, with a short summary of what changed and what needs attention.','Proven in SAP B1 AI: Reports in one click, the management report pack.'],
+    alerts:['Problems spotted early','Daily checks that flag what needs action, such as late payments, low stock or unusual transactions, sent as alerts before they become problems.','Proven in SAP B1 AI: stock alerts and unusual-transaction checks.'],
+    drafts:['Less typing, fewer mistakes','The AI prepares documents and emails from your data and shows a preview; nothing is saved or sent until a person approves it.','Proven in SAP B1 AI: SAP drafts after a yes, payment reminder emails.']};
   var fitSys=document.getElementById('fitSys'), fitGoal=document.getElementById('fitGoal'), fitOut=document.getElementById('fitOut');
   function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
   function drawFit(){
@@ -1026,7 +1026,7 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
   var toast=document.getElementById('toast'), tt;
   function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on')},1800)}
   function go(id){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
-  var CMDS=[['What I build','build','i-wand-sparkles','Section'],['Case study: SAP B1 AI','project','i-target','Section'],['Try the AI live','try','i-circle-play','Section'],
+  var CMDS=[['What I build','build','i-wand-sparkles','Section'],['Project: SAP B1 AI','project','i-target','Section'],['Try the AI live','try','i-circle-play','Section'],
     ['What could AI do for you?','fit','i-sparkles','Section'],['Other work','work','i-grid','Section'],['Experience and education','experience','i-clock','Section'],
     ['Skills','skills','i-plug','Section'],['Contact','contact','i-mail','Section'],
     ['Switch light / dark',function(){btn.click()},'i-moon','Action'],
