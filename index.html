@@ -288,6 +288,8 @@ dialog.lb button{position:fixed;top:14px;right:14px;width:40px;height:40px;borde
 .trylive{display:block}
 .tlhead{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
 .tlhead .btn{flex:none}
+.tlbtns{display:flex;flex-direction:column;gap:8px;flex:none}
+.tlbtns .btn{justify-content:center}
 .demo{margin:20px 0 6px;border:1px solid var(--line);border-radius:var(--r);background:var(--panel);overflow:hidden;box-shadow:var(--shadow)}
 .dbar{display:flex;align-items:center;gap:6px;height:38px;padding:0 12px;border-bottom:1px solid var(--line)}
 .dbar i{width:10px;height:10px;border-radius:50%;background:var(--line)}
@@ -552,6 +554,7 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--brand
   .batime b{font-size:32px}
   .trylive{padding:18px 16px}
   .tlhead .btn{width:100%;justify-content:center;min-height:46px}
+  .tlbtns{width:100%}
   .demo{margin-top:14px}
   .head[style*="margin-top:72px"]{margin-top:52px !important}
   .logos{grid-template-columns:1fr 1fr;gap:8px}
@@ -735,9 +738,12 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--brand
         <div>
           <div class="eyebrow">Try it live <span class="live" id="live"><i></i><span>Checking…</span></span></div>
           <h3>Ask the AI yourself</h3>
-          <p>Pick a question about SAP's demo company, OEC Computers, and watch the AI answer it from SAP Business One. Or open the full demo and ask your own.</p>
+          <p>Pick a question about SAP's demo company, OEC Computers, and watch the AI answer it from SAP Business One. Or open the whole app as a guest: chat, dashboard, business data and reports, no sign-up.</p>
         </div>
-        <a class="btn" id="tryBtn" href="https://archlinux.taila38d1a.ts.net:8443/sapb1/try" target="_blank" rel="noopener">Open full screen <svg><use href="#i-external-link"/></svg></a>
+        <div class="tlbtns">
+          <a class="btn primary" id="guestBtn" href="https://archlinux.taila38d1a.ts.net:8443/portal/guest" target="_blank" rel="noopener">Open the full app as a guest <svg><use href="#i-external-link"/></svg></a>
+          <a class="btn" id="tryBtn" href="https://archlinux.taila38d1a.ts.net:8443/sapb1/try" target="_blank" rel="noopener">Simple demo, full screen <svg><use href="#i-external-link"/></svg></a>
+        </div>
       </div>
       <div class="demo">
         <div class="dbar"><i></i><i></i><i></i><span id="dmode">SAP B1 AI · demo</span><button type="button" class="dreset" id="dreset" hidden><svg><use href="#i-rotate-ccw"/></svg>Start over</button></div>
@@ -750,7 +756,7 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--brand
           </div>
         </div>
       </div>
-      <p class="fine">Runs on my own server, so there are a few questions per visitor and one answer at a time. Read-only, and nothing you ask is saved.</p>
+      <p class="fine">Runs on my own server, so there are a few questions per visitor and one answer at a time. Read-only. The simple demo saves nothing; a guest visit keeps your chats for 24 hours, then deletes them.</p>
     </div>
 <script type="application/json" id="replayData">[{"q": "Who owes us the most overdue money? Top 5.", "blocks": ["<p class=\"look\">\ud83d\udd0e <em>Checking who owes us money\u2026<\/em><\/p>", "<p>The top 5 overdue customers (as of 4 Nov 2026):<\/p>", "<div class=\"rtw\"><table><thead><tr><th>#<\/th><th>Customer<\/th><th>Overdue<\/th><th>Oldest invoice late<\/th><\/tr><\/thead><tbody><tr><td class=r>1<\/td><td>Maxi-Teq<\/td><td class=r>$1,670,701.79<\/td><td class=r>1,520 days<\/td><\/tr><tr><td class=r>2<\/td><td>River Inc<\/td><td class=r>$1,416,827.50<\/td><td class=r>1,236 days<\/td><\/tr><tr><td class=r>3<\/td><td>Parameter Technology<\/td><td class=r>$1,342,959.19<\/td><td class=r>1,362 days<\/td><\/tr><tr><td class=r>4<\/td><td>Star Company<\/td><td class=r>$1,320,992.25<\/td><td class=r>1,263 days<\/td><\/tr><tr><td class=r>5<\/td><td>Earthshaker Corporation<\/td><td class=r>$1,164,167.90<\/td><td class=r>2,440 days<\/td><\/tr><\/tbody><\/table><\/div>", "<p>Total overdue across all customers: $10,633,448.06.<\/p>"], "short": "Who owes us the most overdue money?"}, {"q": "Which items do I need to reorder? Top 5 most urgent.", "blocks": ["<p>The 5 most urgent items to reorder (all running out now, before a new order can arrive):<\/p>", "<div class=\"rtw\"><table><thead><tr><th>#<\/th><th>Item<\/th><th>Warehouse<\/th><th>Short<\/th><th>Suggested order<\/th><th>Est. value<\/th><\/tr><\/thead><tbody><tr><td class=r>1<\/td><td>PC - 12x core, 64GB, 5 x 150GB SSD (P10002)<\/td><td class=r>01<\/td><td class=r>190 units<\/td><td class=r>152<\/td><td class=r>$157,320.00<\/td><\/tr><tr><td class=r>2<\/td><td>Memory DDR RAM 8GB (C00011)<\/td><td class=r>01<\/td><td class=r>310 units<\/td><td class=r>311<\/td><td class=r>$12,440.00<\/td><\/tr><tr><td class=r>3<\/td><td>32GB Memory Server (P20002)<\/td><td class=r>01<\/td><td class=r>86 units<\/td><td class=r>125<\/td><td class=r>$375,000.00<\/td><\/tr><tr><td class=r>4<\/td><td>MRP_Child1 (MRP_Child1)<\/td><td class=r>01<\/td><td class=r>52 units<\/td><td class=r>52<\/td><td class=r>$0.00<\/td><\/tr><tr><td class=r>5<\/td><td>MRP_Grandchild (MRP_Grandchild)<\/td><td class=r>01<\/td><td class=r>50 units<\/td><td class=r>72<\/td><td class=r>$0.00<\/td><\/tr><\/tbody><\/table><\/div>", "<p><strong>Key points:<\/strong><\/p>", "<ul><li><strong>Memory DDR RAM 8GB<\/strong> is the most operationally critical \u2014 it blocks 2 open production orders (WO 153, WO 154) and is a BOM component of 4 finished products. A transfer of 50 units from warehouse 02 is also recommended.<\/li><li><strong>PC - 12x core (P10002)<\/strong> is a BOM component of P10004 and is also out now.<\/li><li><strong>32GB Memory Server (P20002)<\/strong> is the largest dollar exposure at $375,000.00.<\/li><\/ul>", "<p><strong>Next step:<\/strong> Chase the open purchase orders for these items and place new orders for the suggested quantities; for the RAM, also arrange the transfer from warehouse 02.<\/p>"], "short": "Which items do I need to reorder?"}, {"q": "Which suppliers do we buy the most from this year? Top 5.", "blocks": ["<p class=\"look\">\ud83d\udd0e <em>Building the supplier dashboard\u2026<\/em><\/p>", "<img src=\"assets/replay/suppliers-1.webp\" width=\"1032\" height=\"557\" alt=\"Spend by supplier\" loading=\"lazy\">", "<img src=\"assets/replay/suppliers-2.webp\" width=\"1188\" height=\"557\" alt=\"Where buying at the best price would have saved money\" loading=\"lazy\">", "<p>Here are your top 5 suppliers by purchase spend this year (data through 13 Sep 2026):<\/p>", "<div class=\"rtw\"><table><thead><tr><th>Rank<\/th><th>Supplier<\/th><th>Spend<\/th><th>Share<\/th><\/tr><\/thead><tbody><tr><td class=r>1<\/td><td>Anthony Smith<\/td><td class=r>$309,815.00<\/td><td>20.2%<\/td><\/tr><tr><td class=r>2<\/td><td>Lumarx<\/td><td class=r>$262,821.00<\/td><td>17.1%<\/td><\/tr><tr><td class=r>3<\/td><td>Sea Corp<\/td><td class=r>$179,218.50<\/td><td>11.7%<\/td><\/tr><tr><td class=r>4<\/td><td>Far East Imports<\/td><td class=r>$175,088.25<\/td><td>11.4%<\/td><\/tr><tr><td class=r>5<\/td><td>Acme Associates<\/td><td class=r>$155,064.00<\/td><td>10.1%<\/td><\/tr><\/tbody><\/table><\/div>", "<p><strong>Next step:<\/strong> If you want to see what we still owe each of these suppliers or their on-time delivery performance, I can pull that up.<\/p>"], "short": "Which suppliers do we buy the most from?"}]</script>
 
@@ -1219,6 +1225,7 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--brand
     ['Copy my email address',function(){var a='idhamproaqw98@gmail.com';(navigator.clipboard?navigator.clipboard.writeText(a):Promise.reject()).then(function(){say('Email address copied')},function(){say(a)})},'i-copy','Action'],
     ['Email me',function(){location.href='mailto:idhamproaqw98@gmail.com'},'i-mail','Action'],
     ['Download my résumé (PDF)',function(){var a=document.createElement('a');a.href='assets/Resume_Idham_Hakim.pdf';a.download='Resume_Idham_Hakim.pdf';document.body.appendChild(a);a.click();a.remove()},'i-cv','Action'],
+    ['Open the full app as a guest',function(){window.open('https://archlinux.taila38d1a.ts.net:8443/portal/guest','_blank','noopener')},'i-external-link','Link'],
     ['Open the live demo',function(){window.open(TRY,'_blank','noopener')},'i-external-link','Link'],
     ['GitHub',function(){window.open('https://github.com/ezzzy01','_blank','noopener')},'i-external-link','Link'],
     ['LinkedIn',function(){window.open('https://www.linkedin.com/in/idham-hakim-29b676270','_blank','noopener')},'i-external-link','Link']];
