@@ -542,6 +542,11 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--brand
   .feat .shots.swipe-m>button{flex:0 0 84%;scroll-snap-align:start;min-width:0}
   .feat .shots.phones.swipe-m>button{flex-basis:58%}
   #tourPlay{min-height:44px}
+  .tourbar{display:grid;grid-template-columns:1fr 44px 44px;gap:8px}
+  #tourPlay{grid-column:1;grid-row:1;justify-content:center}
+  #tourPrev{grid-column:2;grid-row:1}
+  #tourNext{grid-column:3;grid-row:1}
+  .tourdots{grid-column:1/-1;grid-row:2;justify-content:center;margin:6px 0 0}
   .swipe-m .card{padding:18px}
   .sdots{display:flex;justify-content:center;align-items:center;gap:7px;margin:10px 0 0;min-height:16px}
   .sdots i{width:7px;height:7px;border-radius:50%;background:var(--line);transition:background .2s,width .2s}
