@@ -12,9 +12,9 @@ featured project, other work, experience, education, skills, a downloadable rés
 
 - **About me**: role, location, contact links and a résumé download (PDF).
 - **What I build**: the kinds of AI solutions I make, a before/after comparison and how I work.
-- **Featured project, SAP B1 AI**: challenge, approach and result; screenshots; an architecture diagram with a
-  step-by-step "Follow a question" tour; and a demo inside the page (live when my server is reachable, otherwise a
-  replay of real recorded answers).
+- **Featured project, SAP B1 AI**, laid out as a record page with tabs: Overview, Live demo (live when my server is
+  reachable, otherwise a replay of real recorded answers; or open the whole app as a guest), Screens, How it works
+  (a step-by-step "Follow a question" tour), Security and Built with.
 - **What could AI do for you?**: pick your systems and goal to get a sketch of what I'd build.
 - **Other work, experience, education and skills.**
 - Extras: light/dark mode, a Ctrl+K quick menu, a sharing preview card and a custom 404 page.
@@ -22,6 +22,9 @@ featured project, other work, experience, education, skills, a downloadable rés
   targets of at least 44px.
 
 ## How it's built
+
+- The design follows SAP B1 AI's own: warm neutrals, one terracotta accent for the main action, SAP Fiori-style
+  record header, key figure tiles, tabs and cards, in light and dark. System fonts, so nothing to download.
 
 - Plain HTML, CSS and JavaScript in one page (`index.html`). No framework and no build step.
 - Hosted on GitHub Pages from the `main` branch.
@@ -32,7 +35,6 @@ index.html              the whole site (styles and scripts included)
 404.html                page-not-found page
 assets/img/             screenshots and the animated demo (SAP's public demo company, not client data)
 assets/replay/          charts used by the demo replay
-assets/fonts/           Inter (variable font)
 assets/og.png           link-sharing preview image
 assets/Resume_Idham_Hakim.pdf
 robots.txt, sitemap.xml
@@ -42,7 +44,6 @@ Preview locally from this folder with `python3 -m http.server 8000`, then open h
 
 ## Credits
 
-- [Inter](https://rsms.me/inter/) typeface: SIL Open Font License 1.1.
 - [Lucide](https://lucide.dev) icons: ISC License.
 - Technology logos from [Simple Icons](https://simpleicons.org): CC0. The logos are trademarks of their owners.
 - SAP and SAP Business One are trademarks of SAP SE. This is an independent project.

@@ -7,17 +7,15 @@
 <meta name="robots" content="noindex">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <style>
-@font-face{font-family:"Inter";src:url("/assets/fonts/inter-latin-wght.woff2") format("woff2");font-weight:100 900;font-display:swap}
-:root{--bg:#f7f8fa;--panel:#fff;--ink:#1d2433;--ink2:#4a5468;--line:#e3e7ee;--brand:#0a6ed1}
-@media (prefers-color-scheme:dark){:root{--bg:#0f1420;--panel:#161d2b;--ink:#e8ecf3;--ink2:#b4bccb;--line:#263043;--brand:#4db1ff}}
+:root{--page:#f7f5f0;--card:#fffefb;--ink:#2b2925;--muted:#6e6862;--accent:#b5532c;--accent-ink:#fff;--mark:#2b2925;--mark-ink:#fffefb}
+@media (prefers-color-scheme:dark){:root{--page:#262523;--card:#2e2c29;--ink:#ece8e1;--muted:#a8a299;--accent:#e07b52;--accent-ink:#1f1e1c;--mark:#ece8e1;--mark-ink:#1f1e1c}}
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--bg);color:var(--ink);font:16px/1.6 "Inter","Segoe UI",system-ui,sans-serif;padding:24px}
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--page);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;padding:24px}
 main{text-align:center;max-width:460px}
-.lg{display:inline-grid;place-items:center;width:48px;height:48px;border-radius:12px;background:var(--brand);color:#fff;font-weight:700}
+.lg{display:inline-grid;place-items:center;width:48px;height:48px;border-radius:12px;background:var(--mark);color:var(--mark-ink);font-weight:750}
 h1{font-size:64px;letter-spacing:-.04em;margin:18px 0 0;line-height:1}
-p{color:var(--ink2);margin:12px 0 26px}
-a.btn{display:inline-block;padding:10px 18px;border-radius:10px;background:var(--brand);color:#fff;font-weight:600;text-decoration:none}
-@media (prefers-color-scheme:dark){a.btn{color:#06121f}}
+p{color:var(--muted);margin:12px 0 26px}
+a.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:10px;background:var(--accent);color:var(--accent-ink);font-weight:600;text-decoration:none}
 </style>
 </head>
 <body>
