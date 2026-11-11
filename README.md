@@ -18,6 +18,8 @@ featured project, other work, experience, education, skills, a downloadable rés
 - **What could AI do for you?**: pick your systems and goal to get a sketch of what I'd build.
 - **Other work, experience, education and skills.**
 - Extras: light/dark mode, a Ctrl+K quick menu, a sharing preview card and a custom 404 page.
+- On phones: a menu, swipeable card rows, a phone-sized hero picture, an Email me bar at the bottom, and tap
+  targets of at least 44px.
 
 ## How it's built
 

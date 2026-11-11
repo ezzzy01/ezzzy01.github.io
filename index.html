@@ -446,6 +446,132 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
 
 @media (max-width:600px){.wrap{padding:0 16px}section{padding:52px 0}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ==== makeover (Nov 2026): phone-first layout, type, order ==== */
+/* no text under 13px */
+.frame .bar span,.live,.tourcap .stepn,#klist li small,.kfoot{font-size:13px}
+.dbar span,.proof p,.logos li small{font-size:13px}
+.logos li small{line-height:1.45}
+/* hero: two main actions, then a quiet link row; bigger picture on desktop */
+@media (min-width:901px){.hero .wrap{grid-template-columns:1fr 1.2fr}}
+.links{display:flex;flex-wrap:wrap;gap:0 18px;margin-top:14px}
+.links a{display:inline-flex;align-items:center;gap:8px;min-height:44px;color:var(--ink2);font-weight:550;font-size:15px;text-decoration:none}
+.links a:hover{color:var(--brand)}
+.links svg{width:17px;height:17px;flex:none}
+.cap .ph{display:none}
+.hero picture{display:block}
+/* header menu button and sheet (phones) */
+.menubtn{display:none}
+dialog.sheet{margin:0 0 0 auto;height:100%;max-height:none;width:min(360px,88vw);padding:0;border:0;border-left:1px solid var(--line);background:var(--panel);color:var(--ink);box-shadow:-12px 0 40px rgba(0,0,0,.18);overflow:auto}
+dialog.sheet[open]{display:flex;flex-direction:column;animation:sheetin .22s ease}
+dialog.sheet::backdrop{background:rgba(10,16,28,.45)}
+@keyframes sheetin{from{transform:translateX(30px);opacity:0}to{transform:none;opacity:1}}
+.shead{display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 12px 0 16px;border-bottom:1px solid var(--line);flex:none}
+dialog.sheet nav{display:flex;flex-direction:column;padding:8px 8px 0}
+dialog.sheet nav a{display:flex;align-items:center;min-height:50px;padding:0 12px;border-radius:10px;color:var(--ink);text-decoration:none;font-size:17px;font-weight:550}
+dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--brandbg)}
+.sacts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:16px;margin-top:auto;border-top:1px solid var(--line)}
+.sacts .btn{justify-content:center;min-height:46px;padding:10px 6px;font-size:14px;gap:6px}
+.sacts .btn.primary{grid-column:1/-1}
+/* swipe rows: dots under them (phones only) */
+.sdots{display:none}
+/* bottom contact bar (phones only) */
+.mbar{display:none}
+.moretools{display:none}
+
+@media (max-width:760px){
+  .menubtn{display:grid}
+  .nav .kbtn{margin-left:auto}
+  .nav .wrap{gap:8px}
+  .iconbtn,.kbtn,.tbtn{width:44px;height:44px}
+  .logo{min-height:44px}
+  .seg button{padding:11px 20px}
+  .tab,.opt{min-height:44px}
+  .dreset{min-height:40px}
+  .kfoot{display:none}
+  /* bottom bar */
+  .mbar{display:grid;grid-template-columns:1.4fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:15;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--panel) 92%,transparent);backdrop-filter:saturate(1.4) blur(10px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .25s ease}
+  .mbar.on{transform:none}
+  .mbar .btn{justify-content:center;min-height:46px}
+  .toast{bottom:88px}
+  /* feature tabs: one swipeable row */
+  .tabs{flex-wrap:nowrap;overflow-x:auto;margin:0 -16px 18px;padding:2px 16px 4px;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{flex:none}
+  /* architecture list on phones: tighter */
+  .flow{margin:6px 0 4px}
+  .flow .node{padding:10px 14px}
+  .flow .arr{height:18px;flex-basis:18px}
+  .flow .arr svg{width:15px;height:15px}
+  .flowlbl{margin-top:16px}
+  /* steps: number beside the heading */
+  .steps{gap:18px}
+  .steps>div{display:grid;grid-template-columns:28px 1fr;column-gap:12px}
+  .steps b{grid-row:span 2;margin:0}
+}
+
+@media (max-width:600px){
+  section{padding:44px 0}
+  .head{margin-bottom:22px}
+  .head p{font-size:16px}
+  h3{font-size:18px}
+  /* hero */
+  .hero{padding:28px 0 32px}
+  .hero .wrap{gap:24px}
+  .hero h1{font-size:40px;margin:6px 0 6px}
+  .hero .role{font-size:17px}
+  .hero .lead{font-size:16.5px;margin:14px 0 20px}
+  .hero .btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .hero .btns .btn{justify-content:center;min-height:48px;padding:10px 12px}
+  .links{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;margin-top:8px}
+  .loc{margin-top:10px}
+  .hero .frame{border:0;background:none;box-shadow:none;border-radius:0;overflow:visible}
+  .hero .frame .bar{display:none}
+  .hero .frame img{max-width:330px;margin:0 auto}
+  .cap .dk{display:none}.cap .ph{display:inline}
+  /* figures: last one spans the row */
+  .proof{padding:22px 0 18px}
+  .proof dl{gap:18px 16px}
+  .proof dd{font-size:14px}
+  /* swipe rows */
+  .swipe-m{display:flex !important;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-left:-16px;margin-right:-16px;padding:2px 16px 4px;scroll-padding:0 16px;scrollbar-width:none;overscroll-behavior-x:contain}
+  .swipe-m::-webkit-scrollbar{display:none}
+  .swipe-m>*{flex:0 0 84%;scroll-snap-align:start;min-width:0}
+  .feat .shots.swipe-m>button{flex:0 0 84%;scroll-snap-align:start;min-width:0}
+  .feat .shots.phones.swipe-m>button{flex-basis:58%}
+  #tourPlay{min-height:44px}
+  .swipe-m .card{padding:18px}
+  .sdots{display:flex;justify-content:center;align-items:center;gap:7px;margin:10px 0 0;min-height:16px}
+  .sdots i{width:7px;height:7px;border-radius:50%;background:var(--line);transition:background .2s,width .2s}
+  .sdots i.on{background:var(--brand);width:18px;border-radius:4px}
+  .car{margin-bottom:36px}
+  .feat .shots{gap:12px}
+  /* sections that were very tall */
+  .ba{margin-top:32px}
+  .bapane{padding:18px 16px;gap:16px}
+  .batime b{font-size:32px}
+  .trylive{padding:18px 16px}
+  .tlhead .btn{width:100%;justify-content:center;min-height:46px}
+  .demo{margin-top:14px}
+  .head[style*="margin-top:72px"]{margin-top:52px !important}
+  .logos{grid-template-columns:1fr 1fr;gap:8px}
+  .logos li{flex-direction:column;gap:6px;padding:12px}
+  .skills{grid-template-columns:1fr;gap:18px}
+  .logos.clip li:nth-child(n+5){display:none}
+  .moretools{display:flex;width:100%;justify-content:center;margin-top:10px;min-height:46px}
+  .contact .pdf{display:none}
+  .item{padding-bottom:20px}
+  .tl{gap:28px}
+  .contact p{font-size:16px}
+  .contact .btns{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .contact .btns .btn{padding:10px 6px;font-size:14px;gap:6px}
+  .contact .btns .btn{justify-content:center;min-height:46px}
+  .contact .btns .btn.primary{grid-column:1/-1;font-size:14.5px}
+  footer{padding:22px 0 28px;font-size:13.5px}
+}
+@media (max-width:560px){.proof dl>div:last-child{grid-column:1/-1}}
+@media (max-width:370px){.hero .btns .btn{font-size:14px;padding:10px 8px}}
+@media (prefers-reduced-motion:reduce){.mbar{transition:none}}
 </style>
 </head>
 <body>
@@ -485,6 +611,8 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
   <symbol id="i-plug" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-plug" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 22v-5" /> <path d="M9 8V2" /> <path d="M15 8V2" /> <path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z" /></g></symbol>
   <symbol id="i-server" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-server" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <rect width="20" height="8" x="2" y="2" rx="2" ry="2" /> <rect width="20" height="8" x="2" y="14" rx="2" ry="2" /> <line x1="6" x2="6.01" y1="6" y2="6" /> <line x1="6" x2="6.01" y1="18" y2="18" /></g></symbol>
   <symbol id="i-usercheck" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-user-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <circle cx="9" cy="7" r="4" /> <polyline points="16 11 18 13 22 9" /></g></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></g></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></g></symbol>
 </svg>
 
 <a class="skip" href="#top">Skip to content</a>
@@ -502,6 +630,7 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
     </nav>
     <button class="kbtn" id="kbtn" type="button" aria-label="Open the quick menu (Ctrl+K)"><svg><use href="#i-search"/></svg><span>Quick menu</span><kbd>Ctrl K</kbd></button>
     <button class="iconbtn" id="theme" type="button" aria-label="Switch to dark mode" title="Light / dark"><svg><use href="#i-moon"/></svg></button>
+    <button class="iconbtn menubtn" id="menuBtn" type="button" aria-label="Open the menu" aria-haspopup="dialog" aria-controls="sheet"><svg><use href="#i-menu"/></svg></button>
   </div>
 </header>
 
@@ -517,19 +646,21 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
       <div class="btns">
         <a class="btn primary" href="#try">Try the AI live <svg><use href="#i-arrow"/></svg></a>
         <a class="btn" href="#project">See my projects <svg><use href="#i-down"/></svg></a>
-        <a class="btn" href="mailto:idhamproaqw98@gmail.com"><svg><use href="#i-mail"/></svg> Email me</a>
-        <a class="btn" href="https://github.com/ezzzy01" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg> GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/idham-hakim-29b676270" target="_blank" rel="noopener"><svg><use href="#i-in"/></svg> LinkedIn</a>
-        <a class="btn" href="assets/Resume_Idham_Hakim.pdf" download="Resume_Idham_Hakim.pdf"><svg><use href="#i-cv"/></svg> Résumé (PDF)</a>
+      </div>
+      <div class="links">
+        <a href="mailto:idhamproaqw98@gmail.com"><svg><use href="#i-mail"/></svg>Email me</a>
+        <a href="assets/Resume_Idham_Hakim.pdf" download="Resume_Idham_Hakim.pdf"><svg><use href="#i-cv"/></svg>Résumé (PDF)</a>
+        <a href="https://github.com/ezzzy01" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg>GitHub</a>
+        <a href="https://www.linkedin.com/in/idham-hakim-29b676270" target="_blank" rel="noopener"><svg><use href="#i-in"/></svg>LinkedIn</a>
       </div>
       <div class="loc"><svg><use href="#i-pin"/></svg> Kuala Lumpur, Malaysia</div>
     </div>
     <div>
       <div class="frame">
         <div class="bar"><i></i><i></i><i></i><span>SAP B1 AI · asking a question</span></div>
-        <img src="assets/img/demo-ask.webp" width="1024" height="640" fetchpriority="high" decoding="async" alt="Animation: a question is typed into the SAP B1 AI chat and it answers with figures and a table.">
+        <picture><source media="(max-width:600px)" srcset="assets/img/hero-phone.webp" width="1162" height="1402"><img src="assets/img/demo-ask.webp" width="1024" height="640" fetchpriority="high" decoding="async" alt="SAP B1 AI answering “Who owes us the most overdue money?” with the figures and a table of customers."></picture>
       </div>
-      <p class="cap">Featured project: an AI assistant on SAP Business One (live recording, public demo data)</p>
+      <p class="cap"><span class="dk">Featured project: an AI assistant on SAP Business One (live recording, public demo data)</span><span class="ph">Featured project: SAP B1 AI on a phone (public demo data)</span></p>
     </div>
   </div>
 </div>
@@ -556,7 +687,7 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
       <h2>AI that fits the way a business already works</h2>
       <p>Not a chatbot bolted on the side: AI connected to the real data and tools, with the checks a company needs before it trusts the answers.</p>
     </div>
-    <div class="grid3">
+    <div class="grid3 swipe-m" aria-label="What I build">
       <div class="card"><svg><use href="#i-chat"/></svg><h3>Assistants on your own data</h3><p>Ask a database, ERP or set of spreadsheets a question in plain language and get exact figures, tables, charts or an Excel file back.</p></div>
       <div class="card"><svg><use href="#i-usercheck"/></svg><h3>AI that acts, with a human in charge</h3><p>The AI uses tools to look things up and prepare work; anything that changes data waits for a person to review and say yes.</p></div>
       <div class="card"><svg><use href="#i-server"/></svg><h3>Private and self-hosted</h3><p>Models that run on the company's own server, so sensitive data never leaves the building. Read-only access and roles by default.</p></div>
@@ -590,10 +721,10 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
     <div class="head">
       <div class="eyebrow">Featured project</div>
       <h2>SAP B1 AI: an AI assistant for a company's ERP</h2>
-      <p>One example of the approach, applied to SAP Business One: a self-hosted AI assistant and management dashboard, similar in spirit to SAP Joule. Designed, built and run by me, end to end, and in daily use. The same building blocks work for any system with data behind it.</p>
+      <p>A self-hosted AI assistant and management dashboard for SAP Business One, similar in spirit to SAP Joule. I designed, built and run it end to end, and it is in daily use. The same building blocks work for any system with data behind it.</p>
     </div>
 
-    <div class="car">
+    <div class="car swipe-m" aria-label="Challenge, approach and result">
       <div class="card"><span class="ct"><svg><use href="#i-target"/></svg></span><h3>The challenge</h3><p>Answers about sales, stock, receivables and orders sat inside SAP Business One, behind reports only a few people knew how to run. Managers waited for someone to pull the numbers, and the numbers were often out of date when they arrived.</p></div>
       <div class="card"><span class="ct"><svg><use href="#i-route"/></svg></span><h3>The approach</h3><p>A private AI model on the company's own server, connected to SAP through read-only lookups it can call as tools. Every figure is checked against the data, each role sees only its areas, and anything that would change SAP waits for a person's yes.</p></div>
       <div class="card"><span class="ct"><svg><use href="#i-trophy"/></svg></span><h3>The result</h3><p>Anyone can ask in plain language, in the browser or on a phone, and get exact figures, tables, charts or an Excel file in seconds, plus a management dashboard and one-click reports. It keeps answering from a saved copy when SAP is offline.</p></div>
@@ -639,11 +770,11 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
         <p>"Who owes us the most overdue money?" The AI looks it up in SAP B1 and answers with the figures, a table or a chart, and an Excel file when asked.</p>
         <ul><li>Sortable answer tables with status badges</li><li>Charts drawn from the real figures</li><li>Suggested follow-up questions</li><li>Answers keep going in the background</li></ul>
       </div>
-      <div class="shots two">
-        <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/02-answer-table.webp" width="1600" height="1000" alt="An answer listing customers with overdue balances in a sortable table."></div></button>
-        <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/03-answer-chart.webp" width="1600" height="1000" alt="An answer with a monthly sales chart."></div></button>
-        <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/04-answer-orders.webp" width="1600" height="1000" alt="An answer listing open sales orders still to deliver."></div></button>
-        <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/01-start.webp" width="1600" height="1000" alt="The start screen with today's key figures and suggested questions."></div></button>
+      <div class="shots two swipe-m">
+        <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/02-answer-table.webp" srcset="assets/img/02-answer-table-960.webp 960w, assets/img/02-answer-table.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="An answer listing customers with overdue balances in a sortable table."></div></button>
+        <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/03-answer-chart.webp" srcset="assets/img/03-answer-chart-960.webp 960w, assets/img/03-answer-chart.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="An answer with a monthly sales chart."></div></button>
+        <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/04-answer-orders.webp" srcset="assets/img/04-answer-orders-960.webp 960w, assets/img/04-answer-orders.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="An answer listing open sales orders still to deliver."></div></button>
+        <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/01-start.webp" srcset="assets/img/01-start-960.webp 960w, assets/img/01-start.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="The start screen with today's key figures and suggested questions."></div></button>
       </div>
     </div>
 
@@ -653,7 +784,7 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
         <p>Sales trends, item groups, top customers, receivables ageing, open orders and stock status, with filters and on-demand refresh from SAP.</p>
         <ul><li>Key figures with change against last period</li><li>The running month shown apart, not as a dip</li><li>A question bar docked under the charts</li></ul>
       </div>
-      <div class="shots"><button data-zoom><div class="frame"><img loading="lazy" src="assets/img/05-dashboard.webp" width="1600" height="1000" alt="The management dashboard with key figures and a 12-month sales chart."></div></button></div>
+      <div class="shots"><button data-zoom><div class="frame"><img loading="lazy" src="assets/img/05-dashboard.webp" srcset="assets/img/05-dashboard-960.webp 960w, assets/img/05-dashboard.webp 1600w" sizes="(max-width:900px) 92vw, 720px" width="1600" height="1000" alt="The management dashboard with key figures and a 12-month sales chart."></div></button></div>
     </div>
 
     <div class="feat" role="tabpanel" id="f-data" aria-labelledby="t-data" hidden>
@@ -662,9 +793,9 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
         <p>Browse customers, suppliers, items and documents, read-only. Every table sorts, exports to Excel and opens into a record page.</p>
         <ul><li>Record pages with a 12-month trend</li><li>Dates and currencies formatted for people</li><li>Tables become cards on a phone</li></ul>
       </div>
-      <div class="shots two">
-        <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/06-business-data.webp" width="1600" height="1000" alt="The customer list with search, sorting and Excel export."></div></button>
-        <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/07-customer.webp" width="1600" height="1000" alt="A customer record page with balances and a 12-month chart."></div></button>
+      <div class="shots two swipe-m">
+        <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/06-business-data.webp" srcset="assets/img/06-business-data-960.webp 960w, assets/img/06-business-data.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="The customer list with search, sorting and Excel export."></div></button>
+        <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/07-customer.webp" srcset="assets/img/07-customer-960.webp 960w, assets/img/07-customer.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="A customer record page with balances and a 12-month chart."></div></button>
       </div>
     </div>
 
@@ -673,9 +804,9 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
         <h3>Reports in one click</h3>
         <p>Sales, forecast, customer insights, product profitability, reorder list, inventory health and who owes us. Each runs in its own chat with charts and an Excel file.</p>
       </div>
-      <div class="shots two">
-        <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/08-reports.webp" width="1600" height="1000" alt="The reports page with ready-made reports."></div></button>
-        <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/09-settings.webp" width="1600" height="1000" alt="The settings page with a side menu."></div></button>
+      <div class="shots two swipe-m">
+        <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/08-reports.webp" srcset="assets/img/08-reports-960.webp 960w, assets/img/08-reports.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="The reports page with ready-made reports."></div></button>
+        <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/09-settings.webp" srcset="assets/img/09-settings-960.webp 960w, assets/img/09-settings.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="The settings page with a side menu."></div></button>
       </div>
     </div>
 
@@ -685,7 +816,7 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
         <p>When the SAP B1 server can't be reached, answers come from a saved copy of the data on the AI server, and the app says so plainly, with the date of the copy.</p>
         <ul><li>A status pill: "SAP live" or "Saved data"</li><li>SQL Server queries translated to DuckDB with sqlglot</li><li>Drafts into SAP always need the live system</li></ul>
       </div>
-      <div class="shots"><button data-zoom><div class="frame"><img loading="lazy" src="assets/img/10-offline.webp" width="1600" height="1000" alt="An answer given from the saved copy with a notice that SAP can't be reached."></div></button></div>
+      <div class="shots"><button data-zoom><div class="frame"><img loading="lazy" src="assets/img/10-offline.webp" srcset="assets/img/10-offline-960.webp 960w, assets/img/10-offline.webp 1600w" sizes="(max-width:900px) 92vw, 720px" width="1600" height="1000" alt="An answer given from the saved copy with a notice that SAP can't be reached."></div></button></div>
     </div>
 
     <div class="feat" role="tabpanel" id="f-phone" aria-labelledby="t-phone" hidden>
@@ -693,11 +824,11 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
         <h3>Phone and dark mode</h3>
         <p>The whole app works on a phone, and in light, dark or follow-the-device themes.</p>
         <div class="shots two" style="margin-top:18px">
-          <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/11-dashboard-dark.webp" width="1600" height="1000" alt="The dashboard in dark mode."></div></button>
-          <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/12-answer-dark.webp" width="1600" height="1000" alt="An answer in dark mode."></div></button>
+          <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/11-dashboard-dark.webp" srcset="assets/img/11-dashboard-dark-960.webp 960w, assets/img/11-dashboard-dark.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="The dashboard in dark mode."></div></button>
+          <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/12-answer-dark.webp" srcset="assets/img/12-answer-dark-960.webp 960w, assets/img/12-answer-dark.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="An answer in dark mode."></div></button>
         </div>
       </div>
-      <div class="shots phones">
+      <div class="shots phones swipe-m">
         <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/20-phone-start.webp" width="780" height="1688" alt="Phone: start screen."></div></button>
         <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/21-phone-answer.webp" width="780" height="1688" alt="Phone: an answer with a table."></div></button>
         <button data-zoom><div class="frame"><img loading="lazy" src="assets/img/22-phone-dashboard.webp" width="780" height="1688" alt="Phone: dashboard."></div></button>
@@ -709,7 +840,7 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
       <div class="eyebrow">Trust</div>
       <h2>Built to be trusted with company data</h2>
     </div>
-    <div class="grid3">
+    <div class="grid3 swipe-m" aria-label="Trust">
       <div class="card"><svg><use href="#i-lock"/></svg><h3>Read-only access</h3><p>The AI uses a read-only database login. It cannot change SAP data.</p></div>
       <div class="card"><svg><use href="#i-users"/></svg><h3>Role-based areas</h3><p>Sales, purchasing, finance and management each see their own areas.</p></div>
       <div class="card"><svg><use href="#i-key"/></svg><h3>Sign-in and private chats</h3><p>A sign-in portal in front of everything; each person's chats are their own.</p></div>
@@ -759,69 +890,15 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
 
     <h3 class="sub" style="margin-top:44px">Built with</h3>
     <p class="logolead">What each piece does in SAP B1 AI.</p>
-    <ul class="logos"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg><span><b>Python</b><small>Main language for the AI agent, its tools and the data jobs</small></span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .0387C5.3729.0384.0003 5.3931 0 11.9988c-.001 6.6066 5.372 11.9628 12 11.9625 6.628.0003 12.001-5.3559 12-11.9625-.0003-6.6057-5.3729-11.9604-12-11.96m-.829 5.4153h7.55l-7.5805 5.3284h5.1828L5.279 18.5436q2.9466-6.5444 5.892-13.0896"/></svg><span><b>FastAPI</b><small>Web server behind the chat, the dashboard and streamed answers</small></span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-database"/></svg><span><b>SQL Server</b><small>SAP B1's database, read through a read-only login</small></span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 6.064v11.872h12.13L24 6.064zm3.264 2.208h.005c.863.001 1.915.245 2.676.633l-.82 1.43c-.835-.404-1.255-.442-1.73-.467-.708-.038-1.064.215-1.069.488-.007.332.669.633 1.305.838.964.306 2.19.715 2.377 1.9L7.77 8.437h2.046l2.064 5.576-.007-5.575h2.37c2.257 0 3.318.764 3.318 2.519 0 1.575-1.09 2.514-2.936 2.514h-.763l-.01 2.094-3.588-.003-.25-.908c-.37.122-.787.189-1.23.189-.456 0-.885-.071-1.263-.2l-.358.919-2 .006.09-.462c-.029.025-.057.05-.087.074-.535.43-1.208.629-2.037.644l-.213.002a5.075 5.075 0 0 1-2.581-.675l.73-1.448c.79.467 1.286.572 1.956.558.347-.007.598-.07.761-.239a.557.557 0 0 0 .156-.369c.007-.376-.53-.553-1.185-.756-.531-.164-1.135-.389-1.606-.735-.559-.41-.825-.924-.812-1.65a1.99 1.99 0 0 1 .566-1.377c.519-.537 1.357-.863 2.363-.863zm10.597 1.67v1.904h.521c.694 0 1.247-.23 1.248-.964 0-.709-.554-.94-1.248-.94zm-5.087.767l-.748 2.362c.223.085.481.133.757.133.268 0 .52-.047.742-.126l-.736-2.37z"/></svg><span><b>SAP B1</b><small>The ERP the AI reads from, and drafts into after a yes</small></span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.361 10.26a.894.894 0 0 0-.558.47l-.072.148.001.207c0 .193.004.217.059.353.076.193.152.312.291.448.24.238.51.3.872.205a.86.86 0 0 0 .517-.436.752.752 0 0 0 .08-.498c-.064-.453-.33-.782-.724-.897a1.06 1.06 0 0 0-.466 0zm-9.203.005c-.305.096-.533.32-.65.639a1.187 1.187 0 0 0-.06.52c.057.309.31.59.598.667.362.095.632.033.872-.205.14-.136.215-.255.291-.448.055-.136.059-.16.059-.353l.001-.207-.072-.148a.894.894 0 0 0-.565-.472 1.02 1.02 0 0 0-.474.007Zm4.184 2c-.131.071-.223.25-.195.383.031.143.157.288.353.407.105.063.112.072.117.136.004.038-.01.146-.029.243-.02.094-.036.194-.036.222.002.074.07.195.143.253.064.052.076.054.255.059.164.005.198.001.264-.03.169-.082.212-.234.15-.525-.052-.243-.042-.28.087-.355.137-.08.281-.219.324-.314a.365.365 0 0 0-.175-.48.394.394 0 0 0-.181-.033c-.126 0-.207.03-.355.124l-.085.053-.053-.032c-.219-.13-.259-.145-.391-.143a.396.396 0 0 0-.193.032zm.39-2.195c-.373.036-.475.05-.654.086-.291.06-.68.195-.951.328-.94.46-1.589 1.226-1.787 2.114-.04.176-.045.234-.045.53 0 .294.005.357.043.524.264 1.16 1.332 2.017 2.714 2.173.3.033 1.596.033 1.896 0 1.11-.125 2.064-.727 2.493-1.571.114-.226.169-.372.22-.602.039-.167.044-.23.044-.523 0-.297-.005-.355-.045-.531-.288-1.29-1.539-2.304-3.072-2.497a6.873 6.873 0 0 0-.855-.031zm.645.937a3.283 3.283 0 0 1 1.44.514c.223.148.537.458.671.662.166.251.26.508.303.82.02.143.01.251-.043.482-.08.345-.332.705-.672.957a3.115 3.115 0 0 1-.689.348c-.382.122-.632.144-1.525.138-.582-.006-.686-.01-.853-.042-.57-.107-1.022-.334-1.35-.68-.264-.28-.385-.535-.45-.946-.03-.192.025-.509.137-.776.136-.326.488-.73.836-.963.403-.269.934-.46 1.422-.512.187-.02.586-.02.773-.002zm-5.503-11a1.653 1.653 0 0 0-.683.298C5.617.74 5.173 1.666 4.985 2.819c-.07.436-.119 1.04-.119 1.503 0 .544.064 1.24.155 1.721.02.107.031.202.023.208a8.12 8.12 0 0 1-.187.152 5.324 5.324 0 0 0-.949 1.02 5.49 5.49 0 0 0-.94 2.339 6.625 6.625 0 0 0-.023 1.357c.091.78.325 1.438.727 2.04l.13.195-.037.064c-.269.452-.498 1.105-.605 1.732-.084.496-.095.629-.095 1.294 0 .67.009.803.088 1.266.095.555.288 1.143.503 1.534.071.128.243.393.264.407.007.003-.014.067-.046.141a7.405 7.405 0 0 0-.548 1.873c-.062.417-.071.552-.071.991 0 .56.031.832.148 1.279L3.42 24h1.478l-.05-.091c-.297-.552-.325-1.575-.068-2.597.117-.472.25-.819.498-1.296l.148-.29v-.177c0-.165-.003-.184-.057-.293a.915.915 0 0 0-.194-.25 1.74 1.74 0 0 1-.385-.543c-.424-.92-.506-2.286-.208-3.451.124-.486.329-.918.544-1.154a.787.787 0 0 0 .223-.531c0-.195-.07-.355-.224-.522a3.136 3.136 0 0 1-.817-1.729c-.14-.96.114-2.005.69-2.834.563-.814 1.353-1.336 2.237-1.475.199-.033.57-.028.776.01.226.04.367.028.512-.041.179-.085.268-.19.374-.431.093-.215.165-.333.36-.576.234-.29.46-.489.822-.729.413-.27.884-.467 1.352-.561.17-.035.25-.04.569-.04.319 0 .398.005.569.04a4.07 4.07 0 0 1 1.914.997c.117.109.398.457.488.602.034.057.095.177.132.267.105.241.195.346.374.43.14.068.286.082.503.045.343-.058.607-.053.943.016 1.144.23 2.14 1.173 2.581 2.437.385 1.108.276 2.267-.296 3.153-.097.15-.193.27-.333.419-.301.322-.301.722-.001 1.053.493.539.801 1.866.708 3.036-.062.772-.26 1.463-.533 1.854a2.096 2.096 0 0 1-.224.258.916.916 0 0 0-.194.25c-.054.109-.057.128-.057.293v.178l.148.29c.248.476.38.823.498 1.295.253 1.008.231 2.01-.059 2.581a.845.845 0 0 0-.044.098c0 .006.329.009.732.009h.73l.02-.074.036-.134c.019-.076.057-.3.088-.516.029-.217.029-1.016 0-1.258-.11-.875-.295-1.57-.597-2.226-.032-.074-.053-.138-.046-.141.008-.005.057-.074.108-.152.376-.569.607-1.284.724-2.228.031-.26.031-1.378 0-1.628-.083-.645-.182-1.082-.348-1.525a6.083 6.083 0 0 0-.329-.7l-.038-.064.131-.194c.402-.604.636-1.262.727-2.04a6.625 6.625 0 0 0-.024-1.358 5.512 5.512 0 0 0-.939-2.339 5.325 5.325 0 0 0-.95-1.02 8.097 8.097 0 0 1-.186-.152.692.692 0 0 1 .023-.208c.208-1.087.201-2.443-.017-3.503-.19-.924-.535-1.658-.98-2.082-.354-.338-.716-.482-1.15-.455-.996.059-1.8 1.205-2.116 3.01a6.805 6.805 0 0 0-.097.726c0 .036-.007.066-.015.066a.96.96 0 0 1-.149-.078A4.857 4.857 0 0 0 12 3.03c-.832 0-1.687.243-2.456.698a.958.958 0 0 1-.148.078c-.008 0-.015-.03-.015-.066a6.71 6.71 0 0 0-.097-.725C8.997 1.392 8.337.319 7.46.048a2.096 2.096 0 0 0-.585-.041Zm.293 1.402c.248.197.523.759.682 1.388.03.113.06.244.069.292.007.047.026.152.041.233.067.365.098.76.102 1.24l.002.475-.12.175-.118.178h-.278c-.324 0-.646.041-.954.124l-.238.06c-.033.007-.038-.003-.057-.144a8.438 8.438 0 0 1 .016-2.323c.124-.788.413-1.501.696-1.711.067-.05.079-.049.157.013zm9.825-.012c.17.126.358.46.498.888.28.854.36 2.028.212 3.145-.019.14-.024.151-.057.144l-.238-.06a3.693 3.693 0 0 0-.954-.124h-.278l-.119-.178-.119-.175.002-.474c.004-.669.066-1.19.214-1.772.157-.623.434-1.185.68-1.382.078-.062.09-.063.159-.012z"/></svg><span><b>Ollama</b><small>Runs the AI model locally on the server's own GPU</small></span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.922 0h2.623v18.104h-2.623zm-4.126 12.94h2.623v2.57h-2.623zm0-7.037h2.623v5.446h-2.623zm0 11.197h2.623v5.446h-2.623zM4.456 5.896h2.622V24H4.455zm4.213 2.559h2.623v2.57H8.67zm0 4.151h2.623v5.447H8.67zm0-11.187h2.623v5.446H8.67Z"/></svg><span><b>pandas</b><small>Turns SAP data into tables, totals and forecasts</small></span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.363 0 0 5.363 0 12s5.363 12 12 12 12-5.363 12-12S18.637 0 12 0zM9.502 7.03a4.974 4.974 0 0 1 4.97 4.97 4.974 4.974 0 0 1-4.97 4.97A4.974 4.974 0 0 1 4.532 12a4.974 4.974 0 0 1 4.97-4.97zm6.563 3.183h2.351c.98 0 1.787.782 1.787 1.762s-.807 1.789-1.787 1.789h-2.351v-3.551z"/></svg><span><b>DuckDB</b><small>Offline copy of SAP data, for answers when SAP is down</small></span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z"/></svg><span><b>Docker</b><small>Runs the web proxy in its own isolated container</small></span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.094.47c-.842 0-1.696.092-2.552.288a11.37 11.37 0 0 0-4.87 2.423 10.632 10.632 0 0 0-2.36 2.826A10.132 10.132 0 0 0 .305 8.582c-.398 1.62-.4 3.336-.043 5.048.085.405.183.809.31 1.212a11.85 11.85 0 0 0 1.662 3.729 3.273 3.273 0 0 0-.086.427 3.323 3.323 0 0 0 2.848 3.71 3.279 3.279 0 0 0 1.947-.346c1.045.51 2.17.864 3.339 1.04a11.66 11.66 0 0 0 4.285-.155 11.566 11.566 0 0 0 4.936-2.485 10.643 10.643 0 0 0 2.352-2.894 11.164 11.164 0 0 0 1.356-4.424 11.214 11.214 0 0 0-.498-4.335c.175-.077.338-.175.486-.293a.444.444 89.992 0 0 .001 0c.402-.322.693-.794.777-1.342a2.146 2.146 0 0 0-1.79-2.434 2.115 2.115 0 0 0-1.205.171c-.038-.043-.078-.086-.113-.13a11.693 11.693 0 0 0-3.476-2.93 13.348 13.348 0 0 0-1.76-.81 13.55 13.55 0 0 0-2.06-.613A12.121 12.121 0 0 0 11.093.47Zm.714.328c.345-.004.688.01 1.028.042a9.892 9.892 0 0 1 2.743.639c.984.39 1.89.958 2.707 1.632.803.662 1.502 1.45 2.091 2.328.026.039.048.08.07.12a2.12 2.12 0 0 0-.435 2.646c-.158.114-.97.692-1.634 1.183-.414.308-.733.557-.733.557l.581.68s.296-.276.665-.638c.572-.562 1.229-1.233 1.395-1.403a2.122 2.122 0 0 0 1.907.677 11.229 11.229 0 0 1-.013 4.046 11.41 11.41 0 0 1-1.475 3.897 12.343 12.343 0 0 1-2.079 2.587c-1.19 1.125-2.633 2.022-4.306 2.531a10.826 10.826 0 0 1-3.973.484 11.04 11.04 0 0 1-3.057-.652 3.304 3.304 0 0 0 1.417-2.294 3.275 3.275 0 0 0-.294-1.842c.18-.162.403-.363.656-.6 1.015-.955 2.353-2.303 2.353-2.303l-.47-.599s-1.63.972-2.801 1.728c-.307.198-.573.378-.777.517a3.273 3.273 0 0 0-1.516-.611c-1.507-.198-2.927.672-3.487 2.017a10.323 10.323 0 0 1-.695-1.078A10.92 10.92 0 0 1 .728 14.8a10.35 10.35 0 0 1-.2-1.212c-.164-1.653.103-3.258.629-4.754a12.95 12.95 0 0 1 1.087-2.288c.57-.968 1.248-1.872 2.069-2.656A11.013 11.013 0 0 1 11.808.797Zm-.147 3.257a3.838 3.838 0 0 0-3.82 3.82v2.36h-.94c-.751 0-1.377.625-1.377 1.377v3.8h1.46v-3.718h9.354v6.264H10.02v1.46h6.4c.751 0 1.377-.625 1.377-1.377v-6.43c0-.751-.626-1.377-1.377-1.377h-.94v-2.36a3.838 3.838 0 0 0-3.82-3.819zm0 1.46a2.371 2.371 0 0 1 2.36 2.36v2.36H9.3v-2.36a2.372 2.372 0 0 1 2.36-2.36zm10.141.392a1.253 1.253 0 0 1 1.296 1.434c-.049.319-.217.59-.453.78-.266.213-.61.318-.968.264a1.253 1.253 0 0 1-1.045-1.42 1.255 1.255 0 0 1 1.17-1.058zM5.384 17.425a2.02 2.02 0 0 1 1.917 1.298c.116.3.159.628.114.967a2.015 2.015 0 0 1-2.249 1.728 2.016 2.016 0 0 1-1.727-2.25 2.017 2.017 0 0 1 1.945-1.743z"/></svg><span><b>Caddy</b><small>HTTPS front door that checks sign-in on every request</small></span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm-9 9a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm0-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm6-6a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM3 24a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm18 .5a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM6 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm9-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm-3 2.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM6 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM3 5.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span><b>Tailscale</b><small>Private access for staff, and the public demo link</small></span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.424.424 0 00-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.132 1.884 1.071.771-.06 1.592-.536 2.257-1.306.631-.765 1.683-1.084 2.378-1.503.348-.199.629-.469.649-.853.023-.4-.2-.811-.714-1.376v-.097l-.003-.003c-.17-.2-.25-.535-.338-.926-.085-.401-.182-.786-.492-1.046h-.003c-.059-.054-.123-.067-.188-.135a.357.357 0 00-.19-.064c.431-1.278.264-2.55-.173-3.694-.533-1.41-1.465-2.638-2.175-3.483-.796-1.005-1.576-1.957-1.56-3.368.026-2.152.236-6.133-3.544-6.139zm.529 3.405h.013c.213 0 .396.062.584.198.19.135.33.332.438.533.105.259.158.459.166.724 0-.02.006-.04.006-.06v.105a.086.086 0 01-.004-.021l-.004-.024a1.807 1.807 0 01-.15.706.953.953 0 01-.213.335.71.71 0 00-.088-.042c-.104-.045-.198-.064-.284-.133a1.312 1.312 0 00-.22-.066c.05-.06.146-.133.183-.198.053-.128.082-.264.088-.402v-.02a1.21 1.21 0 00-.061-.4c-.045-.134-.101-.2-.183-.333-.084-.066-.167-.132-.267-.132h-.016c-.093 0-.176.03-.262.132a.8.8 0 00-.205.334 1.18 1.18 0 00-.09.4v.019c.002.089.008.179.02.267-.193-.067-.438-.135-.607-.202a1.635 1.635 0 01-.018-.2v-.02a1.772 1.772 0 01.15-.768c.082-.22.232-.406.43-.533a.985.985 0 01.594-.2zm-2.962.059h.036c.142 0 .27.048.399.135.146.129.264.288.344.465.09.199.14.4.153.667v.004c.007.134.006.2-.002.266v.08c-.03.007-.056.018-.083.024-.152.055-.274.135-.393.2.012-.09.013-.18.003-.267v-.015c-.012-.133-.04-.2-.082-.333a.613.613 0 00-.166-.267.248.248 0 00-.183-.064h-.021c-.071.006-.13.04-.186.132a.552.552 0 00-.12.27.944.944 0 00-.023.33v.015c.012.135.037.2.08.334.046.134.098.2.166.268.01.009.02.018.034.024-.07.057-.117.07-.176.136a.304.304 0 01-.131.068 2.62 2.62 0 01-.275-.402 1.772 1.772 0 01-.155-.667 1.759 1.759 0 01.08-.668 1.43 1.43 0 01.283-.535c.128-.133.26-.2.418-.2zm1.37 1.706c.332 0 .733.065 1.216.399.293.2.523.269 1.052.468h.003c.255.136.405.266.478.399v-.131a.571.571 0 01.016.47c-.123.31-.516.643-1.063.842v.002c-.268.135-.501.333-.775.465-.276.135-.588.292-1.012.267a1.139 1.139 0 01-.448-.067 3.566 3.566 0 01-.322-.198c-.195-.135-.363-.332-.612-.465v-.005h-.005c-.4-.246-.616-.512-.686-.71-.07-.268-.005-.47.193-.6.224-.135.38-.271.483-.336.104-.074.143-.102.176-.131h.002v-.003c.169-.202.436-.47.839-.601.139-.036.294-.065.466-.065zm2.8 2.142c.358 1.417 1.196 3.475 1.735 4.473.286.534.855 1.659 1.102 3.024.156-.005.33.018.513.064.646-1.671-.546-3.467-1.089-3.966-.22-.2-.232-.335-.123-.335.59.534 1.365 1.572 1.646 2.757.13.535.16 1.104.021 1.67.067.028.135.06.205.067 1.032.534 1.413.938 1.23 1.537v-.043c-.06-.003-.12 0-.18 0h-.016c.151-.467-.182-.825-1.065-1.224-.915-.4-1.646-.336-1.77.465-.008.043-.013.066-.018.135-.068.023-.139.053-.209.064-.43.268-.662.669-.793 1.187-.13.533-.17 1.156-.205 1.869v.003c-.02.334-.17.838-.319 1.35-1.5 1.072-3.58 1.538-5.348.334a2.645 2.645 0 00-.402-.533 1.45 1.45 0 00-.275-.333c.182 0 .338-.03.465-.067a.615.615 0 00.314-.334c.108-.267 0-.697-.345-1.163-.345-.467-.931-.995-1.788-1.521-.63-.4-.986-.87-1.15-1.396-.165-.534-.143-1.085-.015-1.645.245-1.07.873-2.11 1.274-2.763.107-.065.037.135-.408.974-.396.751-1.14 2.497-.122 3.854a8.123 8.123 0 01.647-2.876c.564-1.278 1.743-3.504 1.836-5.268.048.036.217.135.289.202.218.133.38.333.59.465.21.201.477.335.876.335.039.003.075.006.11.006.412 0 .73-.134.997-.268.29-.134.52-.334.74-.4h.005c.467-.135.835-.402 1.044-.7zm2.185 8.958c.037.6.343 1.245.882 1.377.588.134 1.434-.333 1.791-.765l.211-.01c.315-.007.577.01.847.268l.003.003c.208.199.305.53.391.876.085.4.154.78.409 1.066.486.527.645.906.636 1.14l.003-.007v.018l-.003-.012c-.015.262-.185.396-.498.595-.63.401-1.746.712-2.457 1.57-.618.737-1.37 1.14-2.036 1.191-.664.053-1.237-.2-1.574-.898l-.005-.003c-.21-.4-.12-1.025.056-1.69.176-.668.428-1.344.463-1.897.037-.714.076-1.335.195-1.814.12-.465.308-.797.641-.984l.045-.022zm-10.814.049h.01c.053 0 .105.005.157.014.376.055.706.333 1.023.752l.91 1.664.003.003c.243.533.754 1.064 1.189 1.637.434.598.77 1.131.729 1.57v.006c-.057.744-.48 1.148-1.125 1.294-.645.135-1.52.002-2.395-.464-.968-.536-2.118-.469-2.857-.602-.369-.066-.61-.2-.723-.4-.11-.2-.113-.602.123-1.23v-.004l.002-.003c.117-.334.03-.752-.027-1.118-.055-.401-.083-.71.043-.94.16-.334.396-.4.69-.533.294-.135.64-.202.915-.47h.002v-.002c.256-.268.445-.601.668-.838.19-.201.38-.336.663-.336zm7.159-9.074c-.435.201-.945.535-1.488.535-.542 0-.97-.267-1.28-.466-.154-.134-.28-.268-.373-.335-.164-.134-.144-.333-.074-.333.109.016.129.134.199.2.096.066.215.2.36.333.292.2.68.467 1.167.467.485 0 1.053-.267 1.398-.466.195-.135.445-.334.648-.467.156-.136.149-.267.279-.267.128.016.034.134-.147.332a8.097 8.097 0 01-.69.468zm-1.082-1.583V5.64c-.006-.02.013-.042.029-.05.074-.043.18-.027.26.004.063 0 .16.067.15.135-.006.049-.085.066-.135.066-.055 0-.092-.043-.141-.068-.052-.018-.146-.008-.163-.065zm-.551 0c-.02.058-.113.049-.166.066-.047.025-.086.068-.14.068-.05 0-.13-.02-.136-.068-.01-.066.088-.133.15-.133.08-.031.184-.047.259-.005.019.009.036.03.03.05v.02h.003z"/></svg><span><b>Linux</b><small>The server it all runs on, with nightly systemd jobs</small></span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"/></svg><span><b>Git</b><small>Version control, with changes merged by pull request</small></span></li></ul>
+    <ul class="logos clip" id="logos"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg><span><b>Python</b><small>Main language for the AI agent, its tools and the data jobs</small></span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .0387C5.3729.0384.0003 5.3931 0 11.9988c-.001 6.6066 5.372 11.9628 12 11.9625 6.628.0003 12.001-5.3559 12-11.9625-.0003-6.6057-5.3729-11.9604-12-11.96m-.829 5.4153h7.55l-7.5805 5.3284h5.1828L5.279 18.5436q2.9466-6.5444 5.892-13.0896"/></svg><span><b>FastAPI</b><small>Web server behind the chat, the dashboard and streamed answers</small></span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-database"/></svg><span><b>SQL Server</b><small>SAP B1's database, read through a read-only login</small></span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 6.064v11.872h12.13L24 6.064zm3.264 2.208h.005c.863.001 1.915.245 2.676.633l-.82 1.43c-.835-.404-1.255-.442-1.73-.467-.708-.038-1.064.215-1.069.488-.007.332.669.633 1.305.838.964.306 2.19.715 2.377 1.9L7.77 8.437h2.046l2.064 5.576-.007-5.575h2.37c2.257 0 3.318.764 3.318 2.519 0 1.575-1.09 2.514-2.936 2.514h-.763l-.01 2.094-3.588-.003-.25-.908c-.37.122-.787.189-1.23.189-.456 0-.885-.071-1.263-.2l-.358.919-2 .006.09-.462c-.029.025-.057.05-.087.074-.535.43-1.208.629-2.037.644l-.213.002a5.075 5.075 0 0 1-2.581-.675l.73-1.448c.79.467 1.286.572 1.956.558.347-.007.598-.07.761-.239a.557.557 0 0 0 .156-.369c.007-.376-.53-.553-1.185-.756-.531-.164-1.135-.389-1.606-.735-.559-.41-.825-.924-.812-1.65a1.99 1.99 0 0 1 .566-1.377c.519-.537 1.357-.863 2.363-.863zm10.597 1.67v1.904h.521c.694 0 1.247-.23 1.248-.964 0-.709-.554-.94-1.248-.94zm-5.087.767l-.748 2.362c.223.085.481.133.757.133.268 0 .52-.047.742-.126l-.736-2.37z"/></svg><span><b>SAP B1</b><small>The ERP the AI reads from, and drafts into after a yes</small></span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.361 10.26a.894.894 0 0 0-.558.47l-.072.148.001.207c0 .193.004.217.059.353.076.193.152.312.291.448.24.238.51.3.872.205a.86.86 0 0 0 .517-.436.752.752 0 0 0 .08-.498c-.064-.453-.33-.782-.724-.897a1.06 1.06 0 0 0-.466 0zm-9.203.005c-.305.096-.533.32-.65.639a1.187 1.187 0 0 0-.06.52c.057.309.31.59.598.667.362.095.632.033.872-.205.14-.136.215-.255.291-.448.055-.136.059-.16.059-.353l.001-.207-.072-.148a.894.894 0 0 0-.565-.472 1.02 1.02 0 0 0-.474.007Zm4.184 2c-.131.071-.223.25-.195.383.031.143.157.288.353.407.105.063.112.072.117.136.004.038-.01.146-.029.243-.02.094-.036.194-.036.222.002.074.07.195.143.253.064.052.076.054.255.059.164.005.198.001.264-.03.169-.082.212-.234.15-.525-.052-.243-.042-.28.087-.355.137-.08.281-.219.324-.314a.365.365 0 0 0-.175-.48.394.394 0 0 0-.181-.033c-.126 0-.207.03-.355.124l-.085.053-.053-.032c-.219-.13-.259-.145-.391-.143a.396.396 0 0 0-.193.032zm.39-2.195c-.373.036-.475.05-.654.086-.291.06-.68.195-.951.328-.94.46-1.589 1.226-1.787 2.114-.04.176-.045.234-.045.53 0 .294.005.357.043.524.264 1.16 1.332 2.017 2.714 2.173.3.033 1.596.033 1.896 0 1.11-.125 2.064-.727 2.493-1.571.114-.226.169-.372.22-.602.039-.167.044-.23.044-.523 0-.297-.005-.355-.045-.531-.288-1.29-1.539-2.304-3.072-2.497a6.873 6.873 0 0 0-.855-.031zm.645.937a3.283 3.283 0 0 1 1.44.514c.223.148.537.458.671.662.166.251.26.508.303.82.02.143.01.251-.043.482-.08.345-.332.705-.672.957a3.115 3.115 0 0 1-.689.348c-.382.122-.632.144-1.525.138-.582-.006-.686-.01-.853-.042-.57-.107-1.022-.334-1.35-.68-.264-.28-.385-.535-.45-.946-.03-.192.025-.509.137-.776.136-.326.488-.73.836-.963.403-.269.934-.46 1.422-.512.187-.02.586-.02.773-.002zm-5.503-11a1.653 1.653 0 0 0-.683.298C5.617.74 5.173 1.666 4.985 2.819c-.07.436-.119 1.04-.119 1.503 0 .544.064 1.24.155 1.721.02.107.031.202.023.208a8.12 8.12 0 0 1-.187.152 5.324 5.324 0 0 0-.949 1.02 5.49 5.49 0 0 0-.94 2.339 6.625 6.625 0 0 0-.023 1.357c.091.78.325 1.438.727 2.04l.13.195-.037.064c-.269.452-.498 1.105-.605 1.732-.084.496-.095.629-.095 1.294 0 .67.009.803.088 1.266.095.555.288 1.143.503 1.534.071.128.243.393.264.407.007.003-.014.067-.046.141a7.405 7.405 0 0 0-.548 1.873c-.062.417-.071.552-.071.991 0 .56.031.832.148 1.279L3.42 24h1.478l-.05-.091c-.297-.552-.325-1.575-.068-2.597.117-.472.25-.819.498-1.296l.148-.29v-.177c0-.165-.003-.184-.057-.293a.915.915 0 0 0-.194-.25 1.74 1.74 0 0 1-.385-.543c-.424-.92-.506-2.286-.208-3.451.124-.486.329-.918.544-1.154a.787.787 0 0 0 .223-.531c0-.195-.07-.355-.224-.522a3.136 3.136 0 0 1-.817-1.729c-.14-.96.114-2.005.69-2.834.563-.814 1.353-1.336 2.237-1.475.199-.033.57-.028.776.01.226.04.367.028.512-.041.179-.085.268-.19.374-.431.093-.215.165-.333.36-.576.234-.29.46-.489.822-.729.413-.27.884-.467 1.352-.561.17-.035.25-.04.569-.04.319 0 .398.005.569.04a4.07 4.07 0 0 1 1.914.997c.117.109.398.457.488.602.034.057.095.177.132.267.105.241.195.346.374.43.14.068.286.082.503.045.343-.058.607-.053.943.016 1.144.23 2.14 1.173 2.581 2.437.385 1.108.276 2.267-.296 3.153-.097.15-.193.27-.333.419-.301.322-.301.722-.001 1.053.493.539.801 1.866.708 3.036-.062.772-.26 1.463-.533 1.854a2.096 2.096 0 0 1-.224.258.916.916 0 0 0-.194.25c-.054.109-.057.128-.057.293v.178l.148.29c.248.476.38.823.498 1.295.253 1.008.231 2.01-.059 2.581a.845.845 0 0 0-.044.098c0 .006.329.009.732.009h.73l.02-.074.036-.134c.019-.076.057-.3.088-.516.029-.217.029-1.016 0-1.258-.11-.875-.295-1.57-.597-2.226-.032-.074-.053-.138-.046-.141.008-.005.057-.074.108-.152.376-.569.607-1.284.724-2.228.031-.26.031-1.378 0-1.628-.083-.645-.182-1.082-.348-1.525a6.083 6.083 0 0 0-.329-.7l-.038-.064.131-.194c.402-.604.636-1.262.727-2.04a6.625 6.625 0 0 0-.024-1.358 5.512 5.512 0 0 0-.939-2.339 5.325 5.325 0 0 0-.95-1.02 8.097 8.097 0 0 1-.186-.152.692.692 0 0 1 .023-.208c.208-1.087.201-2.443-.017-3.503-.19-.924-.535-1.658-.98-2.082-.354-.338-.716-.482-1.15-.455-.996.059-1.8 1.205-2.116 3.01a6.805 6.805 0 0 0-.097.726c0 .036-.007.066-.015.066a.96.96 0 0 1-.149-.078A4.857 4.857 0 0 0 12 3.03c-.832 0-1.687.243-2.456.698a.958.958 0 0 1-.148.078c-.008 0-.015-.03-.015-.066a6.71 6.71 0 0 0-.097-.725C8.997 1.392 8.337.319 7.46.048a2.096 2.096 0 0 0-.585-.041Zm.293 1.402c.248.197.523.759.682 1.388.03.113.06.244.069.292.007.047.026.152.041.233.067.365.098.76.102 1.24l.002.475-.12.175-.118.178h-.278c-.324 0-.646.041-.954.124l-.238.06c-.033.007-.038-.003-.057-.144a8.438 8.438 0 0 1 .016-2.323c.124-.788.413-1.501.696-1.711.067-.05.079-.049.157.013zm9.825-.012c.17.126.358.46.498.888.28.854.36 2.028.212 3.145-.019.14-.024.151-.057.144l-.238-.06a3.693 3.693 0 0 0-.954-.124h-.278l-.119-.178-.119-.175.002-.474c.004-.669.066-1.19.214-1.772.157-.623.434-1.185.68-1.382.078-.062.09-.063.159-.012z"/></svg><span><b>Ollama</b><small>Runs the AI model locally on the server's own GPU</small></span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.922 0h2.623v18.104h-2.623zm-4.126 12.94h2.623v2.57h-2.623zm0-7.037h2.623v5.446h-2.623zm0 11.197h2.623v5.446h-2.623zM4.456 5.896h2.622V24H4.455zm4.213 2.559h2.623v2.57H8.67zm0 4.151h2.623v5.447H8.67zm0-11.187h2.623v5.446H8.67Z"/></svg><span><b>pandas</b><small>Turns SAP data into tables, totals and forecasts</small></span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.363 0 0 5.363 0 12s5.363 12 12 12 12-5.363 12-12S18.637 0 12 0zM9.502 7.03a4.974 4.974 0 0 1 4.97 4.97 4.974 4.974 0 0 1-4.97 4.97A4.974 4.974 0 0 1 4.532 12a4.974 4.974 0 0 1 4.97-4.97zm6.563 3.183h2.351c.98 0 1.787.782 1.787 1.762s-.807 1.789-1.787 1.789h-2.351v-3.551z"/></svg><span><b>DuckDB</b><small>Offline copy of SAP data, for answers when SAP is down</small></span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z"/></svg><span><b>Docker</b><small>Runs the web proxy in its own isolated container</small></span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.094.47c-.842 0-1.696.092-2.552.288a11.37 11.37 0 0 0-4.87 2.423 10.632 10.632 0 0 0-2.36 2.826A10.132 10.132 0 0 0 .305 8.582c-.398 1.62-.4 3.336-.043 5.048.085.405.183.809.31 1.212a11.85 11.85 0 0 0 1.662 3.729 3.273 3.273 0 0 0-.086.427 3.323 3.323 0 0 0 2.848 3.71 3.279 3.279 0 0 0 1.947-.346c1.045.51 2.17.864 3.339 1.04a11.66 11.66 0 0 0 4.285-.155 11.566 11.566 0 0 0 4.936-2.485 10.643 10.643 0 0 0 2.352-2.894 11.164 11.164 0 0 0 1.356-4.424 11.214 11.214 0 0 0-.498-4.335c.175-.077.338-.175.486-.293a.444.444 89.992 0 0 .001 0c.402-.322.693-.794.777-1.342a2.146 2.146 0 0 0-1.79-2.434 2.115 2.115 0 0 0-1.205.171c-.038-.043-.078-.086-.113-.13a11.693 11.693 0 0 0-3.476-2.93 13.348 13.348 0 0 0-1.76-.81 13.55 13.55 0 0 0-2.06-.613A12.121 12.121 0 0 0 11.093.47Zm.714.328c.345-.004.688.01 1.028.042a9.892 9.892 0 0 1 2.743.639c.984.39 1.89.958 2.707 1.632.803.662 1.502 1.45 2.091 2.328.026.039.048.08.07.12a2.12 2.12 0 0 0-.435 2.646c-.158.114-.97.692-1.634 1.183-.414.308-.733.557-.733.557l.581.68s.296-.276.665-.638c.572-.562 1.229-1.233 1.395-1.403a2.122 2.122 0 0 0 1.907.677 11.229 11.229 0 0 1-.013 4.046 11.41 11.41 0 0 1-1.475 3.897 12.343 12.343 0 0 1-2.079 2.587c-1.19 1.125-2.633 2.022-4.306 2.531a10.826 10.826 0 0 1-3.973.484 11.04 11.04 0 0 1-3.057-.652 3.304 3.304 0 0 0 1.417-2.294 3.275 3.275 0 0 0-.294-1.842c.18-.162.403-.363.656-.6 1.015-.955 2.353-2.303 2.353-2.303l-.47-.599s-1.63.972-2.801 1.728c-.307.198-.573.378-.777.517a3.273 3.273 0 0 0-1.516-.611c-1.507-.198-2.927.672-3.487 2.017a10.323 10.323 0 0 1-.695-1.078A10.92 10.92 0 0 1 .728 14.8a10.35 10.35 0 0 1-.2-1.212c-.164-1.653.103-3.258.629-4.754a12.95 12.95 0 0 1 1.087-2.288c.57-.968 1.248-1.872 2.069-2.656A11.013 11.013 0 0 1 11.808.797Zm-.147 3.257a3.838 3.838 0 0 0-3.82 3.82v2.36h-.94c-.751 0-1.377.625-1.377 1.377v3.8h1.46v-3.718h9.354v6.264H10.02v1.46h6.4c.751 0 1.377-.625 1.377-1.377v-6.43c0-.751-.626-1.377-1.377-1.377h-.94v-2.36a3.838 3.838 0 0 0-3.82-3.819zm0 1.46a2.371 2.371 0 0 1 2.36 2.36v2.36H9.3v-2.36a2.372 2.372 0 0 1 2.36-2.36zm10.141.392a1.253 1.253 0 0 1 1.296 1.434c-.049.319-.217.59-.453.78-.266.213-.61.318-.968.264a1.253 1.253 0 0 1-1.045-1.42 1.255 1.255 0 0 1 1.17-1.058zM5.384 17.425a2.02 2.02 0 0 1 1.917 1.298c.116.3.159.628.114.967a2.015 2.015 0 0 1-2.249 1.728 2.016 2.016 0 0 1-1.727-2.25 2.017 2.017 0 0 1 1.945-1.743z"/></svg><span><b>Caddy</b><small>HTTPS front door that checks sign-in on every request</small></span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm-9 9a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm0-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm6-6a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM3 24a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm18 .5a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM6 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm9-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm-3 2.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM6 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM3 5.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span><b>Tailscale</b><small>Private access for staff, and the public demo link</small></span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.424.424 0 00-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.132 1.884 1.071.771-.06 1.592-.536 2.257-1.306.631-.765 1.683-1.084 2.378-1.503.348-.199.629-.469.649-.853.023-.4-.2-.811-.714-1.376v-.097l-.003-.003c-.17-.2-.25-.535-.338-.926-.085-.401-.182-.786-.492-1.046h-.003c-.059-.054-.123-.067-.188-.135a.357.357 0 00-.19-.064c.431-1.278.264-2.55-.173-3.694-.533-1.41-1.465-2.638-2.175-3.483-.796-1.005-1.576-1.957-1.56-3.368.026-2.152.236-6.133-3.544-6.139zm.529 3.405h.013c.213 0 .396.062.584.198.19.135.33.332.438.533.105.259.158.459.166.724 0-.02.006-.04.006-.06v.105a.086.086 0 01-.004-.021l-.004-.024a1.807 1.807 0 01-.15.706.953.953 0 01-.213.335.71.71 0 00-.088-.042c-.104-.045-.198-.064-.284-.133a1.312 1.312 0 00-.22-.066c.05-.06.146-.133.183-.198.053-.128.082-.264.088-.402v-.02a1.21 1.21 0 00-.061-.4c-.045-.134-.101-.2-.183-.333-.084-.066-.167-.132-.267-.132h-.016c-.093 0-.176.03-.262.132a.8.8 0 00-.205.334 1.18 1.18 0 00-.09.4v.019c.002.089.008.179.02.267-.193-.067-.438-.135-.607-.202a1.635 1.635 0 01-.018-.2v-.02a1.772 1.772 0 01.15-.768c.082-.22.232-.406.43-.533a.985.985 0 01.594-.2zm-2.962.059h.036c.142 0 .27.048.399.135.146.129.264.288.344.465.09.199.14.4.153.667v.004c.007.134.006.2-.002.266v.08c-.03.007-.056.018-.083.024-.152.055-.274.135-.393.2.012-.09.013-.18.003-.267v-.015c-.012-.133-.04-.2-.082-.333a.613.613 0 00-.166-.267.248.248 0 00-.183-.064h-.021c-.071.006-.13.04-.186.132a.552.552 0 00-.12.27.944.944 0 00-.023.33v.015c.012.135.037.2.08.334.046.134.098.2.166.268.01.009.02.018.034.024-.07.057-.117.07-.176.136a.304.304 0 01-.131.068 2.62 2.62 0 01-.275-.402 1.772 1.772 0 01-.155-.667 1.759 1.759 0 01.08-.668 1.43 1.43 0 01.283-.535c.128-.133.26-.2.418-.2zm1.37 1.706c.332 0 .733.065 1.216.399.293.2.523.269 1.052.468h.003c.255.136.405.266.478.399v-.131a.571.571 0 01.016.47c-.123.31-.516.643-1.063.842v.002c-.268.135-.501.333-.775.465-.276.135-.588.292-1.012.267a1.139 1.139 0 01-.448-.067 3.566 3.566 0 01-.322-.198c-.195-.135-.363-.332-.612-.465v-.005h-.005c-.4-.246-.616-.512-.686-.71-.07-.268-.005-.47.193-.6.224-.135.38-.271.483-.336.104-.074.143-.102.176-.131h.002v-.003c.169-.202.436-.47.839-.601.139-.036.294-.065.466-.065zm2.8 2.142c.358 1.417 1.196 3.475 1.735 4.473.286.534.855 1.659 1.102 3.024.156-.005.33.018.513.064.646-1.671-.546-3.467-1.089-3.966-.22-.2-.232-.335-.123-.335.59.534 1.365 1.572 1.646 2.757.13.535.16 1.104.021 1.67.067.028.135.06.205.067 1.032.534 1.413.938 1.23 1.537v-.043c-.06-.003-.12 0-.18 0h-.016c.151-.467-.182-.825-1.065-1.224-.915-.4-1.646-.336-1.77.465-.008.043-.013.066-.018.135-.068.023-.139.053-.209.064-.43.268-.662.669-.793 1.187-.13.533-.17 1.156-.205 1.869v.003c-.02.334-.17.838-.319 1.35-1.5 1.072-3.58 1.538-5.348.334a2.645 2.645 0 00-.402-.533 1.45 1.45 0 00-.275-.333c.182 0 .338-.03.465-.067a.615.615 0 00.314-.334c.108-.267 0-.697-.345-1.163-.345-.467-.931-.995-1.788-1.521-.63-.4-.986-.87-1.15-1.396-.165-.534-.143-1.085-.015-1.645.245-1.07.873-2.11 1.274-2.763.107-.065.037.135-.408.974-.396.751-1.14 2.497-.122 3.854a8.123 8.123 0 01.647-2.876c.564-1.278 1.743-3.504 1.836-5.268.048.036.217.135.289.202.218.133.38.333.59.465.21.201.477.335.876.335.039.003.075.006.11.006.412 0 .73-.134.997-.268.29-.134.52-.334.74-.4h.005c.467-.135.835-.402 1.044-.7zm2.185 8.958c.037.6.343 1.245.882 1.377.588.134 1.434-.333 1.791-.765l.211-.01c.315-.007.577.01.847.268l.003.003c.208.199.305.53.391.876.085.4.154.78.409 1.066.486.527.645.906.636 1.14l.003-.007v.018l-.003-.012c-.015.262-.185.396-.498.595-.63.401-1.746.712-2.457 1.57-.618.737-1.37 1.14-2.036 1.191-.664.053-1.237-.2-1.574-.898l-.005-.003c-.21-.4-.12-1.025.056-1.69.176-.668.428-1.344.463-1.897.037-.714.076-1.335.195-1.814.12-.465.308-.797.641-.984l.045-.022zm-10.814.049h.01c.053 0 .105.005.157.014.376.055.706.333 1.023.752l.91 1.664.003.003c.243.533.754 1.064 1.189 1.637.434.598.77 1.131.729 1.57v.006c-.057.744-.48 1.148-1.125 1.294-.645.135-1.52.002-2.395-.464-.968-.536-2.118-.469-2.857-.602-.369-.066-.61-.2-.723-.4-.11-.2-.113-.602.123-1.23v-.004l.002-.003c.117-.334.03-.752-.027-1.118-.055-.401-.083-.71.043-.94.16-.334.396-.4.69-.533.294-.135.64-.202.915-.47h.002v-.002c.256-.268.445-.601.668-.838.19-.201.38-.336.663-.336zm7.159-9.074c-.435.201-.945.535-1.488.535-.542 0-.97-.267-1.28-.466-.154-.134-.28-.268-.373-.335-.164-.134-.144-.333-.074-.333.109.016.129.134.199.2.096.066.215.2.36.333.292.2.68.467 1.167.467.485 0 1.053-.267 1.398-.466.195-.135.445-.334.648-.467.156-.136.149-.267.279-.267.128.016.034.134-.147.332a8.097 8.097 0 01-.69.468zm-1.082-1.583V5.64c-.006-.02.013-.042.029-.05.074-.043.18-.027.26.004.063 0 .16.067.15.135-.006.049-.085.066-.135.066-.055 0-.092-.043-.141-.068-.052-.018-.146-.008-.163-.065zm-.551 0c-.02.058-.113.049-.166.066-.047.025-.086.068-.14.068-.05 0-.13-.02-.136-.068-.01-.066.088-.133.15-.133.08-.031.184-.047.259-.005.019.009.036.03.03.05v.02h.003z"/></svg><span><b>Linux</b><small>The server it all runs on, with nightly systemd jobs</small></span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"/></svg><span><b>Git</b><small>Version control, with changes merged by pull request</small></span></li></ul>
 
+    <button type="button" class="btn moretools" id="moreTools" aria-controls="logos" aria-expanded="false">Show all 12 tools</button>
     <div class="card" style="margin-top:28px">
       <h3>Also automated</h3>
       <p>Nightly data sync, stock reorder planning, sales forecasting, unusual-transaction checks, a PDF management report pack and mobile stock alerts.</p>
     </div>
 
     <p class="note"><svg><use href="#i-info"/></svg> Screenshots use SAP's public demo company (OEC Computers), not client data.</p>
-  </div>
-</section>
-
-<!-- other work -->
-<section id="work">
-  <div class="wrap">
-    <div class="head"><div class="eyebrow">Other work</div><h2>More things I've built</h2></div>
-    <div class="grid2">
-      <div class="card">
-        <h3>TFP Digital Quotation &amp; Mailer</h3>
-        <p>A Windows desktop app that produces branded Word and Excel maintenance quotations for 17–18 SAP Business One clients, with a companion Outlook mailer: templates, attachments, and reply tracking that stops reminders. The saved password is encrypted with Windows DPAPI; packaged with PyInstaller.</p>
-        <div class="chips"><span class="chip">Python</span><span class="chip">Tkinter</span><span class="chip">SQL Server</span><span class="chip">Outlook</span><span class="chip">PyInstaller</span></div>
-      </div>
-      <div class="card">
-        <h3>Academic projects</h3>
-        <ul class="mini">
-          <li><b>Darnoc IT E-Commerce</b><span>Final year project · PHP, MySQL</span></li>
-          <li><b>Student Borrow System</b><span>Java, MySQL</span></li>
-          <li><b>Zen Birthday App</b><span>Flutter, SQLite</span></li>
-          <li><b>Riing Catering</b><span>PHP, MySQL</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- experience -->
-<section class="alt" id="experience">
-  <div class="wrap">
-    <div class="tl">
-      <div>
-        <h3>Experience</h3>
-        <div class="item now"><b>AI Solution Executive (K-Youth Programme)</b><div class="org">MBP Solutions (TFP Group), at TFP Digital Sdn. Bhd., Kuala Lumpur</div><div class="when">Sep 2026 – present</div></div>
-        <div class="item"><b>IT Support Technician (Internship)</b><div class="org">Q At Work (QAW)</div><div class="when">Sep 2025 – Feb 2026</div><p>Daily health checks on Talend, Tableau and Snowflake; Snowflake cost reports; UiPath reconciliation runs; about 50 tickets a week and KPI reporting.</p></div>
-        <div class="item"><b>Technician (Internship)</b><div class="org">Kejuruteraan Perkasa Jaya Zic</div><div class="when">Mar 2021 – Jul 2021</div></div>
-      </div>
-      <div>
-        <h3>Education</h3>
-        <div class="item"><b>Bachelor of Information Technology (Hons) in Software Engineering</b><div class="org">UniKL MIIT</div><div class="when">2022 – 2026 · CGPA 3.50 · Dean's List ×3</div></div>
-        <div class="item"><b>Diploma in Computer Engineering</b><div class="org">MSU</div><div class="when">2019 – 2022 · CGPA 3.38 · Dean's List ×3</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- skills -->
-<section id="skills">
-  <div class="wrap">
-    <div class="head"><div class="eyebrow">Skills</div><h2>What I work with</h2></div>
-    <div class="skills">
-      <div><h3 class="sk">Languages</h3><div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Java</span><span class="chip">PHP</span><span class="chip">JavaScript</span><span class="chip">Dart</span></div></div>
-      <div><h3 class="sk">Frameworks</h3><div class="chips"><span class="chip">FastAPI</span><span class="chip">pandas</span><span class="chip">Tkinter</span><span class="chip">Flutter</span></div></div>
-      <div><h3 class="sk">Data &amp; ERP</h3><div class="chips"><span class="chip">SAP Business One</span><span class="chip">SQL Server</span><span class="chip">MySQL</span><span class="chip">Snowflake</span><span class="chip">Redshift</span><span class="chip">Talend</span><span class="chip">Tableau</span><span class="chip">UiPath</span></div></div>
-      <div><h3 class="sk">AI &amp; ops</h3><div class="chips"><span class="chip">AI assistants</span><span class="chip">LLM tool calling</span><span class="chip">Local LLMs (Ollama)</span><span class="chip">Prompt design</span><span class="chip">Linux</span><span class="chip">Docker</span><span class="chip">Caddy</span><span class="chip">systemd</span><span class="chip">Tailscale</span><span class="chip">Git</span></div></div>
-    </div>
   </div>
 </section>
 
@@ -856,8 +933,63 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
   </div>
 </section>
 
+<!-- other work -->
+<section class="alt" id="work">
+  <div class="wrap">
+    <div class="head"><div class="eyebrow">Other work</div><h2>More things I've built</h2></div>
+    <div class="grid2">
+      <div class="card">
+        <h3>TFP Digital Quotation &amp; Mailer</h3>
+        <p>A Windows desktop app that produces branded Word and Excel maintenance quotations for 17–18 SAP Business One clients, with a companion Outlook mailer: templates, attachments, and reply tracking that stops reminders. The saved password is encrypted with Windows DPAPI; packaged with PyInstaller.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Tkinter</span><span class="chip">SQL Server</span><span class="chip">Outlook</span><span class="chip">PyInstaller</span></div>
+      </div>
+      <div class="card">
+        <h3>Academic projects</h3>
+        <ul class="mini">
+          <li><b>Darnoc IT E-Commerce</b><span>Final year project · PHP, MySQL</span></li>
+          <li><b>Student Borrow System</b><span>Java, MySQL</span></li>
+          <li><b>Zen Birthday App</b><span>Flutter, SQLite</span></li>
+          <li><b>Riing Catering</b><span>PHP, MySQL</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- experience -->
+<section id="experience">
+  <div class="wrap">
+    <div class="tl">
+      <div>
+        <h3>Experience</h3>
+        <div class="item now"><b>AI Solution Executive (K-Youth Programme)</b><div class="org">MBP Solutions (TFP Group), at TFP Digital Sdn. Bhd., Kuala Lumpur</div><div class="when">Sep 2026 – present</div></div>
+        <div class="item"><b>IT Support Technician (Internship)</b><div class="org">Q At Work (QAW)</div><div class="when">Sep 2025 – Feb 2026</div><p>Daily health checks on Talend, Tableau and Snowflake; Snowflake cost reports; UiPath reconciliation runs; about 50 tickets a week and KPI reporting.</p></div>
+        <div class="item"><b>Technician (Internship)</b><div class="org">Kejuruteraan Perkasa Jaya Zic</div><div class="when">Mar 2021 – Jul 2021</div></div>
+      </div>
+      <div>
+        <h3>Education</h3>
+        <div class="item"><b>Bachelor of Information Technology (Hons) in Software Engineering</b><div class="org">UniKL MIIT</div><div class="when">2022 – 2026 · CGPA 3.50 · Dean's List ×3</div></div>
+        <div class="item"><b>Diploma in Computer Engineering</b><div class="org">MSU</div><div class="when">2019 – 2022 · CGPA 3.38 · Dean's List ×3</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- skills -->
+<section class="alt" id="skills">
+  <div class="wrap">
+    <div class="head"><div class="eyebrow">Skills</div><h2>What I work with</h2></div>
+    <div class="skills">
+      <div><h3 class="sk">Languages</h3><div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Java</span><span class="chip">PHP</span><span class="chip">JavaScript</span><span class="chip">Dart</span></div></div>
+      <div><h3 class="sk">Frameworks</h3><div class="chips"><span class="chip">FastAPI</span><span class="chip">pandas</span><span class="chip">Tkinter</span><span class="chip">Flutter</span></div></div>
+      <div><h3 class="sk">Data &amp; ERP</h3><div class="chips"><span class="chip">SAP Business One</span><span class="chip">SQL Server</span><span class="chip">MySQL</span><span class="chip">Snowflake</span><span class="chip">Redshift</span><span class="chip">Talend</span><span class="chip">Tableau</span><span class="chip">UiPath</span></div></div>
+      <div><h3 class="sk">AI &amp; ops</h3><div class="chips"><span class="chip">AI assistants</span><span class="chip">LLM tool calling</span><span class="chip">Local LLMs (Ollama)</span><span class="chip">Prompt design</span><span class="chip">Linux</span><span class="chip">Docker</span><span class="chip">Caddy</span><span class="chip">systemd</span><span class="chip">Tailscale</span><span class="chip">Git</span></div></div>
+    </div>
+  </div>
+</section>
+
 <!-- contact -->
-<section class="alt" id="contact">
+<section id="contact">
   <div class="wrap contact">
     <div class="eyebrow">Contact</div>
     <h2>Let's talk</h2>
@@ -866,7 +998,7 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
       <a class="btn primary" href="mailto:idhamproaqw98@gmail.com"><svg><use href="#i-mail"/></svg> idhamproaqw98@gmail.com</a>
       <a class="btn" href="https://github.com/ezzzy01" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg> GitHub</a>
       <a class="btn" href="https://www.linkedin.com/in/idham-hakim-29b676270" target="_blank" rel="noopener"><svg><use href="#i-in"/></svg> LinkedIn</a>
-      <a class="btn" href="assets/Resume_Idham_Hakim.pdf" download="Resume_Idham_Hakim.pdf"><svg><use href="#i-cv"/></svg> Résumé (PDF)</a>
+      <a class="btn" href="assets/Resume_Idham_Hakim.pdf" download="Resume_Idham_Hakim.pdf"><svg><use href="#i-cv"/></svg> Résumé<span class="pdf"> (PDF)</span></a>
     </div>
   </div>
 </section>
@@ -874,6 +1006,29 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
 
 <footer><div class="wrap"><span>© 2026 Idham Hakim · Kuala Lumpur, Malaysia</span><span>SAP and SAP Business One are trademarks of SAP SE. This is an independent project.</span></div></footer>
 
+<dialog class="sheet" id="sheet" aria-label="Menu">
+  <div class="shead"><span class="logo"><b>IH</b> Idham Hakim</span><button type="button" class="iconbtn" id="sheetX" aria-label="Close the menu"><svg><use href="#i-x"/></svg></button></div>
+  <nav aria-label="Sections">
+    <a href="#build">What I build</a>
+    <a href="#project">Featured project</a>
+    <a href="#try">Try the AI live</a>
+    <a href="#fit">What could AI do for you?</a>
+    <a href="#work">Other work</a>
+    <a href="#experience">Experience and education</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="sacts">
+    <a class="btn primary" href="mailto:idhamproaqw98@gmail.com"><svg><use href="#i-mail"/></svg> Email me</a>
+    <a class="btn" href="assets/Resume_Idham_Hakim.pdf" download="Resume_Idham_Hakim.pdf" aria-label="Résumé (PDF)"><svg><use href="#i-cv"/></svg> Résumé</a>
+    <a class="btn" href="https://github.com/ezzzy01" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg> GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/idham-hakim-29b676270" target="_blank" rel="noopener"><svg><use href="#i-in"/></svg> LinkedIn</a>
+  </div>
+</dialog>
+<div class="mbar" id="mbar" inert>
+  <a class="btn primary" href="mailto:idhamproaqw98@gmail.com"><svg><use href="#i-mail"/></svg> Email me</a>
+  <a class="btn" href="assets/Resume_Idham_Hakim.pdf" download="Resume_Idham_Hakim.pdf"><svg><use href="#i-cv"/></svg> Résumé</a>
+</div>
 <dialog class="cmdk" id="cmdk" aria-label="Quick menu">
   <div class="ksearch"><svg><use href="#i-search"/></svg><input id="kq" type="text" placeholder="Jump to a section or do something…" autocomplete="off" aria-controls="klist"><kbd>Esc</kbd></div>
   <ul id="klist" role="listbox"></ul>
@@ -1027,6 +1182,31 @@ dialog.cmdk::backdrop{background:rgba(10,16,28,.45);backdrop-filter:blur(2px)}
   fitGoal.addEventListener('click',function(e){var b=e.target.closest('.opt');if(!b)return;fitGoal.querySelectorAll('.opt').forEach(function(x){x.setAttribute('aria-checked',x===b?'true':'false')});drawFit()});
   fitGoal.addEventListener('keydown',function(e){var k=e.key==='ArrowRight'||e.key==='ArrowDown'?1:e.key==='ArrowLeft'||e.key==='ArrowUp'?-1:0;if(!k)return;e.preventDefault();var o=[].slice.call(fitGoal.querySelectorAll('.opt')),i=o.indexOf(document.activeElement);var n=o[(i+k+o.length)%o.length];n.focus();n.click()});
   drawFit();
+
+  // ---- "Show all 12 tools" on phones
+  var mt=document.getElementById('moreTools'), lg=document.getElementById('logos');
+  mt.addEventListener('click',function(){var open=lg.classList.toggle('clip')===false;mt.setAttribute('aria-expanded',open);mt.textContent=open?'Show fewer':'Show all 12 tools'});
+
+  // ---- phone menu
+  var sheet=document.getElementById('sheet');
+  document.getElementById('menuBtn').addEventListener('click',function(){sheet.showModal()});
+  document.getElementById('sheetX').addEventListener('click',function(){sheet.close()});
+  sheet.addEventListener('click',function(e){if(e.target===sheet||e.target.closest('a'))sheet.close()});
+
+  // ---- swipe rows on phones: dots that follow the scroll
+  document.querySelectorAll('.swipe-m').forEach(function(row){
+    var n=row.children.length, d=document.createElement('div');d.className='sdots';d.setAttribute('aria-hidden','true');
+    d.innerHTML=new Array(n+1).join('<i></i>');row.after(d);
+    function upd(){var c=row.children[0];if(!c)return;var w=c.getBoundingClientRect().width+12,k=Math.round(row.scrollLeft/w);
+      if(row.scrollLeft+row.clientWidth>=row.scrollWidth-4)k=n-1;[].forEach.call(d.children,function(x,i){x.classList.toggle('on',i===k)})}
+    row.addEventListener('scroll',upd,{passive:true});upd()});
+
+  // ---- bottom contact bar on phones: shown between the top section and the contact section
+  (function(){var bar=document.getElementById('mbar'),hero=document.querySelector('.hero'),ct=document.getElementById('contact');
+    if(!bar||!('IntersectionObserver' in window))return;var heroIn=true,ctIn=false;
+    function set(){var on=!heroIn&&!ctIn;bar.classList.toggle('on',on);bar.inert=!on}
+    new IntersectionObserver(function(es){es.forEach(function(e){if(e.target===hero)heroIn=e.isIntersecting;else ctIn=e.isIntersecting});set()}).observe(hero);
+    var io2=new IntersectionObserver(function(es){ctIn=es[0].isIntersecting;set()});io2.observe(ct)})();
 
   // ---- quick menu (Ctrl+K)
   var toast=document.getElementById('toast'), tt;

@@ -2,3 +2,5 @@ raw/
 content.md
 *.png
 !assets/*.png
+backups/
+HANDOFF.md
