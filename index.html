@@ -213,6 +213,13 @@ section.alt .card,section.alt .kpi{background:var(--page)}
 .rechead .desc{color:var(--muted);max-width:44em;margin-top:8px}
 .rechead .badges{margin-top:10px}
 .recacts{display:flex;flex-direction:column;gap:8px;align-items:stretch}
+.trailer{display:grid;grid-template-columns:1.6fr 1fr;gap:28px;align-items:center;text-decoration:none;color:inherit}
+.trailer .frame{transition:transform .2s,box-shadow .2s}
+.trailer:hover .frame{transform:translateY(-2px)}
+.tcap{display:grid;gap:8px;font-size:15px}.tcap b{font-size:17px}.tcap span{color:var(--muted)}
+.tcap .go{display:inline-flex;align-items:center;gap:6px;color:var(--accent-text,var(--accent));font-weight:700;min-height:44px}
+.tcap .go svg{width:16px;height:16px}
+@media (max-width:760px){.trailer{grid-template-columns:1fr;gap:14px}.trailer .frame{max-width:340px;width:100%;margin:0 auto}}
 .tabs{display:flex;gap:4px;padding:0 16px;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
 .tab{flex:none;border:0;background:none;font:inherit;font-size:15px;font-weight:600;color:var(--muted);padding:0 10px;min-height:48px;cursor:pointer;box-shadow:inset 0 -2px 0 transparent;display:inline-flex;align-items:center;gap:7px}
@@ -672,6 +679,7 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--hover
         <div class="recacts">
           <a class="btn pri" href="https://archlinux.taila38d1a.ts.net:8443/portal/guest" target="_blank" rel="noopener">Open the full app as a guest <svg><use href="#i-external-link"/></svg></a>
           <a class="btn" href="#try">Try a question here</a>
+          <a class="btn" href="https://ezzzy01.github.io/pylon/" target="_blank" rel="noopener">Product website <svg><use href="#i-external-link"/></svg></a>
         </div>
       </div>
       <div class="tabs" role="tablist" aria-label="Pylon AI">
@@ -698,6 +706,13 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--hover
           <div><dt>Runs on</dt><dd>One Linux PC: Docker, systemd and Tailscale</dd></div>
           <div><dt>Also automated</dt><dd>Nightly sync, reorder planning, forecasts, unusual-transaction checks, a PDF report pack and stock alerts</dd></div>
         </dl>
+        <h4 class="sub" style="margin-top:26px">Product website</h4>
+        <a class="trailer" href="https://ezzzy01.github.io/pylon/" target="_blank" rel="noopener">
+          <div class="frame"><div class="bar"><i></i><i></i><i></i><span>ezzzy01.github.io/pylon</span></div>
+            <picture><source media="(max-width:600px)" srcset="assets/img/pylon-site-phone.webp" width="780" height="1240"><source media="(prefers-reduced-motion: reduce)" srcset="assets/img/pylon-trailer-poster.webp"><img src="assets/img/pylon-trailer.webp" width="960" height="600" loading="lazy" decoding="async" alt="A scroll through the Pylon AI website: the headline, features, screens, how it works, security, plans and contact."></picture>
+          </div>
+          <div class="tcap"><b>The client-facing site for Pylon AI</b><span>What it does, real screens, how it works, security and plans, on one page that works on any phone.</span><span class="go">Visit the website <svg><use href="#i-external-link"/></svg></span></div>
+        </a>
       </div>
 
       <div class="tp" role="tabpanel" id="try" aria-labelledby="t-try" hidden>
