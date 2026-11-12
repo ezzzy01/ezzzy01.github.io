@@ -216,6 +216,8 @@ section.alt .card,section.alt .kpi{background:var(--page)}
 .trailer{display:grid;grid-template-columns:1.6fr 1fr;gap:28px;align-items:center;text-decoration:none;color:inherit}
 .trailer .frame{transition:transform .2s,box-shadow .2s}
 .trailer:hover .frame{transform:translateY(-2px)}
+.vtour{max-width:960px}.vtour video{display:block;width:100%;height:auto;background:#000}
+.vnote{margin:10px 0 0;color:var(--muted);font-size:14px}
 .tcap{display:grid;gap:8px;font-size:15px}.tcap b{font-size:17px}.tcap span{color:var(--muted)}
 .tcap .go{display:inline-flex;align-items:center;gap:6px;color:var(--accent-text,var(--accent));font-weight:700;min-height:44px}
 .tcap .go svg{width:16px;height:16px}
@@ -713,6 +715,10 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--hover
           </div>
           <div class="tcap"><b>The client-facing site for Pylon AI</b><span>What it does, real screens, how it works, security and plans, on one page that works on any phone.</span><span class="go">Visit the website <svg><use href="#i-external-link"/></svg></span></div>
         </a>
+        <h4 class="sub" style="margin-top:26px">Video tour (1:32)</h4>
+        <div class="vtour frame"><video controls playsinline preload="none" poster="https://ezzzy01.github.io/pylon/assets/video/poster.jpg" width="1920" height="1080" src="https://ezzzy01.github.io/pylon/assets/video/pylon-ai.mp4" aria-label="Pylon AI video tour: asking questions, dashboard, stock risks, reports, phone and security, with original music"></video></div>
+        <p class="vnote">Recorded from the live app on SAP's public demo company; AI thinking time is sped up. Music composed for the video.</p>
+
       </div>
 
       <div class="tp" role="tabpanel" id="try" aria-labelledby="t-try" hidden>
