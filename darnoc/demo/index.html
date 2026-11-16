@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Darnoc IT demo</title>
+<meta name="description" content="A working copy of the Darnoc IT store in your browser: shop, build a PC, check out, then sign in as staff or admin and process the order. Made-up data.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="img/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="demo-bar" role="region" aria-label="About this demo">
+ <div class="in">
+  <span><i class="fas fa-flask"></i> <b>Demo with made-up data.</b><span class="more"> Nothing is sent anywhere; changes stay in this tab.</span></span>
+  <span class="sp"></span>
+  <span class="roles" id="roleSwitch"></span>
+  <a class="lnk" href="../"><i class="fas fa-arrow-left"></i> About the project</a>
+ </div>
+</div>
+<div id="app"></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<dialog class="modal" id="modal"></dialog>
+<script src="app.js"></script>
+</body>
+</html>

@@ -2,5 +2,6 @@ raw/
 content.md
 *.png
 !assets/*.png
+!*/demo/img/*.png
 backups/
 HANDOFF.md

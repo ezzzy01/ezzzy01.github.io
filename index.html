@@ -305,6 +305,55 @@ section.alt .card,section.alt .kpi{background:var(--page)}
 .shot{border-radius:var(--r);overflow:hidden;box-shadow:var(--sh1);background:var(--card)}
 .shots.phones .shot{border-radius:18px}
 .shot img{width:100%;height:auto}
+.shots.phones.three{grid-template-columns:repeat(3,1fr)}
+/* Steady boxes. On a wide screen every screen group of a project shares one frame, sized to the tallest,
+   so clicking a chip never moves the page. Elsewhere boxes resize smoothly (see tabset() in the script). */
+@media (min-width:901px){
+  .fstage{display:grid}
+  .fstage>.feat{grid-area:1/1;align-self:center}
+  .js .fstage>.feat[hidden]{display:grid;visibility:hidden;pointer-events:none}
+}
+.sizing{overflow:hidden;transition:height .34s cubic-bezier(.2,.7,.2,1)}
+.fade-in{animation:fadeUp .3s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}}
+/* tall documents: the top of the page in the same 16:10 frame as the other shots; the full page opens on click */
+.shot.peek{position:relative;aspect-ratio:16/10}
+.shot.peek img{height:100%;object-fit:cover;object-position:top}
+.shot.peek::after{content:"";position:absolute;left:0;right:0;bottom:0;height:38%;background:linear-gradient(to bottom,transparent,var(--card))}
+.peek-tag{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:1;display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:999px;background:var(--ink);color:var(--page);font-size:13px;font-weight:600;white-space:nowrap;box-shadow:var(--sh1)}
+.shots button:hover .peek-tag{background:var(--accent);color:var(--accent-ink)}
+
+/* other work: a project picker, then one record per project */
+.psel{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
+.psel button{display:flex;align-items:center;gap:12px;text-align:left;border:0;background:var(--card);box-shadow:var(--sh1);color:var(--ink);font:inherit;padding:12px 14px;border-radius:var(--r-lg);cursor:pointer;min-height:64px}
+.psel button:hover{background:var(--hover)}
+.psel button[aria-selected="true"]{box-shadow:0 0 0 2px var(--ink)}
+.psel button span:last-child{display:flex;flex-direction:column;min-width:0}
+.psel b{font-size:15px;font-weight:650;line-height:1.3}
+.psel small{font-size:13px;color:var(--muted)}
+.pmark{display:grid;place-items:center;flex:none;width:52px;height:52px;border-radius:12px;background:var(--pc);color:var(--pi);font-weight:800;font-size:19px;letter-spacing:-.02em}
+.pmark.sm{width:36px;height:36px;border-radius:9px;font-size:14px}
+.pmark svg{width:66%;height:66%}
+.pmark.img{background:#fff;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);overflow:hidden}
+.pmark.img img{width:100%;height:100%;object-fit:contain}
+.prec[hidden]{display:none}
+.pnote{padding:0 24px 20px;margin-top:0}
+.pflow{display:flex;align-items:stretch;gap:0;margin:8px 0 6px}
+.pflow .node{flex:1 1 0;min-width:0;background:var(--page);box-shadow:var(--sh1);border-radius:var(--r);padding:10px 14px}
+.pflow .node b{display:block;font-size:15px}
+.pflow .node small{color:var(--muted);font-size:13.5px;display:block}
+.pflow .node.hi{background:var(--sunken)}
+.pflow .arr{display:grid;place-items:center;width:26px;flex:none;color:var(--faint)}
+.pflow .arr svg{width:15px;height:15px}
+.logos.plain li{padding:12px 16px}
+@media (max-width:900px){.psel{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){
+  .pflow{flex-direction:column}
+  .pflow .arr{width:auto;height:18px}
+  .pflow .arr svg{transform:rotate(90deg)}
+  .logos.plain{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){.pnote{padding:0 16px 16px}.logos.plain{grid-template-columns:1fr}.psel button{padding:10px 12px}}
 
 /* how it works: the tour and the diagram */
 .tour{margin-bottom:14px}
@@ -534,7 +583,10 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--hover
   <!-- Icons: Lucide v0.460.0 (ISC licence, lucide.dev). GitHub and LinkedIn: their own brand marks. -->
   <symbol id="i-gh" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5A11.5 11.5 0 0 0 8.4 22.9c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17.3 4.6 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5Z"/></symbol>
   <symbol id="i-in" viewBox="0 0 24 24"><path fill="currentColor" d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2ZM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2ZM7.1 20.5H3.5V9h3.6v11.5ZM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0Z"/></symbol>
-  <symbol id="i-database" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-database" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <ellipse cx="12" cy="5" rx="9" ry="3" /> <path d="M3 5V19A9 3 0 0 0 21 19V5" /> <path d="M3 12A9 3 0 0 0 21 12" /></g></symbol>
+  <symbol id="lg-riing" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M3.5 18a8.5 8.5 0 0 1 17 0z"/><path d="M12 9.5V8.2"/><path d="M10.5 8.2h3"/><path d="M7.6 15.4a5 5 0 0 1 2.6-3"/><path d="M8 5.6c-.8-.9.8-1.6 0-2.6"/><path d="M12 5c-.8-.9.8-1.6 0-2.6"/><path d="M16 5.6c-.8-.9.8-1.6 0-2.6"/></g></symbol>
+  <symbol id="lg-zen" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="12" width="16" height="8.5" rx="1.8"/><path d="M4 15.6c1.3 0 1.3 1.3 2.7 1.3s1.3-1.3 2.6-1.3 1.3 1.3 2.7 1.3 1.3-1.3 2.6-1.3 1.4 1.3 2.7 1.3S19 15.6 20 15.6"/><path d="M12 12V8.6"/></g><path fill="currentColor" d="M12 3.2c1.3 1.4 1.8 2.4 1.8 3.1a1.8 1.8 0 0 1-3.6 0c0-.7.5-1.7 1.8-3.1z"/></symbol>
+  <symbol id="lg-quote" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.8h8.2L19 7.6v13.6H6z"/><path d="M14 2.8v5h5"/><path d="M8.8 11.2h7.4"/><path d="M8.8 14.4h7.4"/><path d="M12.6 17.8h3.6"/></g></symbol>
+  <symbol id="i-database"viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-database" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <ellipse cx="12" cy="5" rx="9" ry="3" /> <path d="M3 5V19A9 3 0 0 0 21 19V5" /> <path d="M3 12A9 3 0 0 0 21 12" /></g></symbol>
   <symbol id="i-target" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-target" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="12" cy="12" r="10" /> <circle cx="12" cy="12" r="6" /> <circle cx="12" cy="12" r="2" /></g></symbol>
   <symbol id="i-route" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-route" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="6" cy="19" r="3" /> <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" /> <circle cx="18" cy="5" r="3" /></g></symbol>
   <symbol id="i-trophy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><svg class="lucide lucide-trophy" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" /> <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" /> <path d="M4 22h16" /> <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" /> <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" /> <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" /></g></symbol>
@@ -681,7 +733,7 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--hover
         <div class="recacts">
           <a class="btn pri" href="https://archlinux.taila38d1a.ts.net:8443/portal/guest" target="_blank" rel="noopener">Open the full app as a guest <svg><use href="#i-external-link"/></svg></a>
           <a class="btn" href="#try">Try a question here</a>
-          <a class="btn" href="https://ezzzy01.github.io/pylon/" target="_blank" rel="noopener">Product website <svg><use href="#i-external-link"/></svg></a>
+          <a class="btn" href="https://ezzzy01.github.io/pylon/" target="_blank" rel="noopener">Open project page <svg><use href="#i-external-link"/></svg></a>
         </div>
       </div>
       <div class="tabs" role="tablist" aria-label="Pylon AI">
@@ -708,7 +760,7 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--hover
           <div><dt>Runs on</dt><dd>One Linux PC: Docker, systemd and Tailscale</dd></div>
           <div><dt>Also automated</dt><dd>Nightly sync, reorder planning, forecasts, unusual-transaction checks, a PDF report pack and stock alerts</dd></div>
         </dl>
-        <h4 class="sub" style="margin-top:26px">Product website</h4>
+        <h4 class="sub" style="margin-top:26px">Project page</h4>
         <a class="trailer" href="https://ezzzy01.github.io/pylon/" target="_blank" rel="noopener">
           <div class="frame"><div class="bar"><i></i><i></i><i></i><span>ezzzy01.github.io/pylon</span></div>
             <picture><source media="(max-width:600px)" srcset="assets/img/pylon-site-phone.webp" width="780" height="1240"><source media="(prefers-reduced-motion: reduce)" srcset="assets/img/pylon-trailer-poster.webp"><img src="assets/img/pylon-trailer.webp" width="960" height="600" loading="lazy" decoding="async" alt="A scroll through the Pylon AI website: the headline, features, screens, how it works, security, plans and contact."></picture>
@@ -879,31 +931,392 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--hover
   </div>
 </section>
 
-<!-- other work -->
+<!-- other work: each project opens as a record page, like Pylon AI -->
 <section class="alt" id="work">
   <div class="wrap">
-    <div class="sh"><div class="eyebrow">Other work</div><h2>More things I've built</h2></div>
-    <div class="grid2">
-      <div class="card">
-        <span class="ic"><svg><use href="#i-mail"/></svg></span>
-        <h3>TFP Digital Quotation &amp; Mailer</h3>
-        <p>A Windows desktop app that produces branded Word and Excel maintenance quotations for 17–18 SAP Business One clients, with a companion Outlook mailer: templates, attachments, and reply tracking that stops reminders. The saved password is encrypted with Windows DPAPI; packaged with PyInstaller.</p>
-        <div class="badges"><span class="badge">Python</span><span class="badge">Tkinter</span><span class="badge">SQL Server</span><span class="badge">Outlook</span><span class="badge">PyInstaller</span></div>
+    <div class="sh">
+      <div class="eyebrow">Other work</div>
+      <h2>More things I've built</h2>
+      <p>Pick a project. Each one opens like Pylon above: what it does, real screens where I can show them, and how it's built.</p>
+    </div>
+
+    <div class="psel" role="tablist" aria-label="Projects">
+      <button type="button" role="tab" id="pt-dn" aria-controls="pr-dn" aria-selected="true"><span class="pmark sm" style="--pc:#f5b301;--pi:#111">IT</span><span><b>Darnoc IT</b><small>E-commerce · Final year</small></span></button>
+      <button type="button" role="tab" id="pt-tfp" aria-controls="pr-tfp" aria-selected="false"><span class="pmark sm" style="--pc:#4f8a2e;--pi:#fff"><svg><use href="#lg-quote"/></svg></span><span><b>Quotation &amp; Mailer</b><small>Desktop app · At work</small></span></button>
+      <button type="button" role="tab" id="pt-rc" aria-controls="pr-rc" aria-selected="false"><span class="pmark sm" style="--pc:#1b8a80;--pi:#fff"><svg aria-hidden="true"><use href="#lg-riing"/></svg></span><span><b>Riing Catering</b><small>Website · Group project</small></span></button>
+      <button type="button" role="tab" id="pt-zen" aria-controls="pr-zen" aria-selected="false"><span class="pmark sm" style="--pc:#c2477a;--pi:#fff"><svg aria-hidden="true"><use href="#lg-zen"/></svg></span><span><b>Zen Birthday</b><small>Mobile app · Academic</small></span></button>
+    </div>
+
+    <!-- Darnoc IT -->
+    <div class="rec prec" role="tabpanel" id="pr-dn" aria-labelledby="pt-dn">
+      <div class="rechead">
+        <span class="pmark" style="--pc:#f5b301;--pi:#111" aria-hidden="true">IT</span>
+        <div>
+          <h3>Darnoc IT E-Commerce</h3>
+          <div class="muted">An online store for a computer hardware shop in Melaka: shop, custom PC builder, trade-ins, warranty and support, with admin and staff dashboards</div>
+          <div class="badges"><span class="badge good"><svg><use href="#i-check"/></svg>Final year project</span><span class="badge info">Built for a real shop</span><span class="badge">3 roles</span><span class="badge">Designed and built by me</span></div>
+        </div>
+        <div class="recacts">
+          <a class="btn pri" href="darnoc/demo/">Try the demo</a>
+          <a class="btn" href="darnoc/">Open project page</a>
+          <button type="button" class="btn" data-open="dn-t-screens">See the screens</button>
+        </div>
       </div>
-      <div class="card">
-        <span class="ic"><svg><use href="#i-grid"/></svg></span>
-        <h3>Academic projects</h3>
-        <table class="ftable" style="margin-top:6px">
-          <thead><tr><th>Project</th><th>Built with</th></tr></thead>
-          <tbody>
-            <tr><td>Darnoc IT E-Commerce <span class="badge" style="margin-left:4px">Final year</span></td><td>PHP, MySQL</td></tr>
-            <tr><td>Student Borrow System</td><td>Java, MySQL</td></tr>
-            <tr><td>Zen Birthday App</td><td>Flutter, SQLite</td></tr>
-            <tr><td>Riing Catering</td><td>PHP, MySQL</td></tr>
-          </tbody>
-        </table>
+      <div class="tabs" role="tablist" aria-label="Darnoc IT">
+        <button class="tab" role="tab" id="dn-t-ov" aria-controls="dn-ov" aria-selected="true">Overview</button>
+        <button class="tab" role="tab" id="dn-t-screens" aria-controls="dn-screens" aria-selected="false">Screens</button>
+        <button class="tab" role="tab" id="dn-t-how" aria-controls="dn-how" aria-selected="false">How it works</button>
+        <button class="tab" role="tab" id="dn-t-stack" aria-controls="dn-stack" aria-selected="false">Built with</button>
+      </div>
+
+      <div class="tp" role="tabpanel" id="dn-ov" aria-labelledby="dn-t-ov">
+        <div class="grid3 car swipe-m" aria-label="Challenge, approach and result">
+          <div class="card"><span class="ic"><svg><use href="#i-target"/></svg></span><h3>The challenge</h3><p>Darnoc IT sold through social media. Orders, trade-ins and promotions were handled by hand in chats, nothing was automated, and customers had no easy way to check that the parts they picked would work together.</p></div>
+          <div class="card"><span class="ic"><svg><use href="#i-route"/></svg></span><h3>The approach</h3><p>One web platform with three roles. Customers shop, build a PC, trade in old parts and open support tickets; staff and admins run orders, stock, promotions and trade-ins from their own dashboards. Built in short Rapid Application Development cycles.</p></div>
+          <div class="card"><span class="ic"><svg><use href="#i-trophy"/></svg></span><h3>The result</h3><p>A working store on PHP and MySQL that covers the whole journey: browse, compare, build, check out, track the order, check the warranty and get after-sales support, with sales figures for the owner.</p></div>
+        </div>
+        <h4 class="sub" style="margin-top:22px">At a glance</h4>
+        <dl class="facts">
+          <div><dt>Status</dt><dd><span class="badge good">Completed</span> Final year project, Software Engineering</dd></div>
+          <div><dt>Built for</dt><dd>Darnoc IT, a computer hardware shop in Melaka</dd></div>
+          <div><dt>Roles</dt><dd>Customer, staff and admin, each with its own dashboard</dd></div>
+          <div><dt>Size</dt><dd>About 30 pages; 25 tables and 8 reporting views in MySQL</dd></div>
+          <div><dt>Highlights</dt><dd>PC builder with a CPU and motherboard socket check, trade-in offers, warranty tracking, promotions</dd></div>
+          <div><dt>Method</dt><dd>Rapid Application Development, with a full SRS and thesis</dd></div>
+        </dl>
+      </div>
+
+      <div class="tp" role="tabpanel" id="dn-screens" aria-labelledby="dn-t-screens" hidden>
+        <div class="chipsel" role="tablist" aria-label="Darnoc IT screens">
+          <button role="tab" aria-selected="true" aria-controls="dn-f-shop" id="dn-c-shop">Shop &amp; promotions</button>
+          <button role="tab" aria-selected="false" aria-controls="dn-f-pc" id="dn-c-pc">PC builder</button>
+          <button role="tab" aria-selected="false" aria-controls="dn-f-acct" id="dn-c-acct">Customer account</button>
+          <button role="tab" aria-selected="false" aria-controls="dn-f-sup" id="dn-c-sup">Support &amp; warranty</button>
+          <button role="tab" aria-selected="false" aria-controls="dn-f-admin" id="dn-c-admin">Admin &amp; staff</button>
+          <button role="tab" aria-selected="false" aria-controls="dn-f-phone" id="dn-c-phone">Phone</button>
+        </div>
+        <div class="feat" role="tabpanel" id="dn-f-shop" aria-labelledby="dn-c-shop">
+          <div><h4>Shop and promotions</h4><p>The storefront: search with category and sort, product pages, a cart and checkout. Promotions show the discount, the old price and how much is saved.</p>
+            <ul><li>Search, filter by category and sort</li><li>Compare products side by side</li><li>Checkout records the order and the payment</li></ul></div>
+          <div class="shots two swipe-m"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/dn-home.webp" srcset="assets/img/dn-home-960.webp 960w, assets/img/dn-home.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="Darnoc IT home page with a search bar, category and sort filters."></div></button><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/dn-promo.webp" srcset="assets/img/dn-promo-960.webp 960w, assets/img/dn-promo.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="Special promotions page with discounted CPUs and a graphics card."></div></button></div>
+        </div>
+        <div class="feat" role="tabpanel" id="dn-f-pc" aria-labelledby="dn-c-pc" hidden>
+          <div><h4>Custom PC builder</h4><p>Pick a part for each slot: processor, motherboard, memory, graphics card, storage, power supply and case. A build summary keeps the running price.</p>
+            <ul><li>Checks the CPU fits the motherboard's socket</li><li>Shows specs and stock for each part</li><li>The whole build goes into the cart in one click</li></ul></div>
+          <div class="shots"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/dn-pcbuild.webp" srcset="assets/img/dn-pcbuild-960.webp 960w, assets/img/dn-pcbuild.webp 1600w" sizes="(max-width:900px) 92vw, 720px" width="1600" height="1000" alt="The custom PC builder with processors to choose from and a build summary."></div></button></div>
+        </div>
+        <div class="feat" role="tabpanel" id="dn-f-acct" aria-labelledby="dn-c-acct" hidden>
+          <div><h4>Customer account</h4><p>Each customer has a dashboard with their orders, total spend and trade-ins. Trade-ins are sent in with photos, specs and condition, and the shop's decision shows up here.</p>
+            <ul><li>Order history and status</li><li>Trade-in requests with photos and specs</li><li>Account details and settings</li></ul></div>
+          <div class="shots two swipe-m"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/dn-account.webp" srcset="assets/img/dn-account-960.webp 960w, assets/img/dn-account.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="Customer dashboard with orders, total spent and trade-in status."></div></button><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/dn-tradein.webp" srcset="assets/img/dn-tradein-960.webp 960w, assets/img/dn-tradein.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="Trade-in requests for three graphics cards, each accepted."></div></button></div>
+        </div>
+        <div class="feat" role="tabpanel" id="dn-f-sup" aria-labelledby="dn-c-sup" hidden>
+          <div><h4>Support and warranty</h4><p>Customers open tickets about a product they bought. Each ticket shows its priority, status and whether the product is still under warranty, worked out from the order date and the product's warranty period.</p>
+            <ul><li>Tickets with attachments and replies</li><li>Warranty checker by order or product</li><li>Alerts for warranties about to expire</li></ul></div>
+          <div class="shots"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/dn-support.webp" srcset="assets/img/dn-support-960.webp 960w, assets/img/dn-support.webp 1600w" sizes="(max-width:900px) 92vw, 720px" width="1600" height="1000" alt="Support center with two tickets showing priority, status and warranty."></div></button></div>
+        </div>
+        <div class="feat" role="tabpanel" id="dn-f-admin" aria-labelledby="dn-c-admin" hidden>
+          <div><h4>Admin and staff dashboards</h4><p>Admins see users, products, orders, revenue and support at a glance, then process orders, manage stock, run promotions and review trade-ins. Staff get a focused version for daily work.</p>
+            <ul><li>Key figures with low-stock and pending warnings</li><li>Orders filtered by status, processed in one click</li><li>Promotions applied to products by percentage</li></ul></div>
+          <div class="shots two swipe-m"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/dn-admin.webp" srcset="assets/img/dn-admin-960.webp 960w, assets/img/dn-admin.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="Admin dashboard with users, products, orders, revenue and support tickets."></div></button><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/dn-orders.webp" srcset="assets/img/dn-orders-960.webp 960w, assets/img/dn-orders.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="Order management table with status badges and process and cancel buttons."></div></button><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/dn-staff.webp" srcset="assets/img/dn-staff-960.webp 960w, assets/img/dn-staff.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="Staff dashboard with products, orders, trade-ins, tickets and promotions."></div></button><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/dn-managepromo.webp" srcset="assets/img/dn-managepromo-960.webp 960w, assets/img/dn-managepromo.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="Manage promotions: add a promotion and see the active ones."></div></button></div>
+        </div>
+        <div class="feat" role="tabpanel" id="dn-f-phone" aria-labelledby="dn-c-phone" hidden>
+          <div><h4>Works on a phone</h4><p>The store, the PC builder and the customer dashboard all fit a phone screen, so customers can shop and check their orders on the go.</p>
+            <div class="shots" style="margin-top:16px"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/dn-login.webp" srcset="assets/img/dn-login-960.webp 960w, assets/img/dn-login.webp 1600w" sizes="(max-width:600px) 84vw, 340px" width="1600" height="1000" alt="The sign-in page."></div></button></div></div>
+          <div class="shots phones three swipe-m"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/dn-phone-home.webp" width="780" height="1688" alt="Phone: Darnoc IT home page."></div></button><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/dn-phone-pcbuild.webp" width="780" height="1688" alt="Phone: the PC builder."></div></button><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/dn-phone-account.webp" width="780" height="1688" alt="Phone: the customer dashboard."></div></button></div>
+        </div>
+      </div>
+
+      <div class="tp" role="tabpanel" id="dn-how" aria-labelledby="dn-t-how" hidden>
+        <p class="muted" style="margin-bottom:14px">Plain PHP pages on Apache with a MySQL database. The role saved at sign-in decides which dashboard and actions each person gets.</p>
+        <div class="flowlbl">Every request</div>
+        <div class="pflow">
+          <div class="node"><b>Customer, staff or admin</b><small>browser or phone</small></div>
+          <div class="arr"><svg><use href="#i-arrow"/></svg></div>
+          <div class="node"><b>Sign-in</b><small>PHP session holds the role</small></div>
+          <div class="arr"><svg><use href="#i-arrow"/></svg></div>
+          <div class="node hi"><b>PHP pages</b><small>shop, cart, PC builder, trade-in, support, dashboards</small></div>
+          <div class="arr"><svg><use href="#i-arrow"/></svg></div>
+          <div class="node"><b>MySQL</b><small>25 tables, prepared statements</small></div>
+        </div>
+        <div class="flowlbl">Buying something</div>
+        <div class="pflow">
+          <div class="node"><b>Cart</b><small>promotions applied</small></div>
+          <div class="arr"><svg><use href="#i-arrow"/></svg></div>
+          <div class="node"><b>Checkout</b><small>shipping, billing, payment method</small></div>
+          <div class="arr"><svg><use href="#i-arrow"/></svg></div>
+          <div class="node hi"><b>Order and payment saved</b><small>with a status history</small></div>
+          <div class="arr"><svg><use href="#i-arrow"/></svg></div>
+          <div class="node"><b>Admin processes it</b><small>customer tracks it; warranty starts</small></div>
+        </div>
+        <div class="flowlbl">Trading in a part</div>
+        <div class="pflow">
+          <div class="node"><b>Customer submits</b><small>photos, specs, condition</small></div>
+          <div class="arr"><svg><use href="#i-arrow"/></svg></div>
+          <div class="node hi"><b>Staff or admin reviews</b><small>accepts with an offer, or declines</small></div>
+          <div class="arr"><svg><use href="#i-arrow"/></svg></div>
+          <div class="node"><b>Decision in history</b><small>shown in the customer's dashboard</small></div>
+        </div>
+        <div class="flowlbl">Behind the dashboards</div>
+        <div class="pflow">
+          <div class="node"><b>8 MySQL views</b><small>sales statistics, top sellers, low stock, cart totals</small></div>
+          <div class="arr"><svg><use href="#i-arrow"/></svg></div>
+          <div class="node hi"><b>Admin and staff dashboards</b><small>key figures and Chart.js charts</small></div>
+        </div>
+      </div>
+
+      <div class="tp" role="tabpanel" id="dn-stack" aria-labelledby="dn-t-stack" hidden>
+        <p class="logolead">What each piece does in Darnoc IT.</p>
+        <ul class="logos plain">
+          <li><span><b>PHP</b><small>Every page, the sign-in and the role checks</small></span></li>
+          <li><span><b>MySQL</b><small>Products, orders, payments, trade-ins, tickets and reporting views</small></span></li>
+          <li><span><b>PDO and mysqli</b><small>Prepared statements for database queries</small></span></li>
+          <li><span><b>JavaScript</b><small>The PC builder, filters and live totals</small></span></li>
+          <li><span><b>Chart.js</b><small>Sales charts in the dashboards</small></span></li>
+          <li><span><b>HTML and CSS</b><small>Layouts that fit a PC or a phone</small></span></li>
+          <li><span><b>Apache (XAMPP)</b><small>Local server for development and demos</small></span></li>
+          <li><span><b>Git and GitHub</b><small>Version control</small></span></li>
+        </ul>
+      </div>
+      <p class="note pnote"><svg><use href="#i-info"/></svg> Screens are from my local copy with test data. Contact details and customer emails are blurred.</p>
+    </div>
+
+    <!-- Quotation & Mailer (work project; employer name and logo deliberately left out) -->
+    <div class="rec prec" role="tabpanel" id="pr-tfp" aria-labelledby="pt-tfp" hidden>
+      <div class="rechead">
+        <span class="pmark" style="--pc:#4f8a2e;--pi:#fff" aria-hidden="true"><svg><use href="#lg-quote"/></svg></span>
+        <div>
+          <h3>Quotation &amp; Mailer</h3>
+          <div class="muted">A Windows desktop app that writes the yearly SAP Business One maintenance quotations for every client of an IT services company, and an Outlook mailer that sends them</div>
+          <div class="badges"><span class="badge good"><svg><use href="#i-check"/></svg>In use at work</span><span class="badge info">17–18 clients</span><span class="badge">Designed and built by me</span></div>
+        </div>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Quotation and Mailer">
+        <button class="tab" role="tab" id="tfp-t-ov" aria-controls="tfp-ov" aria-selected="true">Overview</button>
+        <button class="tab" role="tab" id="tfp-t-screens" aria-controls="tfp-screens" aria-selected="false">Screens</button>
+        <button class="tab" role="tab" id="tfp-t-how" aria-controls="tfp-how" aria-selected="false">How it works</button>
+        <button class="tab" role="tab" id="tfp-t-stack" aria-controls="tfp-stack" aria-selected="false">Built with</button>
+      </div>
+      <div class="tp" role="tabpanel" id="tfp-ov" aria-labelledby="tfp-t-ov">
+        <div class="grid3 car swipe-m" aria-label="Challenge, approach and result">
+          <div class="card"><span class="ic"><svg><use href="#i-target"/></svg></span><h3>The challenge</h3><p>Every year each SAP Business One client needs a maintenance quotation with that year's SAP price increase, its own items and terms. Writing them one by one in Word, then emailing and chasing each client, took days.</p></div>
+          <div class="card"><span class="ic"><svg><use href="#i-route"/></svg></span><h3>The approach</h3><p>One app holds every client's details, items, price increases and terms. It generates branded Word and Excel quotations for one client or all ticked clients at once, and a companion mailer sends them through Outlook.</p></div>
+          <div class="card"><span class="ic"><svg><use href="#i-trophy"/></svg></span><h3>The result</h3><p>The whole year's quotations come out in one run, consistent and correctly totalled. Replies are tracked, so reminders stop by themselves when a client answers.</p></div>
+        </div>
+        <h4 class="sub" style="margin-top:22px">What it does</h4>
+        <dl class="facts">
+          <div><dt>Clients</dt><dd>Add, duplicate or tick clients; tick to include in a batch</dd></div>
+          <div><dt>Quotation</dt><dd>Client and date, items (quantity × unit price), SAP price increases by year and rate</dd></div>
+          <div><dt>Terms</dt><dd>Default terms for everyone, or a client's own</dd></div>
+          <div><dt>Settings</dt><dd>SST rate, table headings, signatures, reference format and logo</dd></div>
+          <div><dt>Mailer</dt><dd>Outlook templates and attachments, with reply tracking that stops reminders</dd></div>
+          <div><dt>Security</dt><dd>The saved password is encrypted with Windows DPAPI</dd></div>
+        </dl>
+      </div>
+      <div class="tp" role="tabpanel" id="tfp-screens" aria-labelledby="tfp-t-screens" hidden>
+        <div class="chipsel" role="tablist" aria-label="Quotation app screens">
+          <button role="tab" aria-selected="true" aria-controls="tfp-f-q" id="tfp-c-q">Quotations</button>
+          <button role="tab" aria-selected="false" aria-controls="tfp-f-lines" id="tfp-c-lines">Lines and terms</button>
+          <button role="tab" aria-selected="false" aria-controls="tfp-f-doc" id="tfp-c-doc">The quotation</button>
+          <button role="tab" aria-selected="false" aria-controls="tfp-f-set" id="tfp-c-set">Settings</button>
+          <button role="tab" aria-selected="false" aria-controls="tfp-f-mail" id="tfp-c-mail">Mailer</button>
+          <button role="tab" aria-selected="false" aria-controls="tfp-f-email" id="tfp-c-email">The email</button>
+          <button role="tab" aria-selected="false" aria-controls="tfp-f-rc" id="tfp-c-rc">Reply and compose</button>
+          <button role="tab" aria-selected="false" aria-controls="tfp-f-rce" id="tfp-c-rce">Their emails</button>
+        </div>
+        <div class="feat" role="tabpanel" id="tfp-f-q" aria-labelledby="tfp-c-q">
+          <div><h4>Clients and quotations</h4><p>Every client with its quotations in one tree. Tick the ones to include, then generate one or all of them in a single run.</p>
+            <ul><li>Search by client or quotation</li><li>Valid-until date or validity days per quotation</li><li>Totals, SST and grand total always shown at the bottom</li></ul></div>
+          <div class="shots"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/qt-details.webp" srcset="assets/img/qt-details-960.webp 960w, assets/img/qt-details.webp 1600w" sizes="(max-width:900px) 92vw, 720px" width="1600" height="727" alt="Quotation app: client tree on the left, quotation details on the right, totals at the bottom."></div></button></div>
+        </div>
+        <div class="feat" role="tabpanel" id="tfp-f-lines" aria-labelledby="tfp-c-lines" hidden>
+          <div><h4>Lines and terms</h4><p>Sections, licence items, discounts, yearly SAP price increases and totals, each line edited below the table. Terms can be the default set or the client's own.</p>
+            <ul><li>Amount = quantity × unit price, or a fixed amount</li><li>Discounts and increases worked into the subtotal</li><li>Placeholders like {year} and {validity} filled in on generation</li></ul></div>
+          <div class="shots two swipe-m"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/qt-lines.webp" srcset="assets/img/qt-lines-960.webp 960w, assets/img/qt-lines.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="727" alt="Lines tab: licence items, discount, price increase and subtotal, with the selected line's editor."></div></button><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/qt-terms.webp" srcset="assets/img/qt-terms-960.webp 960w, assets/img/qt-terms.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="727" alt="Terms tab: validity, payment terms and notes for this quotation."></div></button></div>
+        </div>
+        <div class="feat" role="tabpanel" id="tfp-f-doc" aria-labelledby="tfp-c-doc" hidden>
+          <div><h4>The generated quotation</h4><p>A Word quotation per client, saved as PDF for sending: header, client block, reference number, the line table, what maintenance includes, terms, totals and signature.</p>
+            <ul><li>Reference built from the client code, subject and date</li><li>Totals with and without SST</li><li>Company details, footer and signatures come from Settings</li></ul></div>
+          <div class="shots"><button data-zoom><div class="shot peek"><span class="peek-tag" aria-hidden="true">See the full page</span><img loading="lazy" src="assets/img/qt-quotation.webp" srcset="assets/img/qt-quotation-960.webp 960w, assets/img/qt-quotation.webp 1000w" sizes="(max-width:900px) 92vw, 520px" width="1000" height="1415" alt="A generated quotation for a made-up client, Northwind Trading, totalling RM 29,132.76."></div></button></div>
+        </div>
+        <div class="feat" role="tabpanel" id="tfp-f-set" aria-labelledby="tfp-c-set" hidden>
+          <div><h4>Settings for every quotation</h4><p>Signatures (any photo or scan, background removed automatically), company header and footer, contact email, output format and defaults.</p></div>
+          <div class="shots"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/qt-settings.webp" srcset="assets/img/qt-settings-960.webp 960w, assets/img/qt-settings.webp 1200w" sizes="(max-width:900px) 92vw, 620px" width="1200" height="808" alt="Settings window: signatures, company name, registration line, address, contact email."></div></button></div>
+        </div>
+        <div class="feat" role="tabpanel" id="tfp-f-mail" aria-labelledby="tfp-c-mail" hidden>
+          <div><h4>The mailer</h4><p>Every quotation with its follow-up status: ready to email, waiting for a reply, reminder due or replied. Pick one client or several and email them together through Outlook.</p>
+            <ul><li>Finds each client's quotation file and contacts by itself, and says what's missing</li><li>Deadline from the quotation's valid-until date, or one date for all</li><li>Reminders count the days without a reply and stop once the client answers</li></ul></div>
+          <div class="shots two swipe-m"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/qt-mail-list.webp" srcset="assets/img/qt-mail-list-960.webp 960w, assets/img/qt-mail-list.webp 1584w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1584" height="952" alt="Mailer: six made-up quotations with total, valid-until date, ready-to-email check and follow-up status."></div></button><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/qt-mail-client.webp" srcset="assets/img/qt-mail-client-960.webp 960w, assets/img/qt-mail-client.webp 1584w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1584" height="952" alt="Mailer with Northwind Trading selected: template, sender, To and CC addresses, attached quotation and subject."></div></button></div>
+        </div>
+        <div class="feat" role="tabpanel" id="tfp-f-email" aria-labelledby="tfp-c-email" hidden>
+          <div><h4>The email the client gets</h4><p>A branded email filled in from the quotation: who it's for, dates, totals with and without SST, a reply button, and the notes about price and deadline.</p>
+            <ul><li>Templates for a new quotation and for reminders</li><li>Word quotations attached as PDF</li><li>Preview exactly what the client will see before creating the email</li></ul></div>
+          <div class="shots"><button data-zoom><div class="shot peek"><span class="peek-tag" aria-hidden="true">See the full email</span><img loading="lazy" src="assets/img/qt-mail-preview.webp" srcset="assets/img/qt-mail-preview-960.webp 960w, assets/img/qt-mail-preview.webp 1200w" sizes="(max-width:900px) 92vw, 520px" width="1200" height="1439" alt="Email preview for a made-up client, Northwind Trading: quotation summary, total RM 29,132.76 and a reply-to-confirm button."></div></button></div>
+        </div>
+        <div class="feat" role="tabpanel" id="tfp-f-rc" aria-labelledby="tfp-c-rc" hidden>
+          <div><h4>Reply and compose</h4><p>Two more tabs for everyday email in the same company design. Reply picks up a client's email from Outlook and answers it; Compose writes new emails to contacts from Outlook, recent emails or a saved list.</p>
+            <ul><li>Reply, reply all or forward, with templates and the client's message kept below</li><li>A header title per email (Update, Notice, Confirmed) and simple formatting: "- " for green ticks, **bold**, {Name}</li><li>One email to many people, or a separate personalised email to each</li><li>Creates an Outlook draft to check first, or sends straight away</li></ul></div>
+          <div class="shots two swipe-m"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/qt-mail-reply.webp" srcset="assets/img/qt-mail-reply-960.webp 960w, assets/img/qt-mail-reply.webp 1584w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1584" height="952" alt="Reply tab: a made-up client's email on the left, the reply with template, header title and attachment on the right."></div></button><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/qt-mail-compose.webp" srcset="assets/img/qt-mail-compose-960.webp 960w, assets/img/qt-mail-compose.webp 1584w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1584" height="952" alt="Compose tab: made-up contacts on the left, a service notice to three of them on the right."></div></button></div>
+        </div>
+        <div class="feat" role="tabpanel" id="tfp-f-rce" aria-labelledby="tfp-c-rce" hidden>
+          <div><h4>The emails they send</h4><p>Replies and new emails go out in the same design as the quotation email: company header, a header title with a line under it, then the message with its formatting applied.</p>
+            <ul><li>"- " lines become green ticks, **word** becomes bold</li><li>Signature and an "Any questions?" box added for you</li><li>Left: a reply confirming a client's PO. Right: a service notice written in Compose.</li></ul></div>
+          <div class="shots two swipe-m"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/qt-mail-reply-email.webp" srcset="assets/img/qt-mail-reply-email-960.webp 960w, assets/img/qt-mail-reply-email.webp 1200w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1200" height="655" alt="Reply email to a made-up client: thanks for the PO, two green-tick lines, signature and an Any questions box."></div></button><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/qt-mail-compose-email.webp" srcset="assets/img/qt-mail-compose-email-960.webp 960w, assets/img/qt-mail-compose-email.webp 1200w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1200" height="683" alt="Service notice email: upgrade on Saturday 5 December, two green-tick lines, signature and an Any questions box."></div></button></div>
+        </div>
+        <p class="note"><svg><use href="#i-info"/></svg> Made-up clients, prices and contacts, and a fictional company ("Acme") in place of the employer. The employer's name and logo are removed. Reply and Compose read a real mailbox, so those two screens are redrawn from the app's layout with made-up emails; the emails they send are the app's own previews, written with made-up text.</p>
+      </div>
+      <div class="tp" role="tabpanel" id="tfp-how" aria-labelledby="tfp-t-how" hidden>
+        <div class="flowlbl">One quotation run</div>
+        <div class="pflow">
+          <div class="node"><b>Client data</b><small>details, items, increases, terms</small></div>
+          <div class="arr"><svg><use href="#i-arrow"/></svg></div>
+          <div class="node hi"><b>Quotation app</b><small>Tkinter; totals and SST worked out</small></div>
+          <div class="arr"><svg><use href="#i-arrow"/></svg></div>
+          <div class="node"><b>Word and Excel files</b><small>branded, one per client</small></div>
+          <div class="arr"><svg><use href="#i-arrow"/></svg></div>
+          <div class="node"><b>Outlook mailer</b><small>sends, then tracks replies</small></div>
+        </div>
+      </div>
+      <div class="tp" role="tabpanel" id="tfp-stack" aria-labelledby="tfp-t-stack" hidden>
+        <ul class="logos plain">
+          <li><span><b>Python</b><small>The app, the documents and the mailer</small></span></li>
+          <li><span><b>Tkinter</b><small>The desktop window, tabs and forms</small></span></li>
+          <li><span><b>SQL Server</b><small>Client details from the company's data</small></span></li>
+          <li><span><b>Word and Excel</b><small>The quotations people receive</small></span></li>
+          <li><span><b>Outlook</b><small>Sending, attachments and reply tracking</small></span></li>
+          <li><span><b>PyInstaller</b><small>Packaged as a Windows app, no Python needed</small></span></li>
+        </ul>
       </div>
     </div>
+
+    <!-- Riing Catering -->
+    <div class="rec prec" role="tabpanel" id="pr-rc" aria-labelledby="pt-rc" hidden>
+      <div class="rechead">
+        <span class="pmark" style="--pc:#1b8a80;--pi:#fff" aria-hidden="true"><svg><use href="#lg-riing"/></svg></span>
+        <div>
+          <h3>Riing Catering</h3>
+          <div class="muted">A catering company website: the menu, a free-quote request form, and a list of customer requests saved in MySQL</div>
+          <div class="badges"><span class="badge good"><svg><use href="#i-check"/></svg>Completed</span><span class="badge info">Group project, 4 students</span><span class="badge">Internet Programming</span></div>
+        </div>
+        <div class="recacts">
+          <a class="btn pri" href="riing/demo/">Try the demo</a>
+          <a class="btn" href="riing/">Open project page</a>
+          <button type="button" class="btn" data-open="rc-t-screens">See the screens</button>
+        </div>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Riing Catering">
+        <button class="tab" role="tab" id="rc-t-ov" aria-controls="rc-ov" aria-selected="true">Overview</button>
+        <button class="tab" role="tab" id="rc-t-screens" aria-controls="rc-screens" aria-selected="false">Screens</button>
+        <button class="tab" role="tab" id="rc-t-stack" aria-controls="rc-stack" aria-selected="false">Built with</button>
+      </div>
+      <div class="tp" role="tabpanel" id="rc-ov" aria-labelledby="rc-t-ov">
+        <div class="grid3 car swipe-m" aria-label="What it does">
+          <div class="card"><span class="ic"><svg><use href="#i-grid"/></svg></span><h3>Menu</h3><p>Starters, main courses, desserts and drinks, each with a photo and a price.</p></div>
+          <div class="card"><span class="ic"><svg><use href="#i-chat"/></svg></span><h3>Request a free quote</h3><p>Customers send the occasion, date, time, place, number of guests and budget, with their contact details.</p></div>
+          <div class="card"><span class="ic"><svg><use href="#i-database"/></svg></span><h3>Customer requests</h3><p>Every request is saved in MySQL and listed for the catering team to follow up.</p></div>
+        </div>
+        <h4 class="sub" style="margin-top:22px">At a glance</h4>
+        <dl class="facts">
+          <div><dt>Course</dt><dd>Internet Programming</dd></div>
+          <div><dt>Team</dt><dd>4 students</dd></div>
+          <div><dt>Pages</dt><dd>Home, menu, catering order, customer requests</dd></div>
+          <div><dt>Data</dt><dd>MySQL, through PHP's mysqli</dd></div>
+        </dl>
+      </div>
+      <div class="tp" role="tabpanel" id="rc-screens" aria-labelledby="rc-t-screens" hidden>
+        <div class="chipsel" role="tablist" aria-label="Riing Catering screens">
+          <button role="tab" aria-selected="true" aria-controls="rc-f-menu" id="rc-c-menu">Menu</button>
+          <button role="tab" aria-selected="false" aria-controls="rc-f-quote" id="rc-c-quote">Request a quote</button>
+          <button role="tab" aria-selected="false" aria-controls="rc-f-req" id="rc-c-req">Customer requests</button>
+          <button role="tab" aria-selected="false" aria-controls="rc-f-home" id="rc-c-home">About the team</button>
+        </div>
+        <div class="feat" role="tabpanel" id="rc-f-menu" aria-labelledby="rc-c-menu">
+          <div><h4>The menu</h4><p>Four sections, each dish with a photo and its price in ringgit.</p>
+            <ul><li>Starters and main courses</li><li>Desserts</li><li>Drinks, including local favourites</li></ul></div>
+          <div class="shots two swipe-m"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/rc-menu.webp" srcset="assets/img/rc-menu-960.webp 960w, assets/img/rc-menu.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="Riing Catering menu with starters and main courses."></div></button><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/rc-menu-more.webp" srcset="assets/img/rc-menu-more-960.webp 960w, assets/img/rc-menu-more.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="Riing Catering menu with desserts and drinks."></div></button></div>
+        </div>
+        <div class="feat" role="tabpanel" id="rc-f-quote" aria-labelledby="rc-c-quote" hidden>
+          <div><h4>Request a free quote</h4><p>One form for the whole event: occasion, location, date and time, address, guests and budget per person, then contact details and any special requests.</p>
+            <ul><li>Total budget worked out from guests × budget per person</li><li>Promo code and newsletter sign-up</li><li>Saved straight to MySQL</li></ul></div>
+          <div class="shots two swipe-m"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/rc-quote.webp" srcset="assets/img/rc-quote-960.webp 960w, assets/img/rc-quote.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="Request a free quote form: event details."></div></button><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/rc-quote-more.webp" srcset="assets/img/rc-quote-more-960.webp 960w, assets/img/rc-quote-more.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="Request a free quote form: contact and other details."></div></button></div>
+        </div>
+        <div class="feat" role="tabpanel" id="rc-f-req" aria-labelledby="rc-c-req" hidden>
+          <div><h4>Customer requests</h4><p>Every quote request, read back from the database for the team to follow up: guests, event date and location.</p></div>
+          <div class="shots"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/rc-requests.webp" srcset="assets/img/rc-requests-960.webp 960w, assets/img/rc-requests.webp 1600w" sizes="(max-width:900px) 92vw, 720px" width="1600" height="1000" alt="Customer orders table with guests, event date and location."></div></button></div>
+        </div>
+        <div class="feat" role="tabpanel" id="rc-f-home" aria-labelledby="rc-c-home" hidden>
+          <div><h4>About the team</h4><p>The home page introduces the four of us and our roles in the made-up company, and why to choose Riing: experience, halal ingredients, local chefs and menus made for each event.</p></div>
+          <div class="shots two swipe-m"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/rc-home.webp" srcset="assets/img/rc-home-960.webp 960w, assets/img/rc-home.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="About our catering team, with the team members' cards."></div></button><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/rc-home-why.webp" srcset="assets/img/rc-home-why-960.webp 960w, assets/img/rc-home-why.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="Why choose Riing Catering: experience, quality, chefs and personal service."></div></button></div>
+        </div>
+        <p class="note"><svg><use href="#i-info"/></svg> Classmates' photos, names and student IDs, and customer contact details, are blurred.</p>
+      </div>
+      <div class="tp" role="tabpanel" id="rc-stack" aria-labelledby="rc-t-stack" hidden>
+        <ul class="logos plain">
+          <li><span><b>PHP</b><small>Pages, the quote form and the request list</small></span></li>
+          <li><span><b>MySQL</b><small>Stores every quote request</small></span></li>
+          <li><span><b>HTML and CSS</b><small>Shared header, footer and layout</small></span></li>
+          <li><span><b>Apache (XAMPP)</b><small>Local server</small></span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Zen Birthday -->
+    <div class="rec prec" role="tabpanel" id="pr-zen" aria-labelledby="pt-zen" hidden>
+      <div class="rechead">
+        <span class="pmark" style="--pc:#c2477a;--pi:#fff" aria-hidden="true"><svg><use href="#lg-zen"/></svg></span>
+        <div>
+          <h3>Zen Birthday</h3>
+          <div class="muted">A Flutter app for booking a birthday event hall: book a date, choose a hall package, work out the payment and rate the service</div>
+          <div class="badges"><span class="badge good"><svg><use href="#i-check"/></svg>Completed</span><span class="badge info">Flutter, cross-platform</span><span class="badge">Academic</span></div>
+        </div>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Zen Birthday">
+        <button class="tab" role="tab" id="zen-t-ov" aria-controls="zen-ov" aria-selected="true">Overview</button>
+        <button class="tab" role="tab" id="zen-t-screens" aria-controls="zen-screens" aria-selected="false">Screens</button>
+        <button class="tab" role="tab" id="zen-t-stack" aria-controls="zen-stack" aria-selected="false">Built with</button>
+      </div>
+      <div class="tp" role="tabpanel" id="zen-ov" aria-labelledby="zen-t-ov">
+        <div class="grid2 zen4">
+          <div class="card"><span class="ic"><svg><use href="#i-clock"/></svg></span><h3>Book the hall</h3><p>Name, address, phone and email, the booking and event date and time, the number of guests, and whether a PA system is needed.</p></div>
+          <div class="card"><span class="ic"><svg><use href="#i-grid"/></svg></span><h3>Hall packages</h3><p>Four venues: banquet hall, party room, conference hall and garden. Each opens with its capacity, add-ons, price and photos.</p></div>
+          <div class="card"><span class="ic"><svg><use href="#i-calc"/></svg></span><h3>Calculate payment</h3><p>Guests × the package price, with 10% off when the discount code is entered.</p></div>
+          <div class="card"><span class="ic"><svg><use href="#i-sparkles"/></svg></span><h3>Rate us</h3><p>A star rating, half stars included, and a written review, confirmed back to the user.</p></div>
+        </div>
+      </div>
+      <div class="tp" role="tabpanel" id="zen-screens" aria-labelledby="zen-t-screens" hidden>
+        <div class="chipsel" role="tablist" aria-label="Zen Birthday screens">
+          <button role="tab" aria-selected="true" aria-controls="zen-f-start" id="zen-c-start">Welcome &amp; booking</button>
+          <button role="tab" aria-selected="false" aria-controls="zen-f-halls" id="zen-c-halls">Hall packages</button>
+          <button role="tab" aria-selected="false" aria-controls="zen-f-pay" id="zen-c-pay">Payment &amp; rating</button>
+        </div>
+        <div class="feat" role="tabpanel" id="zen-f-start" aria-labelledby="zen-c-start">
+          <div><h4>Welcome and booking</h4><p>The app opens on a welcome screen; a side menu leads to booking, hall packages, payment and rating. The booking form takes the customer's details and the dates.</p>
+            <ul><li>Date and time pickers for booking and event</li><li>"Check info" shows a summary before submitting</li></ul></div>
+          <div class="shots phones three swipe-m"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/zen-welcome.webp" width="780" height="1733" alt="Phone: Welcome to Zen Birthdays."></div></button><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/zen-menu.webp" width="780" height="1733" alt="Phone: the side menu with booking, hall packages, payment and rate us."></div></button><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/zen-booking.webp" width="780" height="1733" alt="Phone: the birthday event hall booking form."></div></button></div>
+        </div>
+        <div class="feat" role="tabpanel" id="zen-f-halls" aria-labelledby="zen-c-halls" hidden>
+          <div><h4>Hall packages</h4><p>Four venues with their price per pack. Tapping one shows how many people it holds, the type of event, the add-ons and photos of the venue.</p>
+            <ul><li>Banquet hall, party room, conference hall, garden</li><li>Add-ons such as floral decor and live music</li></ul></div>
+          <div class="shots phones three swipe-m"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/zen-packages.webp" width="780" height="1733" alt="Phone: four hall packages with prices."></div></button><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/zen-package.webp" width="780" height="1733" alt="Phone: garden venue details with capacity, add-ons, price and photos."></div></button></div>
+        </div>
+        <div class="feat" role="tabpanel" id="zen-f-pay" aria-labelledby="zen-c-pay" hidden>
+          <div><h4>Payment and rating</h4><p>Enter the guests and pick a package to see the total; a discount code takes 10% off. Afterwards, customers rate the service and leave a review.</p>
+            <ul><li>Example: 50 guests in the garden, RM 500 less 10% = RM 450</li><li>Half-star ratings with an optional review</li></ul></div>
+          <div class="shots phones three swipe-m"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/zen-payment.webp" width="780" height="1733" alt="Phone: payment for 50 people in the garden venue with the discount, RM 450."></div></button><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/zen-rate.webp" width="780" height="1733" alt="Phone: review submitted, rating 4.5 with a short review."></div></button></div>
+        </div>
+        <p class="note"><svg><use href="#i-info"/></svg> Recorded from the app running on an Android emulator; the review and payment are example entries.</p>
+      </div>
+      <div class="tp" role="tabpanel" id="zen-stack" aria-labelledby="zen-t-stack" hidden>
+        <ul class="logos plain">
+          <li><span><b>Flutter</b><small>One app for Android, iOS and the web</small></span></li>
+          <li><span><b>Dart</b><small>Screens, navigation and the payment maths</small></span></li>
+          <li><span><b>intl</b><small>Date and time formatting</small></span></li>
+          <li><span><b>flutter_rating_bar</b><small>The star rating</small></span></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="note"><svg><use href="#i-info"/></svg> Also built: Student Borrow System (Java, MySQL), and Java web apps with JSP and GlassFish.</p>
   </div>
 </section>
 
@@ -1011,9 +1424,31 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--hover
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change',paint);
 
   // ---- tab sets (project tabs, screens chips): click, arrow keys
+  // Screen chips: put each group's panels in one frame (.fstage). On wide screens CSS stacks them in one cell,
+  // so the frame keeps the size of the tallest group and the page doesn't move.
+  document.querySelectorAll('.chipsel').forEach(function(cs){
+    var ps=[].map.call(cs.querySelectorAll('[role=tab]'),function(t){return $(t.getAttribute('aria-controls'))}).filter(Boolean);
+    if(!ps.length||ps.some(function(p){return p.parentNode!==ps[0].parentNode}))return;
+    var st=document.createElement('div');st.className='fstage';ps[0].parentNode.insertBefore(st,ps[0]);ps.forEach(function(p){st.appendChild(p)});
+  });
+  var WIDE=matchMedia('(min-width:901px)');
   function tabset(list,onShow){
     var tabs=[].slice.call(list.querySelectorAll('[role=tab]'));
-    function pick(t,focus){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;$(x.getAttribute('aria-controls')).hidden=!on});if(focus)t.focus();if(onShow)onShow(t)}
+    function pick(t,focus){
+      var cur=tabs.filter(function(x){return x.getAttribute('aria-selected')==='true'})[0], np=$(t.getAttribute('aria-controls'));
+      var box=np.parentNode;box.style.overflowAnchor='none';list.style.overflowAnchor='none';var steady=box.classList.contains('fstage')&&WIDE.matches, anim=!REDUCE&&cur!==t&&!steady;
+      var top0=list.getBoundingClientRect().top, h0=anim?box.offsetHeight:0;
+      tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;$(x.getAttribute('aria-controls')).hidden=!on});
+      var h1=anim?box.offsetHeight:0;anim=anim&&Math.abs(h1-h0)>2;
+      if(anim){box.classList.remove('sizing');box.style.height=h0+'px';box.style.overflow='hidden'}
+      // keep the tab row exactly where it was on screen
+      var dy=list.getBoundingClientRect().top-top0;if(Math.abs(dy)>1)scrollBy({top:dy,behavior:'instant'});
+      if(anim){
+        {void box.offsetHeight;box.classList.add('sizing');box.style.height=h1+'px';
+          var done=function(e){if(e&&(e.target!==box||e.propertyName!=='height'))return;box.removeEventListener('transitionend',done);clearTimeout(box._tt);box.classList.remove('sizing');box.style.height='';box.style.overflow=''};
+          box.addEventListener('transitionend',done);clearTimeout(box._tt);box._tt=setTimeout(done,500)}}
+      if(cur!==t&&!REDUCE){np.classList.remove('fade-in');void np.offsetWidth;np.classList.add('fade-in')}
+      if(focus)t.focus({preventScroll:true});if(onShow)onShow(t)}
     tabs.forEach(function(t,i){t.tabIndex=t.getAttribute('aria-selected')==='true'?0:-1;
       t.addEventListener('click',function(){pick(t)});
       t.addEventListener('keydown',function(e){var k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(k){e.preventDefault();pick(tabs[(i+k+tabs.length)%tabs.length],true)}})});
@@ -1022,6 +1457,13 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--hover
   var ptabs=document.querySelector('.rec .tabs');
   var pickProject=tabset(ptabs,function(t){if(t.id==='t-trust'||t.id==='t-ov'||t.id==='t-screens')swipeAll()});
   tabset(document.querySelector('.chipsel'),function(){swipeAll()});
+  // other work: the project picker, and each project's own tabs and screen chips
+  var psel=document.querySelector('.psel');
+  if(psel){tabset(psel,function(){swipeAll()});
+    document.querySelectorAll('.prec').forEach(function(rec){
+      var tl=rec.querySelector('.tabs'), pick=tl?tabset(tl,function(){swipeAll()}):null;
+      rec.querySelectorAll('.chipsel').forEach(function(c){tabset(c,function(){swipeAll()})});
+      rec.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',function(){var t=$(b.getAttribute('data-open'));if(t&&pick){pick(t);tl.scrollIntoView({behavior:REDUCE?'auto':'smooth',block:'nearest'})}})})})}
   // a link to a part inside a tab (e.g. #try) opens that tab first
   function reveal(id){var el=$(id);if(!el)return null;var tp=el.closest('.tp');
     if(tp&&tp.hidden){var t=document.querySelector('[aria-controls="'+tp.id+'"]');if(t)pickProject(t)}return el}
@@ -1174,7 +1616,9 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--hover
   function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on')},1800)}
   var CMDS=[['What I build','build','i-wand-sparkles','Section'],['Project: Pylon AI','project','i-target','Section'],['Try the AI live','try','i-circle-play','Section'],
     ['Screens of the app','screens','i-grid','Section'],['How it works','how','i-route','Section'],['Security','trust','i-lock','Section'],
-    ['What could AI do for you?','fit','i-sparkles','Section'],['Other work','work','i-grid','Section'],['Experience and education','experience','i-clock','Section'],
+    ['What could AI do for you?','fit','i-sparkles','Section'],['Other work','work','i-grid','Section'],
+    ['Project: Darnoc IT E-Commerce',function(){openProj('pt-dn')},'i-grid','Section'],['Project: Quotation & Mailer',function(){openProj('pt-tfp')},'i-mail','Section'],
+    ['Project: Riing Catering',function(){openProj('pt-rc')},'i-grid','Section'],['Project: Zen Birthday',function(){openProj('pt-zen')},'i-grid','Section'],['Experience and education','experience','i-clock','Section'],
     ['Skills','skills','i-plug','Section'],['Contact','contact','i-mail','Section'],
     ['Open the full app as a guest',function(){window.open(GUEST,'_blank','noopener')},'i-external-link','Link'],
     ['Switch light / dark',function(){tbtn.click()},'i-moon','Action'],
@@ -1183,6 +1627,7 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--hover
     ['Download my résumé (PDF)',function(){var a=document.createElement('a');a.href='assets/Resume_Idham_Hakim.pdf';a.download='Resume_Idham_Hakim.pdf';document.body.appendChild(a);a.click();a.remove()},'i-cv','Action'],
     ['GitHub',function(){window.open('https://github.com/ezzzy01','_blank','noopener')},'i-external-link','Link'],
     ['LinkedIn',function(){window.open('https://www.linkedin.com/in/idham-hakim-29b676270','_blank','noopener')},'i-external-link','Link']];
+  function openProj(id){var t=$(id);if(!t)return;t.click();document.querySelector('.psel').scrollIntoView({behavior:REDUCE?'auto':'smooth',block:'start'})}
   var kd=$('cmdk'), kq=$('kq'), kl=$('klist'), shown=[], sel=0;
   function kdraw(){var q=kq.value.trim().toLowerCase();shown=CMDS.filter(function(c){return !q||c[0].toLowerCase().indexOf(q)>=0||c[3].toLowerCase().indexOf(q)>=0});sel=Math.min(sel,Math.max(0,shown.length-1));
     kl.innerHTML=shown.length?shown.map(function(c,i){return '<li role="option" id="ko'+i+'" aria-selected="'+(i===sel)+'" data-i="'+i+'"><svg><use href="#'+c[2]+'"/></svg>'+esc(c[0])+'<small>'+c[3]+'</small></li>'}).join(''):'<li class="none">Nothing matches.</li>';
