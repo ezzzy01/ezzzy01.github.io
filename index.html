@@ -959,12 +959,14 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--hover
           <div class="badges"><span class="badge good"><svg><use href="#i-check"/></svg>Mock demo</span><span class="badge info">Local AI, no cloud</span><span class="badge">3 roles</span><span class="badge">Designed and built by me</span></div>
         </div>
         <div class="recacts">
-          <a class="btn pri" href="retail/">Open project page</a>
-          <button type="button" class="btn" data-open="ri-t-screens">See the screens</button>
+          <a class="btn pri" href="https://archlinux.taila38d1a.ts.net:8443/retail/login">Open the full app as a guest <svg><use href="#i-arrow"/></svg></a>
+          <button type="button" class="btn" data-open="ri-t-try">Try a question here</button>
+          <a class="btn" href="retail/">Open project page <svg><use href="#i-arrow"/></svg></a>
         </div>
       </div>
       <div class="tabs" role="tablist" aria-label="Brightstar Insights">
         <button class="tab" role="tab" id="ri-t-ov" aria-controls="ri-ov" aria-selected="true">Overview</button>
+        <button class="tab" role="tab" id="ri-t-try" aria-controls="ri-try" aria-selected="false">Live demo</button>
         <button class="tab" role="tab" id="ri-t-screens" aria-controls="ri-screens" aria-selected="false">Screens</button>
         <button class="tab" role="tab" id="ri-t-stack" aria-controls="ri-stack" aria-selected="false">Fits in</button>
       </div>
@@ -981,6 +983,33 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--hover
           <div><dt>Roles</dt><dd>Management, branch manager (own branch only) and purchasing</dd></div>
           <div><dt>Also</dt><dd>Daily report to Telegram or WhatsApp, audit log, and a benchmark of which AI model runs on which machine</dd></div>
         </dl>
+      </div>
+      <div class="tp" role="tabpanel" id="ri-try" aria-labelledby="ri-t-try" hidden>
+        <div class="trylive">
+          <div class="tlhead">
+            <div>
+              <div class="eyebrow">Try it live <span class="live" id="ri-live"><i></i><span>Checking…</span></span></div>
+              <h4>Ask the AI yourself</h4>
+              <p>Pick a question about the mock computer retailer and watch the local AI pick a fixed report and answer from the Odoo ERP. Or open the whole app as a guest: dashboard, all 11 reports, every branch, no sign-up.</p>
+            </div>
+            <div class="tlbtns">
+              <a class="btn pri" href="https://archlinux.taila38d1a.ts.net:8443/retail/login">Open the full app as a guest <svg><use href="#i-arrow"/></svg></a>
+              <a class="btn" href="https://archlinux.taila38d1a.ts.net:8443/retail/try">Simple demo, full screen <svg><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+          <div class="demo">
+            <div class="dbar"><i></i><i></i><i></i><span id="ri-dmode">Brightstar Insights · demo</span><button type="button" class="dreset" id="ri-dreset" hidden><svg><use href="#i-rotate-ccw"/></svg>Start over</button></div>
+            <div class="dbody" id="ri-dbody">
+              <div class="dstart" id="ri-dstart">
+                <img class="dlogo" src="retail/img/star.svg" alt="" width="48" height="48">
+                <p class="dq">Pick a question to see it answered</p>
+                <div class="dchips"><button type="button" class="dchip" data-i="0"><svg><use href="#i-circle-play"/></svg>How much did we sell today?</button><button type="button" class="dchip" data-i="1"><svg><use href="#i-circle-play"/></svg>Which branch sold the most RTX cards last week?</button><button type="button" class="dchip" data-i="2"><svg><use href="#i-circle-play"/></svg>What&#x27;s running low at the gaming hub?</button></div>
+                <p class="fine" id="ri-dhint">Checking whether my PC is online…</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script type="application/json" id="ri-replayData">[{"q": "How much did we sell today?", "short": "How much did we sell today?", "blocks": ["<p class=\"look\">🔎 <em>Picked the fixed report “Sales summary”…<\/em><\/p>", "<p><b>RM 148,705 from 46 invoices, gross profit RM 19,151 (12.9%).<\/b><\/p>", "<div class=\"rtw\"><table><thead><tr><th>Invoices<\/th><th>Revenue (RM)<\/th><th>Units<\/th><th>Gross profit (RM)<\/th><th>Margin<\/th><\/tr><\/thead><tbody><tr><td class=r>46<\/td><td class=r>RM 148,705<\/td><td class=r>64<\/td><td class=r>RM 19,151<\/td><td class=r>12.9%<\/td><\/tr><\/tbody><\/table><\/div>", "<p>Same question, same report, same numbers. Data up to 2026-11-26 13:53.<\/p>"]}, {"q": "Which branch sold the most RTX cards last week?", "short": "Which branch sold the most RTX cards last week?", "blocks": ["<p class=\"look\">🔎 <em>Picked the fixed report “Sales by branch”…<\/em><\/p>", "<p><b>Top branch: Low Yat Gaming Hub (L1) (LY-02) with RM 158,814, 32.4% of RM 489,856.<\/b><\/p>", "<div class=\"rtw\"><table><thead><tr><th>Branch<\/th><th>Name<\/th><th>Invoices<\/th><th>Revenue (RM)<\/th><th>Gross profit (RM)<\/th><\/tr><\/thead><tbody><tr><td>LY-02<\/td><td>Low Yat Gaming Hub (L1)<\/td><td class=r>32<\/td><td class=r>RM 158,814<\/td><td class=r>RM 12,904<\/td><\/tr><tr><td>LY-04<\/td><td>Low Yat Components (L3)<\/td><td class=r>16<\/td><td class=r>RM 75,889<\/td><td class=r>RM 6,350<\/td><\/tr><tr><td>LY-01<\/td><td>Low Yat Flagship (G Floor)<\/td><td class=r>13<\/td><td class=r>RM 50,444<\/td><td class=r>RM 4,437<\/td><\/tr><tr><td>IOI-01<\/td><td>IOI City Mall (Phase 1)<\/td><td class=r>13<\/td><td class=r>RM 47,846<\/td><td class=r>RM 3,759<\/td><\/tr><tr><td>IOI-02<\/td><td>IOI City Mall (Phase 2)<\/td><td class=r>9<\/td><td class=r>RM 40,326<\/td><td class=r>RM 3,642<\/td><\/tr><\/tbody><\/table><\/div>", "<p>Same question, same report, same numbers. Data up to 2026-11-26 13:53.<\/p>"]}, {"q": "What's running low at LY-02?", "short": "What's running low at the gaming hub?", "blocks": ["<p class=\"look\">🔎 <em>Picked the fixed report “Low stock”…<\/em><\/p>", "<p><b>10 item(s) below reorder level, 3 out of stock.<\/b><\/p>", "<div class=\"rtw\"><table><thead><tr><th>Branch<\/th><th>SKU<\/th><th>Product<\/th><th>Category<\/th><th>On hand<\/th><\/tr><\/thead><tbody><tr><td>LY-02<\/td><td>DES-0056<\/td><td>House Build Mini PC<\/td><td>Desktops<\/td><td class=r>0<\/td><\/tr><tr><td>LY-02<\/td><td>GRA-0100<\/td><td>Zotac RTX 5070 12GB<\/td><td>Graphics Cards<\/td><td class=r>0<\/td><\/tr><tr><td>LY-02<\/td><td>POW-0213<\/td><td>Seasonic 750W Gold<\/td><td>Power Supplies<\/td><td class=r>0<\/td><\/tr><tr><td>LY-02<\/td><td>GAM-0035<\/td><td>HP Omen 16 White<\/td><td>Gaming Laptops<\/td><td class=r>2<\/td><\/tr><tr><td>LY-02<\/td><td>GRA-0073<\/td><td>Gigabyte RTX 5090 32GB White OC<\/td><td>Graphics Cards<\/td><td class=r>2<\/td><\/tr><\/tbody><\/table><\/div>", "<p>Same question, same report, same numbers. Data up to 2026-11-26 13:53.<\/p>"]}]</script>
       </div>
       <div class="tp" role="tabpanel" id="ri-screens" aria-labelledby="ri-t-screens" hidden>
         <div class="chipsel" role="tablist" aria-label="Brightstar Insights screens">
@@ -1624,6 +1653,43 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--hover
       dbody.querySelector('.rp').appendChild(m)},t+500))}
   dbody.addEventListener('click',function(e){var b=e.target.closest('button.dchip');if(!b)return;var i=+b.getAttribute('data-i');dreset.hidden=false;
     statusP.then(function(){if(liveOK)showLive(REP[i].short);else showReplay(i)})});
+
+  // ---- Brightstar Insights live demo tab: same as Pylon's above (live page in a frame, or a replay when my PC is off)
+  (function(){
+    var RTRY='https://archlinux.taila38d1a.ts.net:8443/retail/try', RLOGIN='https://archlinux.taila38d1a.ts.net:8443/retail/login';
+    var live=$('ri-live'), dhint=$('ri-dhint'), dbody=$('ri-dbody'), dstart=$('ri-dstart'), dmode=$('ri-dmode'), dreset=$('ri-dreset');
+    if(!live) return;
+    var REP=JSON.parse($('ri-replayData').textContent), liveOK=null, timers=[];
+    function liveSet(on,text){live.className='live'+(on?' on':'');live.lastChild.textContent=text}
+    var ctl=window.AbortController?new AbortController():null, tmo=setTimeout(function(){if(ctl)ctl.abort()},8000);
+    var statusP=fetch(RTRY+'/status',{cache:'no-store',signal:ctl?ctl.signal:undefined}).then(function(r){return r.json()})
+      .then(function(s){clearTimeout(tmo);liveOK=!!s.on;
+        if(s.on){liveSet(true,s.answering?'Online · busy':'Online');dhint.textContent='Live now: the AI answers on my PC in a few seconds.'}
+        else{liveSet(false,'Paused');dhint.textContent='The live demo is paused, so you will see a replay of real recorded answers.'}})
+      .catch(function(){liveOK=false;liveSet(false,'Replay mode');dhint.textContent='My PC cannot be reached from here right now, so you will see a replay of real recorded answers.'});
+    function clearT(){timers.forEach(clearTimeout);timers=[]}
+    dreset.addEventListener('click',function(){clearT();dbody.innerHTML='';dbody.appendChild(dstart);dmode.textContent='Brightstar Insights · demo';dreset.hidden=true});
+    function showLive(q){
+      dmode.innerHTML='<b>● Live</b> · answered by the AI right now';
+      var f=document.createElement('iframe');f.title='Brightstar Insights live demo';
+      f.src=RTRY+'?q='+encodeURIComponent(q)+'&theme='+(dark()?'dark':'light');
+      f.setAttribute('sandbox','allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation-by-user-activation');
+      dbody.innerHTML='';dbody.appendChild(f)}
+    function showReplay(i){
+      clearT();var o=REP[i];dmode.textContent='Replay · a real answer recorded from the live demo';
+      dbody.innerHTML='<div class="rp"><div class="me"><div></div></div><div class="ai"><div class="typing"><i></i>Picking a fixed report…</div></div></div>';
+      dbody.querySelector('.me div').textContent=o.q;
+      var ai=dbody.querySelector('.ai'), t=1400;
+      timers.push(setTimeout(function(){ai.innerHTML=''},t));
+      o.blocks.forEach(function(b){t+=420;timers.push(setTimeout(function(){ai.insertAdjacentHTML('beforeend',b);dbody.scrollTop=dbody.scrollHeight},t))});
+      timers.push(setTimeout(function(){
+        var m=document.createElement('div');m.className='more';
+        REP.forEach(function(x,k){if(k!==i)m.insertAdjacentHTML('beforeend','<button type="button" class="dchip" data-i="'+k+'"><svg><use href="#i-circle-play"/></svg>'+esc(x.short)+'</button>')});
+        m.insertAdjacentHTML('beforeend','<a class="dchip" href="'+RLOGIN+'"><svg><use href="#i-arrow"/></svg>Open the full app as a guest</a>');
+        dbody.querySelector('.rp').appendChild(m)},t+500))}
+    dbody.addEventListener('click',function(e){var b=e.target.closest('button.dchip');if(!b)return;var i=+b.getAttribute('data-i');dreset.hidden=false;
+      statusP.then(function(){if(liveOK)showLive(REP[i].short);else showReplay(i)})});
+  })();
 
   // ---- what could AI do for you
   var SYS={excel:['Excel and spreadsheets','reads your workbooks and files people upload, and gives figures back as tables, charts or a new Excel file'],
