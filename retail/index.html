@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Brightstar Insights · unofficial mock demo</title>
 <meta name="description" content="Brightstar Insights is an unofficial mock demo of an AI assistant for a multi-branch IT retailer: ask about sales, stock and purchasing in plain English or Malay, with the AI running on in-house hardware. Not affiliated with Brightstar Computer; all data made up.">
-<meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#262523" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f5f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
 <meta property="og:title" content="Brightstar Insights · unofficial mock demo">
 <meta property="og:description" content="Ask the shop’s numbers in plain words, with the AI on in-house hardware. An unofficial mock demo with made-up data.">
 <meta property="og:image" content="https://ezzzy01.github.io/assets/img/ri-dashboard.webp">
@@ -16,26 +16,32 @@
 <script>try{var s=localStorage.getItem('theme');if(s==='light'||s==='dark')document.documentElement.setAttribute('data-theme',s)}catch(e){}</script>
 <style>
 :root{color-scheme:light;
- --page:#f7f5f0;--side:#efece5;--card:#fffefb;--sunken:#ebe7de;--hover:#e9e5dc;
- --line:#e3ded3;--line2:#c9c2b5;--ink:#2b2925;--muted:#6e6862;--faint:#8f8981;
- --accent:#b5532c;--accent-h:#9e4724;--accent-ink:#fff;--accent-soft:#f4e3da;--accent-text:#93401f;
- --good:#2f7a45;--good-soft:#e3f0e5;--warn:#96590a;--warn-soft:#f8ead2;--bad:#b42318;--bad-soft:#f9e1de;--info:#2f5f8a;--info-soft:#e1eaf3;
+ --page:#f4f5f7;--side:#eceef1;--card:#ffffff;--sunken:#eef0f3;--hover:#e8f2fa;
+ --line:#e4e6ea;--line2:#cfd3d9;--ink:#231f20;--muted:#5f6268;--faint:#8a8d93;
+ --accent:#1b75bc;--accent-h:#145d96;--accent-ink:#fff;--accent-soft:#e8f2fa;--accent-text:#1b75bc;--red:#eb2227;
+ --good:#006c10;--good-soft:#e7f6ea;--warn:#8a5a00;--warn-soft:#fff6e0;--bad:#c22e2f;--bad-soft:#fdecec;--info:#1b75bc;--info-soft:#e8f2fa;
  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
- --serif:"Source Serif 4","Source Serif Pro","Iowan Old Style",Charter,"Noto Serif",Georgia,serif;
- --r:10px;--r-lg:14px;--sh1:0 1px 2px rgba(43,41,37,.06),0 0 0 1px var(--line);--sh2:0 18px 48px rgba(43,41,37,.16),0 0 0 1px var(--line);
+ --serif:var(--sans);
+ --r:10px;--r-lg:14px;--sh1:0 1px 2px rgba(16,24,40,.06),0 0 0 1px var(--line);--sh2:0 18px 48px rgba(16,24,40,.14),0 0 0 1px var(--line);
  --focus:0 0 0 3px color-mix(in srgb,var(--accent) 30%,transparent);--max:1160px}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
- --page:#262523;--side:#1f1e1c;--card:#2e2c29;--sunken:#1f1e1c;--hover:#383632;
- --line:#3d3a36;--line2:#57534c;--ink:#ece8e1;--muted:#a8a299;--faint:#8a847b;
- --accent:#e07b52;--accent-h:#ea9271;--accent-ink:#1f1e1c;--accent-soft:#4a3329;--accent-text:#f0a583;
- --good:#7ccb92;--good-soft:#22362a;--warn:#e3a54a;--warn-soft:#3d3020;--bad:#f08a80;--bad-soft:#452824;--info:#8bb8e8;--info-soft:#24323f;
- --sh1:0 0 0 1px var(--line);--sh2:0 18px 48px rgba(0,0,0,.5),0 0 0 1px var(--line2)}}
+ --page:#0b0b0c;--side:#111214;--card:#17181a;--sunken:#111214;--hover:#1d1f22;
+ --line:#2a2d31;--line2:#3a3e44;--ink:#efefef;--muted:#a3a8b0;--faint:#7c828b;
+ --accent:#4a9be0;--accent-h:#6aaee6;--accent-ink:#0b0b0c;--accent-soft:#102a40;--accent-text:#6aaee6;--red:#ff4d52;
+ --good:#53c556;--good-soft:#132a17;--warn:#fbb315;--warn-soft:#3a2e10;--bad:#ff8a8a;--bad-soft:#3a1a1b;--info:#4a9be0;--info-soft:#102a40;
+ --sh1:0 0 0 1px var(--line);--sh2:0 18px 48px rgba(0,0,0,.55),0 0 0 1px var(--line2)}}
 :root[data-theme="dark"]{color-scheme:dark;
- --page:#262523;--side:#1f1e1c;--card:#2e2c29;--sunken:#1f1e1c;--hover:#383632;
- --line:#3d3a36;--line2:#57534c;--ink:#ece8e1;--muted:#a8a299;--faint:#8a847b;
- --accent:#e07b52;--accent-h:#ea9271;--accent-ink:#1f1e1c;--accent-soft:#4a3329;--accent-text:#f0a583;
- --good:#7ccb92;--good-soft:#22362a;--warn:#e3a54a;--warn-soft:#3d3020;--bad:#f08a80;--bad-soft:#452824;--info:#8bb8e8;--info-soft:#24323f;
- --sh1:0 0 0 1px var(--line);--sh2:0 18px 48px rgba(0,0,0,.5),0 0 0 1px var(--line2)}
+ --page:#0b0b0c;--side:#111214;--card:#17181a;--sunken:#111214;--hover:#1d1f22;
+ --line:#2a2d31;--line2:#3a3e44;--ink:#efefef;--muted:#a3a8b0;--faint:#7c828b;
+ --accent:#4a9be0;--accent-h:#6aaee6;--accent-ink:#0b0b0c;--accent-soft:#102a40;--accent-text:#6aaee6;--red:#ff4d52;
+ --good:#53c556;--good-soft:#132a17;--warn:#fbb315;--warn-soft:#3a2e10;--bad:#ff8a8a;--bad-soft:#3a1a1b;--info:#4a9be0;--info-soft:#102a40;
+ --sh1:0 0 0 1px var(--line);--sh2:0 18px 48px rgba(0,0,0,.55),0 0 0 1px var(--line2)}
+/* Brightstar touches: blue-to-red stripe, red star, bold sans headings */
+header.shell::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--accent) 0 78%,var(--red) 78% 100%)}
+.eyebrow::before{content:"";width:12px;height:12px;flex:none;background:var(--red);
+ clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+h2,.hero h1,.day .t{font-weight:800!important;letter-spacing:-.025em!important}
+.frame{border-top:3px solid var(--accent)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:72px;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
@@ -211,7 +217,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
 .menu-btn{display:none;place-items:center;width:44px;height:44px;border:0;border-radius:10px;background:transparent;color:var(--ink);cursor:pointer;flex:none}
 .menu-btn:hover{background:var(--hover)}
 dialog#sheet{margin:0 0 auto;width:100%;max-width:100%;max-height:100dvh;border:0;padding:8px 16px calc(20px + env(safe-area-inset-bottom));background:var(--page);color:var(--ink);border-radius:0 0 18px 18px;box-shadow:var(--sh2)}
-dialog#sheet::backdrop{background:rgba(20,18,16,.5)}
+dialog#sheet::backdrop{background:rgba(11,11,12,.5)}
 dialog#sheet[open]{animation:drop .22s ease}
 @keyframes drop{from{transform:translateY(-16px);opacity:0}}
 .sh-head{display:flex;align-items:center;justify-content:space-between;height:56px}
@@ -222,9 +228,9 @@ dialog#sheet[open]{animation:drop .22s ease}
 #mbar{display:none}
 /* lightbox */
 dialog#lb{padding:0;border:0;background:transparent;max-width:min(1600px,96vw);max-height:94vh}
-dialog#lb::backdrop{background:rgba(20,18,16,.8)}
+dialog#lb::backdrop{background:rgba(11,11,12,.8)}
 dialog#lb img{max-height:90vh;width:auto;border-radius:12px;margin:auto}
-dialog#lb button{position:fixed;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:0;background:#fffefb;color:#2b2925;cursor:pointer;display:grid;place-items:center}
+dialog#lb button{position:fixed;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:0;background:#ffffff;color:#231f20;cursor:pointer;display:grid;place-items:center}
 
 /* reveal */
 .rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
