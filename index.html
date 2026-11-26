@@ -337,6 +337,8 @@ section.alt .card,section.alt .kpi{background:var(--page)}
 .pmark svg{width:66%;height:66%}
 .pmark.img{background:#fff;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);overflow:hidden}
 .pmark.img img{width:100%;height:100%;object-fit:contain}
+.pmark.img.wide{width:auto;padding:0 10px}.pmark.img.wide img{width:auto;height:72%}
+.pmark.sm.img.wide{padding:0 6px}
 .prec[hidden]{display:none}
 .pnote{padding:0 24px 20px;margin-top:0}
 .pflow{display:flex;align-items:stretch;gap:0;margin:8px 0 6px}
@@ -942,7 +944,7 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--hover
     </div>
 
     <div class="psel" role="tablist" aria-label="Projects">
-      <button type="button" role="tab" id="pt-ri" aria-controls="pr-ri" aria-selected="true"><span class="pmark sm img" aria-hidden="true"><img src="retail/img/star.svg" alt="" style="padding:5px"></span><span><b>Brightstar Insights</b><small>Local AI · Mock demo</small></span></button>
+      <button type="button" role="tab" id="pt-ri" aria-controls="pr-ri" aria-selected="true"><span class="pmark sm img wide" aria-hidden="true"><img src="retail/img/brightstar-logo.svg" alt=""></span><span><b>Brightstar Insights</b><small>Local AI · Mock demo</small></span></button>
       <button type="button" role="tab" id="pt-dn" aria-controls="pr-dn" aria-selected="false"><span class="pmark sm" style="--pc:#f5b301;--pi:#111">IT</span><span><b>Darnoc IT</b><small>E-commerce · Final year</small></span></button>
       <button type="button" role="tab" id="pt-tfp" aria-controls="pr-tfp" aria-selected="false"><span class="pmark sm" style="--pc:#4f8a2e;--pi:#fff"><svg><use href="#lg-quote"/></svg></span><span><b>Quotation &amp; Mailer</b><small>Desktop app · At work</small></span></button>
       <button type="button" role="tab" id="pt-rc" aria-controls="pr-rc" aria-selected="false"><span class="pmark sm" style="--pc:#1b8a80;--pi:#fff"><svg aria-hidden="true"><use href="#lg-riing"/></svg></span><span><b>Riing Catering</b><small>Website · Group project</small></span></button>
@@ -952,7 +954,7 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--hover
     <!-- Brightstar Insights (unofficial mock demo, made-up data) -->
     <div class="rec prec" role="tabpanel" id="pr-ri" aria-labelledby="pt-ri">
       <div class="rechead">
-        <span class="pmark img" aria-hidden="true"><img src="retail/img/star.svg" alt="" style="padding:8px"></span>
+        <span class="pmark img wide" aria-hidden="true"><img src="retail/img/brightstar-logo.svg" alt="Brightstar"></span>
         <div>
           <h3>Brightstar Insights</h3>
           <div class="muted">An unofficial mock demo of an AI assistant for Brightstar Computer: ask about sales, stock and purchasing in plain English or Malay, with the AI on in-house hardware</div>
