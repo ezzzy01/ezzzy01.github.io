@@ -324,7 +324,8 @@ section.alt .card,section.alt .kpi{background:var(--page)}
 .shots button:hover .peek-tag{background:var(--accent);color:var(--accent-ink)}
 
 /* other work: a project picker, then one record per project */
-.psel{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
+.psel{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:16px}
+@media (max-width:1180px){.psel{grid-template-columns:repeat(3,1fr)}}
 .psel button{display:flex;align-items:center;gap:12px;text-align:left;border:0;background:var(--card);box-shadow:var(--sh1);color:var(--ink);font:inherit;padding:12px 14px;border-radius:var(--r-lg);cursor:pointer;min-height:64px}
 .psel button:hover{background:var(--hover)}
 .psel button[aria-selected="true"]{box-shadow:0 0 0 2px var(--ink)}
@@ -583,6 +584,7 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--hover
   <!-- Icons: Lucide v0.460.0 (ISC licence, lucide.dev). GitHub and LinkedIn: their own brand marks. -->
   <symbol id="i-gh" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5A11.5 11.5 0 0 0 8.4 22.9c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17.3 4.6 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5Z"/></symbol>
   <symbol id="i-in" viewBox="0 0 24 24"><path fill="currentColor" d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2ZM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2ZM7.1 20.5H3.5V9h3.6v11.5ZM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0Z"/></symbol>
+  <symbol id="lg-retail" viewBox="0 0 24 24"><g fill="currentColor"><rect x="5" y="12" width="3.4" height="7" rx="1"/><rect x="10.3" y="8" width="3.4" height="11" rx="1"/><rect x="15.6" y="4" width="3.4" height="15" rx="1"/></g></symbol>
   <symbol id="lg-riing" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M3.5 18a8.5 8.5 0 0 1 17 0z"/><path d="M12 9.5V8.2"/><path d="M10.5 8.2h3"/><path d="M7.6 15.4a5 5 0 0 1 2.6-3"/><path d="M8 5.6c-.8-.9.8-1.6 0-2.6"/><path d="M12 5c-.8-.9.8-1.6 0-2.6"/><path d="M16 5.6c-.8-.9.8-1.6 0-2.6"/></g></symbol>
   <symbol id="lg-zen" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="12" width="16" height="8.5" rx="1.8"/><path d="M4 15.6c1.3 0 1.3 1.3 2.7 1.3s1.3-1.3 2.6-1.3 1.3 1.3 2.7 1.3 1.3-1.3 2.6-1.3 1.4 1.3 2.7 1.3S19 15.6 20 15.6"/><path d="M12 12V8.6"/></g><path fill="currentColor" d="M12 3.2c1.3 1.4 1.8 2.4 1.8 3.1a1.8 1.8 0 0 1-3.6 0c0-.7.5-1.7 1.8-3.1z"/></symbol>
   <symbol id="lg-quote" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.8h8.2L19 7.6v13.6H6z"/><path d="M14 2.8v5h5"/><path d="M8.8 11.2h7.4"/><path d="M8.8 14.4h7.4"/><path d="M12.6 17.8h3.6"/></g></symbol>
@@ -941,14 +943,84 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--hover
     </div>
 
     <div class="psel" role="tablist" aria-label="Projects">
-      <button type="button" role="tab" id="pt-dn" aria-controls="pr-dn" aria-selected="true"><span class="pmark sm" style="--pc:#f5b301;--pi:#111">IT</span><span><b>Darnoc IT</b><small>E-commerce · Final year</small></span></button>
+      <button type="button" role="tab" id="pt-ri" aria-controls="pr-ri" aria-selected="true"><span class="pmark sm" style="--pc:#1b75bc;--pi:#fff"><svg aria-hidden="true"><use href="#lg-retail"/></svg></span><span><b>Retail Insights</b><small>Local AI · Concept</small></span></button>
+      <button type="button" role="tab" id="pt-dn" aria-controls="pr-dn" aria-selected="false"><span class="pmark sm" style="--pc:#f5b301;--pi:#111">IT</span><span><b>Darnoc IT</b><small>E-commerce · Final year</small></span></button>
       <button type="button" role="tab" id="pt-tfp" aria-controls="pr-tfp" aria-selected="false"><span class="pmark sm" style="--pc:#4f8a2e;--pi:#fff"><svg><use href="#lg-quote"/></svg></span><span><b>Quotation &amp; Mailer</b><small>Desktop app · At work</small></span></button>
       <button type="button" role="tab" id="pt-rc" aria-controls="pr-rc" aria-selected="false"><span class="pmark sm" style="--pc:#1b8a80;--pi:#fff"><svg aria-hidden="true"><use href="#lg-riing"/></svg></span><span><b>Riing Catering</b><small>Website · Group project</small></span></button>
       <button type="button" role="tab" id="pt-zen" aria-controls="pr-zen" aria-selected="false"><span class="pmark sm" style="--pc:#c2477a;--pi:#fff"><svg aria-hidden="true"><use href="#lg-zen"/></svg></span><span><b>Zen Birthday</b><small>Mobile app · Academic</small></span></button>
     </div>
 
+    <!-- Retail Insights (concept project, made-up retailer) -->
+    <div class="rec prec" role="tabpanel" id="pr-ri" aria-labelledby="pt-ri">
+      <div class="rechead">
+        <span class="pmark" style="--pc:#1b75bc;--pi:#fff" aria-hidden="true"><svg><use href="#lg-retail"/></svg></span>
+        <div>
+          <h3>Retail Insights</h3>
+          <div class="muted">A concept AI assistant for a multi-branch IT retailer: ask about sales, stock and purchasing in plain English or Malay, with the AI running on the shop’s own PC</div>
+          <div class="badges"><span class="badge good"><svg><use href="#i-check"/></svg>Working mockup</span><span class="badge info">Local AI, no cloud</span><span class="badge">3 roles</span><span class="badge">Designed and built by me</span></div>
+        </div>
+        <div class="recacts">
+          <a class="btn pri" href="retail/">Open project page</a>
+          <button type="button" class="btn" data-open="ri-t-screens">See the screens</button>
+        </div>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Retail Insights">
+        <button class="tab" role="tab" id="ri-t-ov" aria-controls="ri-ov" aria-selected="true">Overview</button>
+        <button class="tab" role="tab" id="ri-t-screens" aria-controls="ri-screens" aria-selected="false">Screens</button>
+        <button class="tab" role="tab" id="ri-t-stack" aria-controls="ri-stack" aria-selected="false">Built with</button>
+      </div>
+      <div class="tp" role="tabpanel" id="ri-ov" aria-labelledby="ri-t-ov">
+        <div class="grid3 car swipe-m" aria-label="Challenge, approach and result">
+          <div class="card"><span class="ic"><svg><use href="#i-target"/></svg></span><h3>The challenge</h3><p>A retailer with several branches had its numbers in the ERP, but every question needed someone to pull a report, and sending sales data to an online AI wasn’t an option.</p></div>
+          <div class="card"><span class="ic"><svg><use href="#i-route"/></svg></span><h3>The approach</h3><p>A local AI model reads the question and picks one of a library of tested reports. The numbers come straight from the database, so the same question always gives the same answer.</p></div>
+          <div class="card"><span class="ic"><svg><use href="#i-trophy"/></svg></span><h3>The result</h3><p>Answers in about a second on a gaming graphics card, with the right report picked for 37–38 of 38 test questions, and nothing leaving the company.</p></div>
+        </div>
+        <h4 class="sub" style="margin-top:22px">At a glance</h4>
+        <dl class="facts">
+          <div><dt>Status</dt><dd><span class="badge good">Working mockup</span> Made-up retailer and data</dd></div>
+          <div><dt>Asks in</dt><dd>English and Malay; out-of-scope questions are refused</dd></div>
+          <div><dt>Roles</dt><dd>Management, branch manager (own branch only) and purchasing</dd></div>
+          <div><dt>Also</dt><dd>Daily report to a chat app, audit log, and a benchmark of which AI model runs on which PC</dd></div>
+        </dl>
+      </div>
+      <div class="tp" role="tabpanel" id="ri-screens" aria-labelledby="ri-t-screens" hidden>
+        <div class="chipsel" role="tablist" aria-label="Retail Insights screens">
+          <button role="tab" aria-selected="true" aria-controls="ri-f-ask" id="ri-c-ask">Ask a question</button>
+          <button role="tab" aria-selected="false" aria-controls="ri-f-dash" id="ri-c-dash">Dashboard</button>
+          <button role="tab" aria-selected="false" aria-controls="ri-f-roles" id="ri-c-roles">Roles</button>
+          <button role="tab" aria-selected="false" aria-controls="ri-f-bench" id="ri-c-bench">Model benchmark</button>
+        </div>
+        <div class="feat" role="tabpanel" id="ri-f-ask" aria-labelledby="ri-c-ask">
+          <div><h4>A question, answered</h4><p>Each answer shows the report the AI picked and its settings, a summary taken from the numbers, a chart and the table.</p>
+            <ul><li>About a second per answer</li><li>Run the same report again without AI</li><li>Download as CSV or a report page</li></ul></div>
+          <div class="shots"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/ri-answer.webp" srcset="assets/img/ri-answer-960.webp 960w, assets/img/ri-answer.webp 1600w" sizes="(max-width:900px) 92vw, 720px" width="1600" height="1000" alt="An answer card with the report the AI picked, a summary line and a bar chart by branch"></div></button></div>
+        </div>
+        <div class="feat" role="tabpanel" id="ri-f-dash" aria-labelledby="ri-c-dash" hidden>
+          <div><h4>Today at a glance</h4><p>Sales so far today against the same time yesterday, this week against last week, a 30-day trend, top branches, low stock and late deliveries. No AI involved.</p></div>
+          <div class="shots"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/ri-dashboard.webp" srcset="assets/img/ri-dashboard-960.webp 960w, assets/img/ri-dashboard.webp 1600w" sizes="(max-width:900px) 92vw, 720px" width="1600" height="1000" alt="Dashboard with sales tiles, a 30-day chart, top branches, low stock and late deliveries"></div></button></div>
+        </div>
+        <div class="feat" role="tabpanel" id="ri-f-roles" aria-labelledby="ri-c-roles" hidden>
+          <div><h4>Only what your role allows</h4><p>A branch manager sees only their own branch, even when asking in plain language. Checked on the server for every request.</p></div>
+          <div class="shots two swipe-m"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/ri-branch.webp" srcset="assets/img/ri-branch-960.webp 960w, assets/img/ri-branch.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="Branch manager’s dashboard limited to one branch"></div></button><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/ri-login.webp" srcset="assets/img/ri-login-960.webp 960w, assets/img/ri-login.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="Sign-in page"></div></button></div>
+        </div>
+        <div class="feat" role="tabpanel" id="ri-f-bench" aria-labelledby="ri-c-bench" hidden>
+          <div><h4>Which AI runs on which PC</h4><p>Seven open models measured on one graphics card: speed, memory needed and how often each picks the right report.</p></div>
+          <div class="shots"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/ri-bench.webp" srcset="assets/img/ri-bench-960.webp 960w, assets/img/ri-bench.webp 1600w" sizes="(max-width:900px) 92vw, 720px" width="1600" height="1000" alt="Benchmark page comparing AI models by speed, memory and accuracy"></div></button></div>
+        </div>
+        <p class="note"><svg><use href="#i-info"/></svg> A made-up retailer: every branch, person and number is invented.</p>
+      </div>
+      <div class="tp" role="tabpanel" id="ri-stack" aria-labelledby="ri-t-stack" hidden>
+        <ul class="logos plain">
+          <li><span><b>Local AI models</b><small>Open-weight models on the shop’s own PC</small></span></li>
+          <li><span><b>PostgreSQL</b><small>The shop’s data, read-only for the assistant</small></span></li>
+          <li><span><b>n8n</b><small>Scheduled daily report and chat</small></span></li>
+          <li><span><b>Python, HTML, CSS and JavaScript</b><small>The app, its charts and its tests</small></span></li>
+        </ul>
+      </div>
+    </div>
+
     <!-- Darnoc IT -->
-    <div class="rec prec" role="tabpanel" id="pr-dn" aria-labelledby="pt-dn">
+    <div class="rec prec" role="tabpanel" id="pr-dn" aria-labelledby="pt-dn" hidden>
       <div class="rechead">
         <span class="pmark" style="--pc:#f5b301;--pi:#111" aria-hidden="true">IT</span>
         <div>
@@ -1617,7 +1689,7 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--hover
   var CMDS=[['What I build','build','i-wand-sparkles','Section'],['Project: Pylon AI','project','i-target','Section'],['Try the AI live','try','i-circle-play','Section'],
     ['Screens of the app','screens','i-grid','Section'],['How it works','how','i-route','Section'],['Security','trust','i-lock','Section'],
     ['What could AI do for you?','fit','i-sparkles','Section'],['Other work','work','i-grid','Section'],
-    ['Project: Darnoc IT E-Commerce',function(){openProj('pt-dn')},'i-grid','Section'],['Project: Quotation & Mailer',function(){openProj('pt-tfp')},'i-mail','Section'],
+    ['Project: Retail Insights',function(){openProj('pt-ri')},'i-grid','Section'],['Project: Darnoc IT E-Commerce',function(){openProj('pt-dn')},'i-grid','Section'],['Project: Quotation & Mailer',function(){openProj('pt-tfp')},'i-mail','Section'],
     ['Project: Riing Catering',function(){openProj('pt-rc')},'i-grid','Section'],['Project: Zen Birthday',function(){openProj('pt-zen')},'i-grid','Section'],['Experience and education','experience','i-clock','Section'],
     ['Skills','skills','i-plug','Section'],['Contact','contact','i-mail','Section'],
     ['Open the full app as a guest',function(){location.href=GUEST},'i-arrow','Link'],
