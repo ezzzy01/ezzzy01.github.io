@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Retail Insights · AI answers for a multi-branch retailer</title>
-<meta name="description" content="Retail Insights is a concept AI assistant for a multi-branch IT retailer: ask about sales, stock and purchasing in plain English or Malay and get the answer from tested reports, with the AI running on the shop’s own PC.">
+<title>Brightstar Insights · unofficial mock demo</title>
+<meta name="description" content="Brightstar Insights is an unofficial mock demo of an AI assistant for a multi-branch IT retailer: ask about sales, stock and purchasing in plain English or Malay, with the AI running on in-house hardware. Not affiliated with Brightstar Computer; all data made up.">
 <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#262523" media="(prefers-color-scheme: dark)">
-<meta property="og:title" content="Retail Insights · AI answers for a multi-branch retailer">
-<meta property="og:description" content="Ask the shop’s numbers in plain words. A local AI model picks a tested report; the numbers come straight from the database. Concept project with made-up data.">
+<meta property="og:title" content="Brightstar Insights · unofficial mock demo">
+<meta property="og:description" content="Ask the shop’s numbers in plain words, with the AI on in-house hardware. An unofficial mock demo with made-up data.">
 <meta property="og:image" content="https://ezzzy01.github.io/assets/img/ri-dashboard.webp">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="img/mark.svg" type="image/svg+xml">
+<link rel="icon" href="img/star.svg" type="image/svg+xml">
 <script>try{var s=localStorage.getItem('theme');if(s==='light'||s==='dark')document.documentElement.setAttribute('data-theme',s)}catch(e){}</script>
 <style>
 :root{color-scheme:light;
@@ -62,6 +62,11 @@ section{padding:96px 0}
 .btn svg{width:18px;height:18px;flex:none}
 .ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .logo{width:30px;height:30px;border-radius:7px;flex:none}
+.bslogo{height:64px;width:auto;margin:0 auto}.bslogo.dk{display:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bslogo.lt{display:none}:root:not([data-theme="light"]) .bslogo.dk{display:block}}
+:root[data-theme="dark"] .bslogo.lt{display:none}:root[data-theme="dark"] .bslogo.dk{display:block}
+.disc{display:flex;gap:10px;align-items:flex-start;margin-top:22px;padding:12px 16px;border-radius:12px;background:var(--card);box-shadow:var(--sh1);color:var(--muted);font-size:14px;max-width:620px}
+.disc .ico{flex:none;width:18px;height:18px;margin-top:2px;color:var(--accent)}
 
 /* top bar */
 .shell{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--page) 88%,transparent);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
@@ -287,6 +292,7 @@ dialog#lb button{position:fixed;top:14px;right:14px;width:44px;height:44px;borde
  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></symbol>
+ <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
  <symbol id="i-key" viewBox="0 0 24 24"><path d="m21 2-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.78 7.78 5.5 5.5 0 0 1 7.78-7.78zm0 0L15.5 7.5m0 0 3 3L22 7l-3-3m-3.5 3.5L19 4"/></symbol>
  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
@@ -297,33 +303,33 @@ dialog#lb button{position:fixed;top:14px;right:14px;width:44px;height:44px;borde
 
 <header class="shell" id="top">
  <div class="wrap">
-  <a class="brand" href="#top" aria-label="Retail Insights, back to top"><img class="logo" src="img/mark.svg" width="30" height="30" alt=""><span>Retail Insights</span></a>
+  <a class="brand" href="#top" aria-label="Brightstar Insights, back to top"><img class="logo" src="img/star.svg" width="30" height="30" alt=""><span>Brightstar Insights</span></a>
   <nav aria-label="Sections">
-   <a href="#features">Features</a><a href="#screens">Screens</a><a href="#how">How it works</a><a href="#trust">Safety</a><a href="#stack">Built with</a><a href="#faq">FAQ</a>
+   <a href="#features">Features</a><a href="#screens">Screens</a><a href="#trust">Safety</a><a href="#stack">Fits in</a><a href="#faq">FAQ</a>
   </nav>
   <button class="iconbtn" id="theme" type="button" aria-label="Switch to dark mode" title="Light / dark"><svg class="ico"><use href="#i-moon"/></svg></button>
-  <a class="btn pri top-cta" href="mailto:idhamproaqw98@gmail.com?subject=Retail%20Insights%20walkthrough">Ask for a walkthrough</a>
+  <a class="btn pri top-cta" href="mailto:idhamproaqw98@gmail.com?subject=Brightstar%20Insights%20demo">Ask for a walkthrough</a>
   <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-haspopup="dialog" aria-controls="sheet"><svg class="ico"><use href="#i-menu"/></svg></button>
  </div>
 </header>
 <dialog id="sheet" aria-label="Menu">
- <div class="sh-head"><span class="brand"><img class="logo" src="img/mark.svg" width="30" height="30" alt=""><span>Retail Insights</span></span><button type="button" class="menu-btn" data-close aria-label="Close menu"><svg class="ico"><use href="#i-x"/></svg></button></div>
+ <div class="sh-head"><span class="brand"><img class="logo" src="img/star.svg" width="30" height="30" alt=""><span>Brightstar Insights</span></span><button type="button" class="menu-btn" data-close aria-label="Close menu"><svg class="ico"><use href="#i-x"/></svg></button></div>
  <nav aria-label="Sections">
-  <a href="#features">Features</a><a href="#screens">Screens</a><a href="#how">How it works</a><a href="#trust">Safety</a><a href="#stack">Built with</a><a href="#faq">FAQ</a>
+  <a href="#features">Features</a><a href="#screens">Screens</a><a href="#trust">Safety</a><a href="#stack">Fits in</a><a href="#faq">FAQ</a>
  </nav>
- <div class="sh-cta"><a class="btn pri" href="mailto:idhamproaqw98@gmail.com?subject=Retail%20Insights%20walkthrough">Ask for a walkthrough</a><a class="btn" href="../#work"><svg class="ico"><use href="#i-back"/></svg>Back to portfolio</a></div>
+ <div class="sh-cta"><a class="btn pri" href="mailto:idhamproaqw98@gmail.com?subject=Brightstar%20Insights%20demo">Ask for a walkthrough</a><a class="btn" href="../#work"><svg class="ico"><use href="#i-back"/></svg>Back to portfolio</a></div>
 </dialog>
 
 <main>
 <section class="hero">
  <div class="wrap">
   <div class="htext">
-   <span class="eyebrow">Concept project · AI for retail</span>
+   <span class="eyebrow">Unofficial mock demo · AI for retail</span>
    <h1>Ask the shop’s numbers, <em>in plain words</em>.</h1>
-   <p class="lead">Retail Insights is a working mockup of an AI assistant for a multi-branch IT retailer. Owners, branch managers and buyers ask about sales, stock and purchasing in English or Malay, and get a clear answer in about a second, from an AI model that runs on the shop’s own PC.</p>
+   <p class="lead">Brightstar Insights is a mock demo I built to show how an AI assistant could work for a multi-branch IT retailer like Brightstar Computer. Owners, branch managers and buyers ask about sales, stock and purchasing in English or Malay, and get a clear answer in about a second, with the AI running on in-house hardware.</p>
    <div class="ctas">
     <a class="btn pri" href="#screens">See the screens</a>
-    <a class="btn" href="#how">How it works</a>
+    <a class="btn" href="#stack">What it works with</a>
     <a class="btn ghost" href="../#work"><svg class="ico"><use href="#i-back"/></svg>Back to portfolio</a>
    </div>
    <div class="facts">
@@ -332,13 +338,14 @@ dialog#lb button{position:fixed;top:14px;right:14px;width:44px;height:44px;borde
     <span><svg class="ico"><use href="#i-check"/></svg>Same question, same numbers</span>
     <span><svg class="ico"><use href="#i-check"/></svg>Everyone sees what their role allows</span>
    </div>
+   <p class="disc"><svg class="ico"><use href="#i-info"/></svg><span>Unofficial mock demo. Not made for, affiliated with or endorsed by Brightstar Computer; every branch, person and figure is made up.</span></p>
   </div>
   <div class="stage">
-   <div class="frame"><div class="bar"><i></i><i></i><i></i><b>Retail Insights · made-up data</b></div>
-    <img src="../assets/img/ri-dashboard.webp" width="1600" height="1000" alt="Retail Insights dashboard: today’s sales against the same time yesterday, a 30-day sales chart, top branches, low stock and late deliveries">
+   <div class="frame"><div class="bar"><i></i><i></i><i></i><b>Brightstar Insights · mock data</b></div>
+    <img src="../assets/img/ri-dashboard.webp" width="1600" height="1000" alt="Brightstar Insights dashboard: today’s sales against the same time yesterday, a 30-day sales chart, top branches, low stock and late deliveries">
    </div>
    <div class="float"><img src="../assets/img/ri-phone.webp" width="780" height="1688" alt="A question answered on a phone" loading="lazy"></div>
-   <img class="phone-hero" src="../assets/img/ri-phone.webp" width="780" height="1688" alt="Retail Insights answering a question on a phone" loading="lazy">
+   <img class="phone-hero" src="../assets/img/ri-phone.webp" width="780" height="1688" alt="Brightstar Insights answering a question on a phone" loading="lazy">
   </div>
  </div>
 </section>
@@ -347,9 +354,9 @@ dialog#lb button{position:fixed;top:14px;right:14px;width:44px;height:44px;borde
  <div class="wrap">
   <div class="shead rv"><span class="eyebrow">Why it was built</span><h2>The numbers were there. Getting them wasn’t easy.</h2></div>
   <div class="pain swipe-m">
-   <div class="card rv"><span class="num">01</span><h3>Reports took a person</h3><p class="was">A question like “how did the gaming branch do last week?” meant someone pulling a report from the ERP.</p><p class="now"><svg class="ico"><use href="#i-arrow"/></svg>Ask it in a sentence and get the answer, a chart and the table in about a second.</p></div>
+   <div class="card rv"><span class="num">01</span><h3>Reports took a person</h3><p class="was">A question like “how much did we sell last week, up to 2 pm today?” meant someone pulling a report from the ERP.</p><p class="now"><svg class="ico"><use href="#i-arrow"/></svg>Ask it in a sentence and get the answer, a chart and the table in about a second.</p></div>
    <div class="card rv"><span class="num">02</span><h3>Cloud AI was off the table</h3><p class="was">Sales, margins and supplier prices are sensitive. Sending them to an online AI service wasn’t an option.</p><p class="now"><svg class="ico"><use href="#i-arrow"/></svg>The AI model, the database and the automations all run on the company’s own hardware.</p></div>
-   <div class="card rv"><span class="num">03</span><h3>AI answers can drift</h3><p class="was">Ask a chatbot the same thing twice and the numbers or the format can change.</p><p class="now"><svg class="ico"><use href="#i-arrow"/></svg>The AI only chooses which tested report answers the question. The numbers come straight from the database, every time.</p></div>
+   <div class="card rv"><span class="num">03</span><h3>AI answers can drift</h3><p class="was">Ask a chatbot the same thing twice and the numbers or the format can change.</p><p class="now"><svg class="ico"><use href="#i-arrow"/></svg>Every number comes straight from the ERP, so the same question gives the same numbers every time.</p></div>
   </div>
  </div>
 </section>
@@ -361,25 +368,25 @@ dialog#lb button{position:fixed;top:14px;right:14px;width:44px;height:44px;borde
     <div style="display:grid;gap:14px">
      <span class="tag"><svg class="ico"><use href="#i-chat"/></svg></span>
      <h3 style="font:600 28px/1.2 var(--serif)">Ask, and see how it was answered</h3>
-     <p>Type a question in English or Malay. Each answer shows which report was used and with which settings, a one-line summary, a chart and the full table, plus a button to run the same report again without AI.</p>
+     <p>Type a question in English or Malay. Each answer shows which report was used, a one-line summary, a chart and the full table.</p>
      <ul><li>About a second per answer on a gaming graphics card</li><li>Questions outside sales, stock and purchasing are politely refused</li><li>Download any answer as CSV or a report page</li></ul>
     </div>
-    <div class="frame"><img src="../assets/img/ri-answer-960.webp" data-full="../assets/img/ri-answer.webp" width="960" height="600" alt="An answer card: the question, the report the AI picked and its settings, a summary line and a bar chart by branch" loading="lazy"></div>
+    <div class="frame"><img src="../assets/img/ri-answer-960.webp" data-full="../assets/img/ri-answer.webp" width="960" height="600" alt="An answer card: the question, the report used, a summary line and a bar chart by branch" loading="lazy"></div>
   </div>
   <div class="feats swipe-m">
    <div class="card feat rv"><span class="badge b-info">Dashboard</span><h3>Today at a glance</h3><p>Sales so far today against the same time yesterday, this week against last week, a 30-day trend and the top branches.</p></div>
    <div class="card feat rv"><span class="badge b-info">Dashboard</span><h3>Needs attention</h3><p>Items below their reorder level, late supplier deliveries and the money tied up in slow stock.</p></div>
    <div class="card feat rv"><span class="badge b-good">Roles</span><h3>The right view for each person</h3><p>Management sees every branch. A branch manager only sees their own branch, even when asking in plain language. Purchasing gets a stock-first view.</p></div>
-   <div class="card feat rv"><span class="badge b-good">Automation</span><h3>A daily report, no AI needed</h3><p>Every morning a summary of yesterday arrives in a chat app, with the full report attached. Approved people can also ask questions from their phone.</p></div>
+   <div class="card feat rv"><span class="badge b-good">Automation</span><h3>A daily report, no AI needed</h3><p>Every morning a summary of yesterday arrives on Telegram or WhatsApp, with the full report attached. Approved people can also ask questions from their phone.</p></div>
    <div class="card feat rv"><span class="badge b-bad">Control</span><h3>Every request on record</h3><p>Sign-in, account lock-out after repeated wrong passwords, and an audit log of who asked what and which report answered.</p></div>
-   <div class="card feat rv"><span class="badge b-info">Hardware</span><h3>Which AI runs on which PC</h3><p>A benchmark page that measures open AI models on a given PC: speed, memory and how often each picks the right report.</p></div>
+   <div class="card feat rv"><span class="badge b-info">Hardware</span><h3>Which AI runs on which PC</h3><p>A benchmark page that measures open AI models on a given machine: speed, memory and how often each answers correctly.</p></div>
   </div>
  </div>
 </section>
 
 <section id="screens">
  <div class="wrap">
-  <div class="shead rv"><span class="eyebrow">See it</span><h2>The real screens.</h2><p class="lead">From my working copy, with a made-up retailer and invented data. Click a picture to enlarge it.</p></div>
+  <div class="shead rv"><span class="eyebrow">See it</span><h2>The real screens.</h2><p class="lead">From my working copy, with invented data. Click a picture to enlarge it.</p></div>
   <div class="tabs" role="tablist" aria-label="Screens">
    <button class="tab" role="tab" aria-selected="true" aria-controls="s1" id="t1">Ask a question</button>
    <button class="tab" role="tab" aria-selected="false" aria-controls="s2" id="t2">Dashboard</button>
@@ -389,11 +396,11 @@ dialog#lb button{position:fixed;top:14px;right:14px;width:44px;height:44px;borde
    <button class="tab" role="tab" aria-selected="false" aria-controls="s6" id="t6">Sign-in</button>
    <button class="tab" role="tab" aria-selected="false" aria-controls="s7" id="t7">Dark mode</button>
   </div>
-  <div class="shot" role="tabpanel" id="s1" aria-labelledby="t1"><div class="frame"><img src="../assets/img/ri-answer-960.webp" data-full="../assets/img/ri-answer.webp" width="960" height="600" alt="Answer to which branch sold the most RTX cards last week, with the report used and a chart" loading="lazy"></div><div class="cap"><h3>A question, answered</h3><p>The steps it took, a summary line taken from the numbers, then the chart and table.</p></div></div>
-  <div class="shot" role="tabpanel" id="s2" aria-labelledby="t2" hidden><div class="frame"><img src="../assets/img/ri-dashboard-960.webp" data-full="../assets/img/ri-dashboard.webp" width="960" height="600" alt="Dashboard with today’s sales, a 30-day chart, top branches, low stock and late deliveries" loading="lazy"></div><div class="cap"><h3>Today at a glance</h3><p>What management sees first, built from the same tested reports, with no AI involved.</p></div></div>
+  <div class="shot" role="tabpanel" id="s1" aria-labelledby="t1"><div class="frame"><img src="../assets/img/ri-answer-960.webp" data-full="../assets/img/ri-answer.webp" width="960" height="600" alt="Answer to which branch sold the most RTX cards last week, with the report used and a chart" loading="lazy"></div><div class="cap"><h3>A question, answered</h3><p>A summary line taken from the numbers, then the chart and table.</p></div></div>
+  <div class="shot" role="tabpanel" id="s2" aria-labelledby="t2" hidden><div class="frame"><img src="../assets/img/ri-dashboard-960.webp" data-full="../assets/img/ri-dashboard.webp" width="960" height="600" alt="Dashboard with today’s sales, a 30-day chart, top branches, low stock and late deliveries" loading="lazy"></div><div class="cap"><h3>Today at a glance</h3><p>What management sees first, with no AI involved.</p></div></div>
   <div class="shot" role="tabpanel" id="s3" aria-labelledby="t3" hidden><div class="frame"><img src="../assets/img/ri-branch-960.webp" data-full="../assets/img/ri-branch.webp" width="960" height="600" alt="Branch manager’s dashboard limited to one branch" loading="lazy"></div><div class="cap"><h3>Only your branch</h3><p>A branch manager’s view: every number limited to their own shop.</p></div></div>
   <div class="shot" role="tabpanel" id="s4" aria-labelledby="t4" hidden><div class="frame"><img src="../assets/img/ri-summary-960.webp" data-full="../assets/img/ri-summary.webp" width="960" height="600" alt="This week against the same days last week for one branch" loading="lazy"></div><div class="cap"><h3>Fair comparisons</h3><p>This week is compared with the same days last week, up to the same time of day.</p></div></div>
-  <div class="shot" role="tabpanel" id="s5" aria-labelledby="t5" hidden><div class="frame"><img src="../assets/img/ri-bench-960.webp" data-full="../assets/img/ri-bench.webp" width="960" height="600" alt="Benchmark page comparing AI models by speed, memory and accuracy" loading="lazy"></div><div class="cap"><h3>Which model for which PC</h3><p>Seven open models measured on one graphics card, written for showing customers what their PC can run.</p></div></div>
+  <div class="shot" role="tabpanel" id="s5" aria-labelledby="t5" hidden><div class="frame"><img src="../assets/img/ri-bench-960.webp" data-full="../assets/img/ri-bench.webp" width="960" height="600" alt="Benchmark page comparing AI models by speed, memory and accuracy" loading="lazy"></div><div class="cap"><h3>Which model for which PC</h3><p>Seven open models measured on one graphics card, so it’s clear what each machine can run.</p></div></div>
   <div class="shot" role="tabpanel" id="s6" aria-labelledby="t6" hidden><div class="frame"><img src="../assets/img/ri-login-960.webp" data-full="../assets/img/ri-login.webp" width="960" height="600" alt="Sign-in page" loading="lazy"></div><div class="cap"><h3>Signed in, by role</h3><p>Company accounts, with a lock-out after repeated wrong passwords.</p></div></div>
   <div class="shot" role="tabpanel" id="s7" aria-labelledby="t7" hidden><div class="frame"><img src="../assets/img/ri-dark-960.webp" data-full="../assets/img/ri-dark.webp" width="960" height="600" alt="Dashboard in dark mode" loading="lazy"></div><div class="cap"><h3>Light or dark</h3><p>Follows the computer’s setting, or switch with one click.</p></div></div>
 
@@ -405,70 +412,49 @@ dialog#lb button{position:fixed;top:14px;right:14px;width:44px;height:44px;borde
  </div>
 </section>
 
-<section id="how" class="alt">
- <div class="wrap">
-  <div class="shead rv"><span class="eyebrow">How it works</span><h2>The AI chooses. The database answers.</h2><p class="lead">The AI never writes the numbers. It reads the question, picks one of a library of tested reports and fills in things like the period and branch. The report then runs against the shop’s data and fills a fixed layout.</p></div>
-  <div class="flow rv">
-   <div class="card node"><h3><svg class="ico"><use href="#i-users"/></svg>People</h3><p>Management, branch managers and buyers, on a PC, a phone or in a chat app.</p></div>
-   <div class="arrow"><svg class="ico"><use href="#i-arrow"/></svg>question</div>
-   <div class="card node core"><h3><svg class="ico"><use href="#i-cpu"/></svg>Retail Insights</h3>
-    <ul><li>Sign-in, and what each role may see</li><li>A local AI model picks a tested report</li><li>Fixed layouts for every answer</li><li>An audit log of every request</li></ul></div>
-   <div class="arrow"><svg class="ico"><use href="#i-arrow"/></svg>read-only</div>
-   <div class="card node"><h3><svg class="ico"><use href="#i-db"/></svg>Shop database</h3><p>Branches, products, sales, stock and purchase orders. Read, never changed.</p></div>
-  </div>
-  <div class="day swipe-m">
-   <div class="card rv"><span class="t">On site</span><h3>Local AI</h3><p>Open-weight models on a consumer graphics card. Nothing goes to a cloud AI service.</p></div>
-   <div class="card rv"><span class="t">Automation</span><h3>Fixed workflows</h3><p>The daily report is a plain scheduled workflow. AI is used at one step only: understanding a question.</p></div>
-   <div class="card rv"><span class="t">Tested</span><h3>Checked, not hoped</h3><p>Automated tests check that reports agree with each other, and a set of real questions in English and Malay checks that the AI picks the right one.</p></div>
-  </div>
- </div>
-</section>
-
-<section id="trust">
+<section id="trust" class="alt">
  <div class="wrap">
   <div class="shead rv"><span class="eyebrow">Results and safety</span><h2>Fast, consistent, and kept in-house.</h2></div>
   <div class="sec swipe-m">
    <div class="card rv"><svg class="ico"><use href="#i-chart"/></svg><h3>About 1 second</h3><p>Typical time from question to answer once the model is loaded, on a single gaming graphics card.</p></div>
-   <div class="card rv"><svg class="ico"><use href="#i-check"/></svg><h3>37–38 of 38 right</h3><p>How often the best local models picked the right report in the question test, including Malay and questions it must refuse.</p></div>
-   <div class="card rv"><svg class="ico"><use href="#i-lock"/></svg><h3>Nothing leaves</h3><p>The AI model, the database and the automations run on the company’s own hardware.</p></div>
+   <div class="card rv"><svg class="ico"><use href="#i-check"/></svg><h3>37–38 of 38 right</h3><p>How often the best local models answered correctly in the question test, including Malay and questions it must refuse.</p></div>
+   <div class="card rv"><svg class="ico"><use href="#i-lock"/></svg><h3>Nothing leaves</h3><p>The AI model, the ERP data and the automations stay on the company’s own hardware.</p></div>
    <div class="card rv"><svg class="ico"><use href="#i-shield"/></svg><h3>Read-only access</h3><p>The assistant can read the shop’s data but can’t change or delete anything.</p></div>
    <div class="card rv"><svg class="ico"><use href="#i-users"/></svg><h3>Roles on the server</h3><p>What each person may see is checked on the server for every request, not just hidden on screen.</p></div>
-   <div class="card rv"><svg class="ico"><use href="#i-eye"/></svg><h3>Made-up data</h3><p>The retailer, branches, staff and figures on this page are invented.</p></div>
+   <div class="card rv"><svg class="ico"><use href="#i-eye"/></svg><h3>Mock data</h3><p>Branches, staff and figures on this page are invented. It’s not Brightstar’s real data.</p></div>
   </div>
  </div>
 </section>
 
-<section id="stack" class="alt">
+<section id="stack">
  <div class="wrap split">
-  <div class="shead rv"><span class="eyebrow">Built with</span><h2>My role: everything.</h2><p class="lead">A self-directed project, designed and built end to end, from the data model to the last screen.</p>
+  <div class="shead rv"><span class="eyebrow">Fits in</span><h2>Works with what Brightstar already runs.</h2><p class="lead">No new systems to adopt. It sits next to the tools already in use, and I designed and built it end to end.</p>
    <ul class="checks">
-    <li><svg class="ico"><use href="#i-check"/></svg>Data model and the tested report library</li>
-    <li><svg class="ico"><use href="#i-check"/></svg>How the local AI chooses a report, and its accuracy test</li>
-    <li><svg class="ico"><use href="#i-check"/></svg>Interface, sign-in and roles</li>
-    <li><svg class="ico"><use href="#i-check"/></svg>Daily-report automation and the model benchmark</li>
+    <li><svg class="ico"><use href="#i-check"/></svg>Reads the ERP, never changes it</li>
+    <li><svg class="ico"><use href="#i-check"/></svg>The daily report stays a fixed workflow with no AI in it</li>
+    <li><svg class="ico"><use href="#i-check"/></svg>Answers where staff already are</li>
+    <li><svg class="ico"><use href="#i-check"/></svg>Nothing goes to a cloud AI service</li>
    </ul>
   </div>
   <div class="cos rv">
-   <div class="co"><span class="dot" style="background:#1b75bc">AI</span><div><b>Local AI models</b><small>Open-weight models served on the PC</small></div></div>
-   <div class="co"><span class="dot" style="background:#336791">PG</span><div><b>PostgreSQL</b><small>The shop’s data, read-only for the assistant</small></div></div>
-   <div class="co"><span class="dot" style="background:#ea4b71">N8</span><div><b>n8n</b><small>Scheduled reports and chat</small></div></div>
-   <div class="co"><span class="dot" style="background:#3776ab">PY</span><div><b>Python</b><small>The app and its tests</small></div></div>
-   <div class="co"><span class="dot" style="background:#e34c26">&lt;/&gt;</span><div><b>HTML, CSS &amp; JavaScript</b><small>Interface and charts, for PC and phone</small></div></div>
-   <div class="co"><span class="dot" style="background:#1d63ed">DK</span><div><b>Docker</b><small>Database and automation, on this PC only</small></div></div>
+   <div class="co"><span class="dot" style="background:#336791">PG</span><div><b>PostgreSQL ERP</b><small>The company’s sales, stock and purchasing, read-only</small></div></div>
+   <div class="co"><span class="dot" style="background:#ea4b71">N8</span><div><b>n8n</b><small>Scheduled reports and chat workflows</small></div></div>
+   <div class="co"><span class="dot" style="background:#25a3e0">TG</span><div><b>Telegram and WhatsApp</b><small>Daily summary and questions from the phone</small></div></div>
+   <div class="co"><span class="dot" style="background:#1b75bc">AI</span><div><b>In-house hardware</b><small>Open AI models on a GPU machine on site</small></div></div>
   </div>
  </div>
 </section>
 
-<section id="faq">
+<section id="faq" class="alt">
  <div class="wrap">
   <div class="shead rv"><span class="eyebrow">Questions</span><h2>Good to know.</h2></div>
   <div class="faq rv">
-   <details><summary>Is this a real company?<svg class="ico"><use href="#i-plus"/></svg></summary><p>No. It’s a mockup for a made-up IT retailer with several branches. Every branch, person and number is invented.</p></details>
-   <details><summary>Can I try it?<svg class="ico"><use href="#i-plus"/></svg></summary><p>It runs on my own PC, because the AI model and the database are local by design, so there’s no public demo. I’m happy to show it live on a call.</p></details>
-   <details><summary>Does the AI make up numbers?<svg class="ico"><use href="#i-plus"/></svg></summary><p>No. The AI only decides which tested report fits the question. Every number on screen comes from the database, and the same question always gives the same numbers.</p></details>
+   <details><summary>Is this made by or for Brightstar?<svg class="ico"><use href="#i-plus"/></svg></summary><p>No. It’s an unofficial mock demo I made on my own, using the Brightstar name and logo only to show the idea in context. It isn’t affiliated with or endorsed by Brightstar Computer, and every branch, person and number is made up.</p></details>
+   <details><summary>Can I try it?<svg class="ico"><use href="#i-plus"/></svg></summary><p>It runs on my own PC, because the AI model and the data are local by design, so there’s no public demo. I’m happy to show it live on a call.</p></details>
+   <details><summary>Does the AI make up numbers?<svg class="ico"><use href="#i-plus"/></svg></summary><p>No. Every number on screen comes from the ERP data, and the same question always gives the same numbers.</p></details>
    <details><summary>Why not use ChatGPT or another online AI?<svg class="ico"><use href="#i-plus"/></svg></summary><p>Because the shop’s sales and supplier data shouldn’t leave the company. A local model keeps everything on site.</p></details>
-   <details><summary>What hardware does it need?<svg class="ico"><use href="#i-plus"/></svg></summary><p>A PC with a gaming graphics card is enough. The benchmark page shows which models fit 8, 12 and 16 GB cards, and how they run without one.</p></details>
-   <details><summary>Can I see the source code?<svg class="ico"><use href="#i-plus"/></svg></summary><p>The code is private. Email me and I can walk you through how it works.</p></details>
+   <details><summary>What hardware does it need?<svg class="ico"><use href="#i-plus"/></svg></summary><p>A PC with a gaming graphics card is enough, and a dedicated AI machine runs the larger models. The benchmark page shows which models fit which hardware.</p></details>
+   <details><summary>Can I see the source code?<svg class="ico"><use href="#i-plus"/></svg></summary><p>No, the code is private. I’m happy to show it running on a call.</p></details>
   </div>
  </div>
 </section>
@@ -476,11 +462,11 @@ dialog#lb button{position:fixed;top:14px;right:14px;width:44px;height:44px;borde
 <section id="contact" class="cta">
  <div class="wrap">
   <div class="card rv">
-   <img class="logo" src="img/mark.svg" width="54" height="54" alt="">
+   <img class="bslogo lt" src="img/brightstar-logo.svg" width="166" height="64" alt="Brightstar Computer logo"><img class="bslogo dk" src="img/brightstar-logo-dark.svg" width="166" height="64" alt="">
    <h2>Want to see it answer live?</h2>
-   <p>I can run it on a call: ask your own questions about the made-up shop and see the answers arrive.</p>
+   <p>I can run it on a call: ask your own questions about the mock shop and see the answers arrive.</p>
    <div class="ctas" style="justify-content:center">
-    <a class="btn pri" href="mailto:idhamproaqw98@gmail.com?subject=Retail%20Insights%20walkthrough"><svg class="ico"><use href="#i-mail"/></svg>Ask for a walkthrough</a>
+    <a class="btn pri" href="mailto:idhamproaqw98@gmail.com?subject=Brightstar%20Insights%20demo"><svg class="ico"><use href="#i-mail"/></svg>Ask for a walkthrough</a>
     <a class="btn" href="../#work"><svg class="ico"><use href="#i-back"/></svg>Back to portfolio</a>
    </div>
    <p class="mail">Or email <a href="mailto:idhamproaqw98@gmail.com">idhamproaqw98@gmail.com</a></p>
@@ -492,11 +478,11 @@ dialog#lb button{position:fixed;top:14px;right:14px;width:44px;height:44px;borde
 <footer>
  <div class="wrap">
   <span>© 2026 Idham Hakim</span>
-  <span>Retail Insights concept project. All companies, people and figures shown are made up.</span>
+  <span>Brightstar Insights is an unofficial mock demo, not affiliated with or endorsed by Brightstar Computer. The Brightstar name and logo belong to their owner. All figures shown are made up.</span>
  </div>
 </footer>
 
-<div id="mbar" aria-label="Quick actions" inert><a class="btn" href="../#work">Back to portfolio</a><a class="btn pri" href="mailto:idhamproaqw98@gmail.com?subject=Retail%20Insights%20walkthrough">Email me</a></div>
+<div id="mbar" aria-label="Quick actions" inert><a class="btn" href="../#work">Back to portfolio</a><a class="btn pri" href="mailto:idhamproaqw98@gmail.com?subject=Brightstar%20Insights%20demo">Email me</a></div>
 
 <dialog id="lb" aria-label="Enlarged screenshot"><button type="button" aria-label="Close"><svg class="ico"><use href="#i-x"/></svg></button><img alt=""></dialog>
 
