@@ -983,7 +983,7 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--hover
           <div><dt>Status</dt><dd><span class="badge good">Mock demo</span> Unofficial, not affiliated with Brightstar; made-up data</dd></div>
           <div><dt>Asks in</dt><dd>English and Malay; out-of-scope questions are refused</dd></div>
           <div><dt>Roles</dt><dd>Management, branch manager (own branch only) and purchasing</dd></div>
-          <div><dt>Also</dt><dd>Daily report to Telegram or WhatsApp, audit log, and a benchmark of which AI model runs on which machine</dd></div>
+          <div><dt>Also</dt><dd>Branch pages, reorder and late-delivery lists, daily report to Telegram or WhatsApp, audit log, and an AI PC Lab of which model runs on which machine</dd></div>
         </dl>
       </div>
       <div class="tp" role="tabpanel" id="ri-try" aria-labelledby="ri-t-try" hidden>
@@ -1018,30 +1018,30 @@ dialog.sheet nav a:hover,dialog.sheet nav a:focus-visible{background:var(--hover
           <button role="tab" aria-selected="true" aria-controls="ri-f-ask" id="ri-c-ask">Ask a question</button>
           <button role="tab" aria-selected="false" aria-controls="ri-f-dash" id="ri-c-dash">Dashboard</button>
           <button role="tab" aria-selected="false" aria-controls="ri-f-roles" id="ri-c-roles">Roles</button>
-          <button role="tab" aria-selected="false" aria-controls="ri-f-bench" id="ri-c-bench">Model benchmark</button>
+          <button role="tab" aria-selected="false" aria-controls="ri-f-bench" id="ri-c-bench">AI PC Lab</button>
         </div>
         <div class="feat" role="tabpanel" id="ri-f-ask" aria-labelledby="ri-c-ask">
-          <div><h4>A question, answered</h4><p>Each answer shows the report used, a summary taken from the numbers, a chart and the table.</p>
-            <ul><li>About a second per answer</li><li>English and Malay</li><li>Download as CSV or a report page</li></ul></div>
-          <div class="shots"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/ri-answer.webp" srcset="assets/img/ri-answer-960.webp 960w, assets/img/ri-answer.webp 1600w" sizes="(max-width:900px) 92vw, 720px" width="1600" height="1000" alt="An answer card with the report used, a summary line and a bar chart by branch"></div></button></div>
+          <div><h4>Ask from any page</h4><p>The Ask Insights side panel (Ctrl+J) shows the report used, a summary taken from the numbers and a chart, and opens the full report page.</p>
+            <ul><li>About a second per answer</li><li>English and Malay</li><li>11 report pages with filters and CSV export</li></ul></div>
+          <div class="shots"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/ri-answer.webp" srcset="assets/img/ri-answer-960.webp 960w, assets/img/ri-answer.webp 1600w" sizes="(max-width:900px) 92vw, 720px" width="1600" height="1000" alt="The Ask Insights side panel over the dashboard, answering with the branch ranking report and a bar chart"></div></button></div>
         </div>
         <div class="feat" role="tabpanel" id="ri-f-dash" aria-labelledby="ri-c-dash" hidden>
-          <div><h4>Today at a glance</h4><p>Sales so far today against the same time yesterday, this week against last week, a 30-day trend, top branches, low stock and late deliveries. No AI involved.</p></div>
-          <div class="shots"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/ri-dashboard.webp" srcset="assets/img/ri-dashboard-960.webp 960w, assets/img/ri-dashboard.webp 1600w" sizes="(max-width:900px) 92vw, 720px" width="1600" height="1000" alt="Dashboard with sales tiles, a 30-day chart, top branches, low stock and late deliveries"></div></button></div>
+          <div><h4>Today at a glance</h4><p>A home page for each role: sales against the same time yesterday, this week against last week, a 30-day trend, branches today, and shortcuts to the reorder list and late deliveries. No AI involved.</p></div>
+          <div class="shots"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/ri-dashboard.webp" srcset="assets/img/ri-dashboard-960.webp 960w, assets/img/ri-dashboard.webp 1600w" sizes="(max-width:900px) 92vw, 720px" width="1600" height="1000" alt="Dashboard with shortcuts, an ask bar, sales tiles, a 30-day chart and branches today"></div></button></div>
         </div>
         <div class="feat" role="tabpanel" id="ri-f-roles" aria-labelledby="ri-c-roles" hidden>
           <div><h4>Only what your role allows</h4><p>A branch manager sees only their own branch, even when asking in plain language. Checked on the server for every request.</p></div>
-          <div class="shots two swipe-m"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/ri-branch.webp" srcset="assets/img/ri-branch-960.webp 960w, assets/img/ri-branch.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="Branch manager’s dashboard limited to one branch"></div></button><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/ri-login.webp" srcset="assets/img/ri-login-960.webp 960w, assets/img/ri-login.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="Sign-in page"></div></button></div>
+          <div class="shots two swipe-m"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/ri-branch.webp" srcset="assets/img/ri-branch-960.webp 960w, assets/img/ri-branch.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="Branch manager’s home page limited to one branch"></div></button><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/ri-login.webp" srcset="assets/img/ri-login-960.webp 960w, assets/img/ri-login.webp 1600w" sizes="(max-width:600px) 84vw, (max-width:900px) 46vw, 340px" width="1600" height="1000" alt="Sign-in page"></div></button></div>
         </div>
         <div class="feat" role="tabpanel" id="ri-f-bench" aria-labelledby="ri-c-bench" hidden>
-          <div><h4>Which AI runs on which PC</h4><p>Seven open models measured on one graphics card: speed, memory needed and how often each answers correctly.</p></div>
-          <div class="shots"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/ri-bench.webp" srcset="assets/img/ri-bench-960.webp 960w, assets/img/ri-bench.webp 1600w" sizes="(max-width:900px) 92vw, 720px" width="1600" height="1000" alt="Benchmark page comparing AI models by speed, memory and accuracy"></div></button></div>
+          <div><h4>Which AI runs on which PC</h4><p>The AI PC Lab: open models measured on one graphics card for speed, memory and accuracy, with a guide to what fits each card size.</p></div>
+          <div class="shots"><button data-zoom><div class="shot"><img loading="lazy" src="assets/img/ri-bench.webp" srcset="assets/img/ri-bench-960.webp 960w, assets/img/ri-bench.webp 1600w" sizes="(max-width:900px) 92vw, 720px" width="1600" height="1000" alt="AI PC Lab comparing open AI models by speed, memory and accuracy"></div></button></div>
         </div>
         <p class="note"><svg><use href="#i-info"/></svg> Unofficial mock demo, not affiliated with or endorsed by Brightstar Computer. Every branch, person and number is invented.</p>
       </div>
       <div class="tp" role="tabpanel" id="ri-stack" aria-labelledby="ri-t-stack" hidden>
         <ul class="logos plain">
-          <li><span><b>PostgreSQL ERP</b><small>Sales, stock and purchasing, read-only</small></span></li>
+          <li><span><b>Odoo ERP on PostgreSQL</b><small>Sales, stock and purchasing, read-only</small></span></li>
           <li><span><b>n8n</b><small>Scheduled reports and chat workflows</small></span></li>
           <li><span><b>Telegram and WhatsApp</b><small>Daily summary and questions from the phone</small></span></li>
           <li><span><b>In-house hardware</b><small>Open AI models on a GPU machine on site</small></span></li>

@@ -343,7 +343,7 @@ dialog#lb button{position:fixed;top:14px;right:14px;width:44px;height:44px;borde
   <div class="htext">
    <span class="eyebrow">Unofficial mock demo · AI for retail</span>
    <h1>Ask the shop’s numbers, <em>in plain words</em>.</h1>
-   <p class="lead">Brightstar Insights is a mock demo I built to show how an AI assistant could work for a multi-branch IT retailer like Brightstar Computer. Owners, branch managers and buyers ask about sales, stock and purchasing in English or Malay, and get a clear answer in about a second, with the AI running on in-house hardware.</p>
+   <p class="lead">Brightstar Insights is a mock demo I built to show how an AI assistant could work for a multi-branch IT retailer like Brightstar Computer. Owners, branch managers and buyers each get their own dashboard, report pages and work lists, and can ask about sales, stock and purchasing in English or Malay. Answers come in about a second, from a real ERP, with the AI running on in-house hardware.</p>
    <div class="ctas">
     <a class="btn pri" href="https://archlinux.taila38d1a.ts.net:8443/retail/try"><svg class="ico" style="fill:currentColor;stroke:none"><use href="#i-play"/></svg>Try the live demo</a>
     <a class="btn" href="https://archlinux.taila38d1a.ts.net:8443/retail/login">Open the full app as a guest<svg class="ico"><use href="#i-arrow"/></svg></a>
@@ -359,10 +359,10 @@ dialog#lb button{position:fixed;top:14px;right:14px;width:44px;height:44px;borde
   </div>
   <div class="stage">
    <div class="frame"><div class="bar"><i></i><i></i><i></i><b>Brightstar Insights · mock data</b></div>
-    <img src="../assets/img/ri-dashboard.webp" width="1600" height="1000" alt="Brightstar Insights dashboard: today’s sales against the same time yesterday, a 30-day sales chart, top branches, low stock and late deliveries">
+    <img src="../assets/img/ri-dashboard.webp" width="1600" height="1000" alt="Brightstar Insights dashboard: a sidebar by job, quick links to branches, the reorder list, overdue deliveries and the AI PC Lab, an ask bar, today’s sales tiles, a 30-day chart and branches today">
    </div>
-   <div class="float"><img src="../assets/img/ri-phone.webp" width="780" height="1688" alt="A question answered on a phone" loading="lazy"></div>
-   <img class="phone-hero" src="../assets/img/ri-phone.webp" width="780" height="1688" alt="Brightstar Insights answering a question on a phone" loading="lazy">
+   <div class="float"><img src="../assets/img/ri-phone.webp" width="780" height="1688" alt="A question in Malay answered on a phone" loading="lazy"></div>
+   <img class="phone-hero" src="../assets/img/ri-phone.webp" width="780" height="1688" alt="Brightstar Insights answering a question in Malay on a phone" loading="lazy">
   </div>
  </div>
 </section>
@@ -380,23 +380,26 @@ dialog#lb button{position:fixed;top:14px;right:14px;width:44px;height:44px;borde
 
 <section id="features" class="alt">
  <div class="wrap">
-  <div class="shead rv"><span class="eyebrow">What it does</span><h2>One place for the shop’s numbers.</h2><p class="lead">Built the way a shop would use it: a dashboard first, questions when you need them, and a daily summary that arrives by itself.</p></div>
+  <div class="shead rv"><span class="eyebrow">What it does</span><h2>One place for the shop’s numbers.</h2><p class="lead">Built the way a shop would use it: a home page and work lists for each job, report pages for the detail, the AI one shortcut away, and a daily summary that arrives by itself.</p></div>
   <div class="card feat wide rv">
     <div style="display:grid;gap:14px">
      <span class="tag"><svg class="ico"><use href="#i-chat"/></svg></span>
-     <h3 style="font:600 28px/1.2 var(--serif)">Ask, and see how it was answered</h3>
-     <p>Type a question in English or Malay. Each answer shows which report was used, a one-line summary, a chart and the full table.</p>
-     <ul><li>About a second per answer on a gaming graphics card</li><li>Questions outside sales, stock and purchasing are politely refused</li><li>Download any answer as CSV or a report page</li></ul>
+     <h3 style="font:600 28px/1.2 var(--serif)">Ask Insights, from any page</h3>
+     <p>Open the side panel from the top bar or with Ctrl+J and type in English or Malay. Each answer shows which tested report was used, a one-line summary and a chart, and can open the full report with the same filters.</p>
+     <ul><li>About a second per answer on a gaming graphics card</li><li>Questions outside sales, stock and purchasing are politely refused</li><li>“How it was answered” shows the report and the query behind it</li></ul>
     </div>
-    <div class="frame"><img src="../assets/img/ri-answer-960.webp" data-full="../assets/img/ri-answer.webp" width="960" height="600" alt="An answer card: the question, the report used, a summary line and a bar chart by branch" loading="lazy"></div>
+    <div class="frame"><img src="../assets/img/ri-answer-960.webp" data-full="../assets/img/ri-answer.webp" width="960" height="600" alt="The Ask Insights side panel open over the dashboard: which branch sold the most RTX cards last week, answered with the branch ranking report and a bar chart" loading="lazy"></div>
   </div>
   <div class="feats swipe-m">
-   <div class="card feat rv"><span class="badge b-info">Dashboard</span><h3>Today at a glance</h3><p>Sales so far today against the same time yesterday, this week against last week, a 30-day trend and the top branches.</p></div>
-   <div class="card feat rv"><span class="badge b-info">Dashboard</span><h3>Needs attention</h3><p>Items below their reorder level, late supplier deliveries and the money tied up in slow stock.</p></div>
+   <div class="card feat rv"><span class="badge b-info">Home</span><h3>A home page for each job</h3><p>Management, branch managers and purchasing each start on their own home: sales today against the same time yesterday, this week against last week, a 30-day trend and shortcuts with live counts.</p></div>
+   <div class="card feat rv"><span class="badge b-info">Reports</span><h3>11 report pages</h3><p>Filter by dates, branch, category or product, sort and search the table, and export to CSV or a printable page. The same fixed reports the AI uses.</p></div>
+   <div class="card feat rv"><span class="badge b-info">Branches</span><h3>Every shop side by side</h3><p>Revenue, change, margin and a 14-day trend per branch, with stock and late-delivery flags and a page of its own for each shop.</p></div>
+   <div class="card feat rv"><span class="badge b-info">Work lists</span><h3>Reorder and late deliveries</h3><p>Items below their reorder level grouped by branch, and overdue purchase orders grouped by supplier, sorted by the money waiting.</p></div>
+   <div class="card feat rv"><span class="badge b-info">Search</span><h3>Find anything with Ctrl+K</h3><p>Jump to a page, a branch or a product, repeat a recent question, and see low stock and late deliveries in the alerts bell.</p></div>
    <div class="card feat rv"><span class="badge b-good">Roles</span><h3>The right view for each person</h3><p>Management sees every branch. A branch manager only sees their own branch, even when asking in plain language. Purchasing gets a stock-first view.</p></div>
    <div class="card feat rv"><span class="badge b-good">Automation</span><h3>A daily report, no AI needed</h3><p>Every morning a summary of yesterday arrives on Telegram or WhatsApp, with the full report attached. Approved people can also ask questions from their phone.</p></div>
    <div class="card feat rv"><span class="badge b-bad">Control</span><h3>Every request on record</h3><p>Sign-in, account lock-out after repeated wrong passwords, and an audit log of who asked what and which report answered.</p></div>
-   <div class="card feat rv"><span class="badge b-info">Hardware</span><h3>Which AI runs on which PC</h3><p>A benchmark page that measures open AI models on a given machine: speed, memory and how often each answers correctly.</p></div>
+   <div class="card feat rv"><span class="badge b-info">AI PC Lab</span><h3>Which AI runs on which PC</h3><p>Open AI models measured on real hardware for speed, memory and accuracy, with a guide to what fits an 8, 12, 16 or 32 GB graphics card.</p></div>
   </div>
  </div>
 </section>
@@ -405,26 +408,32 @@ dialog#lb button{position:fixed;top:14px;right:14px;width:44px;height:44px;borde
  <div class="wrap">
   <div class="shead rv"><span class="eyebrow">See it</span><h2>The real screens.</h2><p class="lead">From my working copy, with invented data. Click a picture to enlarge it.</p></div>
   <div class="tabs" role="tablist" aria-label="Screens">
-   <button class="tab" role="tab" aria-selected="true" aria-controls="s1" id="t1">Ask a question</button>
+   <button class="tab" role="tab" aria-selected="true" aria-controls="s1" id="t1">Ask</button>
    <button class="tab" role="tab" aria-selected="false" aria-controls="s2" id="t2">Dashboard</button>
-   <button class="tab" role="tab" aria-selected="false" aria-controls="s3" id="t3">Branch manager</button>
-   <button class="tab" role="tab" aria-selected="false" aria-controls="s4" id="t4">Week on week</button>
-   <button class="tab" role="tab" aria-selected="false" aria-controls="s5" id="t5">Model benchmark</button>
-   <button class="tab" role="tab" aria-selected="false" aria-controls="s6" id="t6">Sign-in</button>
-   <button class="tab" role="tab" aria-selected="false" aria-controls="s7" id="t7">Dark mode</button>
+   <button class="tab" role="tab" aria-selected="false" aria-controls="s3" id="t3">Branches</button>
+   <button class="tab" role="tab" aria-selected="false" aria-controls="s4" id="t4">Reports</button>
+   <button class="tab" role="tab" aria-selected="false" aria-controls="s5" id="t5">Reorder</button>
+   <button class="tab" role="tab" aria-selected="false" aria-controls="s6" id="t6">Late orders</button>
+   <button class="tab" role="tab" aria-selected="false" aria-controls="s7" id="t7">Manager</button>
+   <button class="tab" role="tab" aria-selected="false" aria-controls="s8" id="t8">AI PC Lab</button>
+   <button class="tab" role="tab" aria-selected="false" aria-controls="s9" id="t9">Sign-in</button>
+   <button class="tab" role="tab" aria-selected="false" aria-controls="s10" id="t10">Dark mode</button>
   </div>
-  <div class="shot" role="tabpanel" id="s1" aria-labelledby="t1"><div class="frame"><img src="../assets/img/ri-answer-960.webp" data-full="../assets/img/ri-answer.webp" width="960" height="600" alt="Answer to which branch sold the most RTX cards last week, with the report used and a chart" loading="lazy"></div><div class="cap"><h3>A question, answered</h3><p>A summary line taken from the numbers, then the chart and table.</p></div></div>
-  <div class="shot" role="tabpanel" id="s2" aria-labelledby="t2" hidden><div class="frame"><img src="../assets/img/ri-dashboard-960.webp" data-full="../assets/img/ri-dashboard.webp" width="960" height="600" alt="Dashboard with today’s sales, a 30-day chart, top branches, low stock and late deliveries" loading="lazy"></div><div class="cap"><h3>Today at a glance</h3><p>What management sees first, with no AI involved.</p></div></div>
-  <div class="shot" role="tabpanel" id="s3" aria-labelledby="t3" hidden><div class="frame"><img src="../assets/img/ri-branch-960.webp" data-full="../assets/img/ri-branch.webp" width="960" height="600" alt="Branch manager’s dashboard limited to one branch" loading="lazy"></div><div class="cap"><h3>Only your branch</h3><p>A branch manager’s view: every number limited to their own shop.</p></div></div>
-  <div class="shot" role="tabpanel" id="s4" aria-labelledby="t4" hidden><div class="frame"><img src="../assets/img/ri-summary-960.webp" data-full="../assets/img/ri-summary.webp" width="960" height="600" alt="This week against the same days last week for one branch" loading="lazy"></div><div class="cap"><h3>Fair comparisons</h3><p>This week is compared with the same days last week, up to the same time of day.</p></div></div>
-  <div class="shot" role="tabpanel" id="s5" aria-labelledby="t5" hidden><div class="frame"><img src="../assets/img/ri-bench-960.webp" data-full="../assets/img/ri-bench.webp" width="960" height="600" alt="Benchmark page comparing AI models by speed, memory and accuracy" loading="lazy"></div><div class="cap"><h3>Which model for which PC</h3><p>Seven open models measured on one graphics card, so it’s clear what each machine can run.</p></div></div>
-  <div class="shot" role="tabpanel" id="s6" aria-labelledby="t6" hidden><div class="frame"><img src="../assets/img/ri-login-960.webp" data-full="../assets/img/ri-login.webp" width="960" height="600" alt="Sign-in page" loading="lazy"></div><div class="cap"><h3>Signed in, by role</h3><p>Company accounts, with a lock-out after repeated wrong passwords.</p></div></div>
-  <div class="shot" role="tabpanel" id="s7" aria-labelledby="t7" hidden><div class="frame"><img src="../assets/img/ri-dark-960.webp" data-full="../assets/img/ri-dark.webp" width="960" height="600" alt="Dashboard in dark mode" loading="lazy"></div><div class="cap"><h3>Light or dark</h3><p>Follows the computer’s setting, or switch with one click.</p></div></div>
+  <div class="shot" role="tabpanel" id="s1" aria-labelledby="t1"><div class="frame"><img src="../assets/img/ri-answer-960.webp" data-full="../assets/img/ri-answer.webp" width="960" height="600" alt="The Ask Insights side panel over the dashboard: which branch sold the most RTX cards last week, answered with the branch ranking report" loading="lazy"></div><div class="cap"><h3>Ask from any page</h3><p>The side panel answers in about a second and says which tested report it used.</p></div></div>
+  <div class="shot" role="tabpanel" id="s2" aria-labelledby="t2" hidden><div class="frame"><img src="../assets/img/ri-dashboard-960.webp" data-full="../assets/img/ri-dashboard.webp" width="960" height="600" alt="Management dashboard: quick links, an ask bar, today’s sales tiles, a 30-day chart and branches today" loading="lazy"></div><div class="cap"><h3>Today at a glance</h3><p>Management’s home page, with no AI involved.</p></div></div>
+  <div class="shot" role="tabpanel" id="s3" aria-labelledby="t3" hidden><div class="frame"><img src="../assets/img/ri-branches-960.webp" data-full="../assets/img/ri-branches.webp" width="960" height="600" alt="All branches as cards with revenue, change, margin, a 14-day trend and stock and delivery flags" loading="lazy"></div><div class="cap"><h3>Every shop side by side</h3><p>Sort by revenue, change or code, then open any branch.</p></div></div>
+  <div class="shot" role="tabpanel" id="s4" aria-labelledby="t4" hidden><div class="frame"><img src="../assets/img/ri-report-960.webp" data-full="../assets/img/ri-report.webp" width="960" height="600" alt="Top products report page with filters, summary tiles, a chart and the table" loading="lazy"></div><div class="cap"><h3>A full report page</h3><p>Filters, a summary line, a chart and the table, with CSV or printable export.</p></div></div>
+  <div class="shot" role="tabpanel" id="s5" aria-labelledby="t5" hidden><div class="frame"><img src="../assets/img/ri-reorder-960.webp" data-full="../assets/img/ri-reorder.webp" width="960" height="600" alt="Reorder list grouped by branch: items out of stock or below their reorder level" loading="lazy"></div><div class="cap"><h3>Reorder list</h3><p>Out of stock and running low, grouped by branch, with what’s already on order.</p></div></div>
+  <div class="shot" role="tabpanel" id="s6" aria-labelledby="t6" hidden><div class="frame"><img src="../assets/img/ri-late-960.webp" data-full="../assets/img/ri-late.webp" width="960" height="600" alt="Overdue deliveries grouped by supplier, with days late and the money still to come" loading="lazy"></div><div class="cap"><h3>Overdue deliveries</h3><p>Late purchase orders grouped by supplier, biggest money first.</p></div></div>
+  <div class="shot" role="tabpanel" id="s7" aria-labelledby="t7" hidden><div class="frame"><img src="../assets/img/ri-branch-960.webp" data-full="../assets/img/ri-branch.webp" width="960" height="600" alt="Branch manager’s home limited to one branch" loading="lazy"></div><div class="cap"><h3>Only your branch</h3><p>A branch manager’s home: every number limited to their own shop.</p></div></div>
+  <div class="shot" role="tabpanel" id="s8" aria-labelledby="t8" hidden><div class="frame"><img src="../assets/img/ri-bench-960.webp" data-full="../assets/img/ri-bench.webp" width="960" height="600" alt="AI PC Lab comparing open AI models by speed, memory and accuracy" loading="lazy"></div><div class="cap"><h3>Which model for which PC</h3><p>Open models measured on one graphics card, with a guide by card size.</p></div></div>
+  <div class="shot" role="tabpanel" id="s9" aria-labelledby="t9" hidden><div class="frame"><img src="../assets/img/ri-login-960.webp" data-full="../assets/img/ri-login.webp" width="960" height="600" alt="Sign-in page with a short pitch panel" loading="lazy"></div><div class="cap"><h3>Signed in, by role</h3><p>Company accounts, with a lock-out after repeated wrong passwords.</p></div></div>
+  <div class="shot" role="tabpanel" id="s10" aria-labelledby="t10" hidden><div class="frame"><img src="../assets/img/ri-dark-960.webp" data-full="../assets/img/ri-dark.webp" width="960" height="600" alt="Branches page in dark mode" loading="lazy"></div><div class="cap"><h3>Light or dark</h3><p>Follows the computer’s setting, or switch with one click.</p></div></div>
 
   <div class="shead rv" style="margin:72px 0 28px"><h3 style="font:600 26px var(--serif)">On the phone, too.</h3></div>
   <div class="phones swipe-m rv">
-   <figure><img src="../assets/img/ri-phone-home.webp" width="780" height="1688" alt="Ask screen on a phone" loading="lazy"><figcaption>Ask</figcaption></figure>
-   <figure><img src="../assets/img/ri-phone.webp" width="780" height="1688" alt="An answer on a phone" loading="lazy"><figcaption>Answer</figcaption></figure>
+   <figure><img src="../assets/img/ri-phone-home.webp" width="780" height="1688" alt="Home page on a phone with the bottom tab bar" loading="lazy"><figcaption>Home</figcaption></figure>
+   <figure><img src="../assets/img/ri-phone.webp" width="780" height="1688" alt="A Malay question answered in the Ask panel on a phone" loading="lazy"><figcaption>Ask, in Malay</figcaption></figure>
   </div>
  </div>
 </section>
@@ -454,7 +463,8 @@ dialog#lb button{position:fixed;top:14px;right:14px;width:44px;height:44px;borde
    </ul>
   </div>
   <div class="cos rv">
-   <div class="co"><span class="dot" style="background:#4169e1" aria-hidden="true"><svg><use href="#si-pg"/></svg></span><div><b>PostgreSQL ERP</b><small>The company’s sales, stock and purchasing, read-only</small></div></div>
+   <div class="co"><span class="dot" style="background:#714b67" aria-hidden="true"><svg class="ico"><use href="#i-db"/></svg></span><div><b>Odoo ERP</b><small>Sales, stock and purchasing, read through a read-only account</small></div></div>
+   <div class="co"><span class="dot" style="background:#4169e1" aria-hidden="true"><svg><use href="#si-pg"/></svg></span><div><b>PostgreSQL</b><small>The database under the ERP; the same fixed reports work on any PostgreSQL ERP</small></div></div>
    <div class="co"><span class="dot" style="background:#ea4b71" aria-hidden="true"><svg><use href="#si-n8n"/></svg></span><div><b>n8n</b><small>Scheduled reports and chat workflows</small></div></div>
    <div class="co"><span class="dots" aria-hidden="true"><span class="dot" style="background:#26a5e4"><svg><use href="#si-tg"/></svg></span><span class="dot" style="background:#25d366"><svg><use href="#si-wa"/></svg></span></span><div><b>Telegram and WhatsApp</b><small>Daily summary and questions from the phone</small></div></div>
    <div class="co"><span class="dot" style="background:#1b75bc" aria-hidden="true"><svg class="ico"><use href="#i-server"/></svg></span><div><b>In-house hardware</b><small>Open AI models on a GPU machine on site</small></div></div>
@@ -468,9 +478,10 @@ dialog#lb button{position:fixed;top:14px;right:14px;width:44px;height:44px;borde
   <div class="faq rv">
    <details><summary>Is this made by or for Brightstar?<svg class="ico"><use href="#i-plus"/></svg></summary><p>No. It’s an unofficial mock demo I made on my own, using the Brightstar name and logo only to show the idea in context. It isn’t affiliated with or endorsed by Brightstar Computer, and every branch, person and number is made up.</p></details>
    <details><summary>Can I try it?<svg class="ico"><use href="#i-plus"/></svg></summary><p>Yes. <a href="https://archlinux.taila38d1a.ts.net:8443/retail/try">Ask a quick question in the live demo</a>, or <a href="https://archlinux.taila38d1a.ts.net:8443/retail/login">open the full app as a guest</a>: one click, no sign-up, 24 hours, made-up shop data. It runs on my own PC with a local AI model, so it’s live while that PC is on, guests have a question limit, and an answer may wait a moment while staff questions run.</p></details>
+   <details><summary>Is the ERP real?<svg class="ico"><use href="#i-plus"/></svg></summary><p>The software is: the demo reads a real Odoo ERP running next to it, filled with a made-up shop’s branches, products, sales and purchase orders. Report pages link straight to the matching Odoo records.</p></details>
    <details><summary>Does the AI make up numbers?<svg class="ico"><use href="#i-plus"/></svg></summary><p>No. Every number on screen comes from the ERP data, and the same question always gives the same numbers.</p></details>
    <details><summary>Why not use ChatGPT or another online AI?<svg class="ico"><use href="#i-plus"/></svg></summary><p>Because the shop’s sales and supplier data shouldn’t leave the company. A local model keeps everything on site.</p></details>
-   <details><summary>What hardware does it need?<svg class="ico"><use href="#i-plus"/></svg></summary><p>A PC with a gaming graphics card is enough, and a dedicated AI machine runs the larger models. The benchmark page shows which models fit which hardware.</p></details>
+   <details><summary>What hardware does it need?<svg class="ico"><use href="#i-plus"/></svg></summary><p>A PC with a gaming graphics card is enough, and a dedicated AI machine runs the larger models. The AI PC Lab page shows which models fit which hardware.</p></details>
    <details><summary>Can I see the source code?<svg class="ico"><use href="#i-plus"/></svg></summary><p>No, the code is private. I’m happy to show it running on a call.</p></details>
   </div>
  </div>
